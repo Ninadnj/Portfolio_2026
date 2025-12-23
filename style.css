@@ -7,7 +7,7 @@
   --micro-accent: #d4af37;
   /* Metallic Gold */
   --secondary-bg: #ffffff;
-  --border-color: rgba(0, 0, 0, 0.05);
+  --border-color: rgba(0, 0, 0, 0.08); /* slightly stronger for light-mode legibility */
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.2);
 
@@ -171,7 +171,7 @@ h3 {
   letter-spacing: 2px;
   transition: var(--transition);
   position: relative;
-  opacity: 0.8; /* higher base opacity for clarity */
+  opacity: 0.9; /* higher base opacity for clarity */
 }
 
 .nav-links a:hover {
