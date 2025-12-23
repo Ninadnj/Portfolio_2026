@@ -483,13 +483,12 @@ h3 {
 .project-item {
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  background: var(--secondary-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
-  transition: var(--transition);
+  padding: 28px 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
   position: relative;
   z-index: 1;
@@ -497,10 +496,12 @@ h3 {
   transform: translateY(0);
 }
 
+.project-item + .project-item {
+  border-top: 1px solid var(--border-color);
+}
+
 .project-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-  border-color: rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
 }
 
 .project-item:focus-visible {
@@ -514,6 +515,7 @@ h3 {
   justify-content: space-between;
   gap: 40px;
   margin-left: 8px;
+  margin-bottom: 8px;
 }
 
 .project-info {
@@ -535,10 +537,10 @@ h3 {
 .project-title {
   font-family: "Bodoni Moda", serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   text-transform: none;
-  letter-spacing: -1px;
+  letter-spacing: -0.8px;
   transition: transform 0.3s ease-out, color 0.3s ease-out,
     opacity 0.3s ease-out;
   color: var(--text-color);
@@ -590,7 +592,8 @@ h3 {
 }
 
 .project-summary {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: 0.35rem;
   opacity: 0.95;
@@ -603,6 +606,7 @@ h3 {
   letter-spacing: 2px;
   color: var(--text-secondary);
   opacity: 0.9;
+  margin-top: 6px;
 }
 
 .project-cta-inline {
