@@ -787,21 +787,21 @@ h3 {
 /* Hover Reveal Portal */
 .hover-reveal {
   position: fixed;
-  width: 160px;
-  height: 100px;
+  width: 120px;
+  height: 80px;
   top: 0;
   left: 0;
   pointer-events: none;
   opacity: 0;
-  z-index: 10;
-  transform: translate(-50%, -50%) scale(0.8);
+  z-index: 2;
+  transform: translate(-50%, -50%) scale(0.7);
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
 .hover-reveal.active {
-  opacity: 0.65;
+  opacity: 0.3;
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -811,7 +811,7 @@ h3 {
   overflow: hidden;
   position: relative;
   border-radius: 4px;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+  box-shadow: none;
   pointer-events: none;
 }
 
@@ -820,6 +820,7 @@ h3 {
   height: 100%;
   background-size: cover;
   background-position: center;
+  opacity: 0.7;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
