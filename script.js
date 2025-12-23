@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const typingIndicator = document.getElementById('typing-indicator');
     const chatReset = document.getElementById('chat-reset');
 
-    const N8N_WEBHOOK_URL = ''; // USER: Add your n8n webhook URL here
+    const N8N_WEBHOOK_URL = 'https://n8n.ninadnj.me/webhook/portfolio-chatbot'; // Connected to n8n webhook
 
     const ACTIVE_PERSONA = {
         id: 'beauty-salon-assistant',
