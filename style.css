@@ -893,6 +893,30 @@ h3 {
   overflow: hidden;
 }
 
+.embedded-chat-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-demo-intro {
+  padding: 30px 30px 10px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--secondary-bg);
+}
+
+.chat-demo-intro h4 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.chat-demo-intro p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
 .workflow-info-card {
   padding: 60px;
   border-right: 1px solid var(--border-color);
@@ -1300,6 +1324,14 @@ h3 {
     font-size: 0.7rem;
     opacity: 0.65;
     padding: 8px 20px 24px;
+  }
+
+  .chat-demo-intro {
+    padding: 24px 20px 8px;
+  }
+
+  .chat-demo-intro p {
+    font-size: 0.8rem;
   }
 
   .about-grid,

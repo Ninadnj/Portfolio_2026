@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ACTIVE_PERSONA = {
         id: 'beauty-salon-assistant',
         name: 'Beauty Salon Assistant',
-        bootMsg: 'Welcome. I’m a beauty salon assistant. I can help with bookings, availability, and common client questions.'
+        bootMsg: 'Hello, how can I help you today?'
     };
 
     let currentPersona = ACTIVE_PERSONA;
