@@ -321,14 +321,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let mouseY = 0;
         let revealX = 0;
         let revealY = 0;
+        let revealActive = false;
+        let revealRaf = null;
 
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
 
-        // Smooth follow logic for hover reveal
+        // Smooth follow logic for hover reveal, only when active
         function followMouse() {
+            if (!revealActive) return;
             const ease = 0.1;
             revealX += (mouseX - revealX) * ease;
             revealY += (mouseY - revealY) * ease;
@@ -336,9 +339,22 @@ document.addEventListener('DOMContentLoaded', () => {
             hoverReveal.style.left = `${revealX}px`;
             hoverReveal.style.top = `${revealY}px`;
 
-            requestAnimationFrame(followMouse);
+            revealRaf = requestAnimationFrame(followMouse);
         }
-        followMouse();
+
+        function startRevealFollow() {
+            if (revealActive) return;
+            revealActive = true;
+            revealRaf = requestAnimationFrame(followMouse);
+        }
+
+        function stopRevealFollow() {
+            revealActive = false;
+            if (revealRaf) {
+                cancelAnimationFrame(revealRaf);
+                revealRaf = null;
+            }
+        }
 
         function setActiveProject(index) {
             projectItems.forEach((item, i) => {
@@ -386,6 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Since actual images failed generation, we rely on the [data-image] CSS gradients.
 
                 hoverReveal.classList.add('active');
+                startRevealFollow();
                 setActiveProject(index);
 
                 // Scale cursor
@@ -397,6 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             item.addEventListener('mouseleave', () => {
                 hoverReveal.classList.remove('active');
+                stopRevealFollow();
 
                 if (cursorOutline && cursorDot) {
                     cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
