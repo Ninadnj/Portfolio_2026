@@ -427,13 +427,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (e.target.closest('.visit-link')) {
                     return;
                 }
-                // Check if 'Demo Site' text/area was clicked
+                // Allow the inline Demo Site link to work normally
                 if (e.target.closest('.project-action') || e.target.closest('.project-cta-inline')) {
-                    const link = item.querySelector('.visit-link');
-                    if (link && link.href && link.href !== '#' && !link.href.endsWith('#')) {
-                        window.open(link.href, '_blank');
-                        return; // Stop here, don't open panel
-                    }
+                    return;
                 }
 
                 e.preventDefault();
