@@ -529,8 +529,8 @@ h3 {
 .project-number {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--text-secondary);
-  opacity: 0.8;
+  color: var(--text-color); /* higher contrast for identifiers */
+  opacity: 0.9;
   min-width: 32px;
 }
 
@@ -557,7 +557,7 @@ h3 {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--text-secondary);
+  color: var(--text-color); /* clearer on light backgrounds */
   opacity: 0.9;
   white-space: nowrap;
 }
@@ -593,7 +593,7 @@ h3 {
 .project-summary {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--text-color); /* elevate body copy contrast */
   margin-bottom: 0.35rem;
   opacity: 0.95;
 }
@@ -614,7 +614,7 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--text-color);
-  opacity: 0.85; /* keep legible in both themes */
+  opacity: 1; /* full contrast for link visibility */
   transition: opacity 0.3s ease-out;
 }
 
