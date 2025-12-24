@@ -2443,75 +2443,153 @@ h3 {
 
 /* Contact Section */
 .section.contact {
-  background: var(--text-color);
-  color: var(--bg-color);
-  padding: 120px 5%;
-}
-
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
-}
-
-.contact-intro h2 {
-  font-size: 5rem;
-  color: var(--bg-color);
-  margin-bottom: 40px;
-  text-transform: uppercase;
-}
-
-.email-link {
-  font-family: var(--font-mono);
-  font-size: 1.2rem;
-  color: var(--accent-color);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent-color);
-}
-
-.form-group label {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--bg-color);
-  opacity: 0.5;
-  margin-bottom: 15px;
-}
-
-.form-group input,
-.form-group textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0;
-  color: var(--bg-color);
-  padding: 20px 0;
-  font-size: 1.1rem;
-  transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-bottom-color: var(--accent-color);
-}
-
-.submit-btn {
   background: var(--bg-color);
+  padding: 120px 5% 100px;
+}
+
+.contact-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.contact-header {
+  text-align: center;
+}
+
+.contact-header h2 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
   color: var(--text-color);
+  letter-spacing: -1px;
+}
+
+.contact-intro {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 28px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-card:hover {
+  border-color: var(--hover-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  border-radius: 6px;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-card-icon {
+  background: var(--hover-gold);
+  color: var(--text-color);
+}
+
+.contact-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 25px 60px;
-  border-radius: 0;
-  width: fit-content;
-  border: 1px solid var(--bg-color);
+  letter-spacing: 1.5px;
+  color: var(--text-secondary);
+  opacity: 0.7;
 }
 
-.submit-btn:hover {
-  background: transparent;
-  color: var(--bg-color);
+.contact-value {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.contact-footer {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-color);
+}
+
+.contact-footer p {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section.contact {
+    padding: 80px 5% 60px;
+  }
+  
+  .contact-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-card {
+    padding: 24px 20px;
+  }
+}
+
+/* Dark mode */
+[data-theme="midnight"] .contact-card {
+  background: #0a0a0a;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="midnight"] .contact-card:hover {
+  border-color: #d4af37;
+}
+
+[data-theme="midnight"] .contact-card-icon {
+  background: #050505;
+}
+
+[data-theme="midnight"] .contact-card:hover .contact-card-icon {
+  background: #d4af37;
+  color: #050505;
 }
 
 /* Footer */
