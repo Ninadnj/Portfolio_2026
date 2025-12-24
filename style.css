@@ -179,6 +179,50 @@ h3 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+/* Language Toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent-color);
+  background: var(--glass-bg);
+}
+
+.lang-option {
+  color: var(--text-secondary);
+  transition: var(--transition);
+  opacity: 0.5;
+}
+
+.lang-option.active {
+  color: var(--text-color);
+  opacity: 1;
+  font-weight: 600;
+}
+
+.lang-divider {
+  color: var(--border-color);
+  opacity: 0.5;
+}
+
+/* Hide inactive language content */
+[data-lang].hidden {
+  display: none;
+}
+
+
 [data-theme="midnight"] .logo,
 [data-theme="midnight"] .nav-links a,
 [data-theme="midnight"] .theme-toggle {
