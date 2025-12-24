@@ -2057,6 +2057,249 @@ h3 {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
+
+
+/* ============================================
+   CONTENT REPURPOSING ENGINE SECTION
+   ============================================ */
+
+.section.content-engine {
+  background: var(--bg-color);
+  padding: 100px 5% 120px;
+}
+
+.engine-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.engine-card:hover {
+  border-color: var(--hover-gold);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.engine-header {
+  margin-bottom: 50px;
+}
+
+.engine-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: var(--text-color);
+  letter-spacing: -0.5px;
+}
+
+.engine-problem {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin: 0;
+  opacity: 0.8;
+}
+
+.engine-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.engine-visual {
+  position: relative;
+}
+
+.workflow-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.engine-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.engine-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.engine-capabilities h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
+  opacity: 0.7;
+}
+
+.engine-capabilities ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.engine-capabilities li {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  padding-left: 20px;
+  position: relative;
+}
+
+.engine-capabilities li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--hover-gold);
+  font-weight: bold;
+}
+
+.engine-tech {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tech-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.tech-divider {
+  color: var(--border-color);
+  opacity: 0.4;
+}
+
+.engine-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.engine-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: var(--transition);
+  cursor: pointer;
+  background: transparent;
+}
+
+.engine-btn.primary {
+  background: var(--text-color);
+  color: var(--bg-color);
+  border-color: var(--text-color);
+}
+
+.engine-btn.primary:hover {
+  background: var(--hover-gold);
+  border-color: var(--hover-gold);
+  color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+.engine-btn.secondary {
+  background: transparent;
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.engine-btn.secondary:hover {
+  border-color: var(--text-color);
+  background: var(--bg-color);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .engine-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .engine-card {
+    padding: 40px 30px;
+  }
+  
+  .engine-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section.content-engine {
+    padding: 60px 5% 80px;
+  }
+  
+  .engine-card {
+    padding: 30px 20px;
+  }
+  
+  .engine-title {
+    font-size: 1.75rem;
+  }
+  
+  .engine-problem {
+    font-size: 1.05rem;
+  }
+  
+  .engine-actions {
+    flex-direction: column;
+  }
+  
+  .engine-btn {
+    width: 100%;
+  }
+}
+
+/* Dark mode */
+[data-theme="midnight"] .engine-card {
+  background: #0a0a0a;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="midnight"] .engine-card:hover {
+  border-color: #d4af37;
+}
+
+[data-theme="midnight"] .workflow-placeholder {
+  background: #050505;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
 /* Contact Section */
 .section.contact {
   background: var(--text-color);
