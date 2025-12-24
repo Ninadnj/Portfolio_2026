@@ -342,29 +342,17 @@
               </div>
 
               <div class="chat-body scrollable" id="chatBody">
-                <!-- Persona Selection -->
-                <div id="personaSelection" class="persona-selection-wrapper">
-                  <p class="persona-prompt">Choose a demo persona to start:</p>
-                  <div class="persona-selection-container">
-                    <div class="persona-card" onclick="selectPersona('salon')">
-                      <i>💇</i>
-                      <h4>Hair Salon</h4>
-                      <p>Booking & services</p>
-                    </div>
-                    <div class="persona-card" onclick="selectPersona('receptionist')">
-                      <i>📋</i>
-                      <h4>Receptionist</h4>
-                      <p>General inquiries</p>
-                    </div>
-                    <div class="persona-card" onclick="selectPersona('booking')">
-                      <i>📅</i>
-                      <h4>Booking Manager</h4>
-                      <p>Appointments</p>
-                    </div>
-                  </div>
+                                <!-- Initial bot message -->
+                <div class="message bot">
+                  👋 Hi! I'm your Beauty Salon Assistant. I can help you with:
+                  <br>• Booking appointments
+                  <br>• Service information
+                  <br>• Pricing and packages
+                  <br>• Opening hours
+                  <br><br>How can I help you today?
                 </div>
 
-                <!-- Chat messages will appear here -->
+                <!-- Chat messages will appear here --><!-- Chat messages will appear here -->
               </div>
 
               <div class="typing-indicator hidden" id="typingIndicator">
@@ -377,11 +365,10 @@
                 <input 
                   type="text" 
                   id="chatInput" 
-                  placeholder="Type your message..." 
-                  disabled
+                  placeholder="Type your message..."
                   aria-label="Chat message input"
                 />
-                <button onclick="sendMessage()" id="sendBtn" disabled aria-label="Send message">
+                <button onclick="sendMessage()" id="sendBtn" aria-label="Send message">
                   →
                 </button>
               </div>
