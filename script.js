@@ -374,46 +374,6 @@ function fillPrompt(text) {
 
 
 
-// Language Toggle
-function toggleLanguage() {
-  const currentLang = localStorage.getItem('language') || 'en';
-  const newLang = currentLang === 'en' ? 'ka' : 'en';
-  
-  // Save preference
-  localStorage.setItem('language', newLang);
-  
-  // Update UI
-  updateLanguage(newLang);
-}
-
-function updateLanguage(lang) {
-  // Hide all language content
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    el.classList.add('hidden');
-  });
-  
-  // Show selected language
-  document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
-    el.classList.remove('hidden');
-  });
-  
-  // Update toggle buttons
-  document.querySelectorAll('.lang-option').forEach(opt => {
-    opt.classList.remove('active');
-    if (opt.getAttribute('data-lang') === lang) {
-      opt.classList.add('active');
-    }
-  });
-  
-  console.log('Language switched to:', lang);
-}
-
-// Initialize language on load
-document.addEventListener('DOMContentLoaded', function() {
-  const savedLang = localStorage.getItem('language') || 'en';
-  updateLanguage(savedLang);
-});
-
 // ============================================
 // INITIALIZE ALL ON DOM READY
 // ============================================
