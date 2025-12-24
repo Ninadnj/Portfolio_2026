@@ -232,7 +232,20 @@
             </div>
             
             <div class="demo-preview-container desktop-mode">
-              <div class="iframe-fallback-enhanced">
+              <div class="iframe-skeleton" id="skeleton-booking">
+                <div class="skeleton-pulse"></div>
+                <span class="skeleton-text">Loading preview...</span>
+              </div>
+              <iframe 
+                src="https://ninadnj.github.io/bookingwebapp/" 
+                title="Booking App - Live Preview"
+                loading="lazy"
+                class="demo-iframe"
+                data-project="booking"
+                onload="handleIframeLoad('booking')"
+                onerror="handleIframeError('booking')">
+              </iframe>
+              <div class="iframe-fallback-enhanced hidden" id="fallback-booking">
                 <div class="fallback-preview">
                   <div class="fallback-icon">
                     <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -248,8 +261,7 @@
                     Open Live Site →
                   </a>
                 </div>
-              </div>
-            </div>
+              </div></div>
 
             <div class="demo-actions">
               <a href="https://ninadnj.github.io/bookingwebapp/" target="_blank" rel="noopener" class="btn-demo primary">
