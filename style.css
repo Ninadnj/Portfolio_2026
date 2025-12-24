@@ -159,6 +159,35 @@ h3 {
   color: #0a0a0a;
 }
 
+/* Midnight mode header - ensure dark background and light text */
+[data-theme="midnight"] .header {
+  background: rgba(10, 10, 10, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="midnight"] .logo,
+[data-theme="midnight"] .nav-links a,
+[data-theme="midnight"] .theme-toggle {
+  color: #f5f5f5;
+}
+
+[data-theme="midnight"] .nav-links a:hover {
+  color: #d4af37;
+}
+
+[data-theme="midnight"] .cta-btn {
+  background: #f5f5f5 !important;
+  color: #050505 !important;
+}
+
+[data-theme="midnight"] .cta-btn:hover {
+  background: #d4af37 !important;
+  color: #050505 !important;
+}
+
+
+
+
 
 .logo {
   font-family: var(--font-heading);
@@ -231,7 +260,7 @@ h3 {
   align-items: center;
   justify-content: center;
   transition: var(--transition);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .theme-toggle:hover {
@@ -254,7 +283,7 @@ h3 {
 }
 
 [data-theme="midnight"] #demos {
-  background: #0a0a0a; /* ensure dark background in dark mode */
+  background: #0a0a0a;
   color: var(--text-midnight);
 }
 
