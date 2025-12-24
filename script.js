@@ -396,7 +396,7 @@ function initLanguageToggle() {
   // Toggle on click
   langToggle.addEventListener('click', function() {
     const currentLang = body.getAttribute('data-lang') || 'en';
-    const newLang = currentLang === 'en' ? 'ka' : 'en';
+    const newLang = currentLang === 'en' ? 'ka' : (currentLang === 'ka' ? 'fr' : 'en');
     setLanguage(newLang);
   });
 }
@@ -405,6 +405,7 @@ function setLanguage(lang) {
   const body = document.body;
   const langEn = document.querySelector('.lang-en');
   const langKa = document.querySelector('.lang-ka');
+  const langFr = document.querySelector('.lang-fr');
   
   // Set body attribute
   body.setAttribute('data-lang', lang);
@@ -413,14 +414,17 @@ function setLanguage(lang) {
   localStorage.setItem('language', lang);
   
   // Update toggle button
-  if (langEn && langKa) {
+  if (langEn && langKa && langFr) {
     langEn.classList.remove('active');
     langKa.classList.remove('active');
+    langFr.classList.remove('active');
     
     if (lang === 'en') {
       langEn.classList.add('active');
-    } else {
+    } else if (lang === 'ka') {
       langKa.classList.add('active');
+    } else if (lang === 'fr') {
+      langFr.classList.add('active');
     }
   }
   
