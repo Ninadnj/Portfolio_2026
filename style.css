@@ -1400,8 +1400,14 @@ h3 {
   width: 100%;
   height: 100%;
   border: none;
+  background: var(--bg-color);
   opacity: 0;
   transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.demo-iframe.loaded {
+  opacity: 1;
 }
 
 .demo-iframe.loaded {
