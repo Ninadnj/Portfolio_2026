@@ -340,6 +340,27 @@ function initChatbot() {
   }
 }
 
+
+
+// Portrait fade-in on scroll
+function initPortraitFadeIn() {
+  const portrait = document.querySelector('.about-portrait');
+  if (!portrait) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+  
+  observer.observe(portrait);
+}
+
 // ============================================
 // INITIALIZE ALL ON DOM READY
 // ============================================
@@ -352,5 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initLiveDemos();
   initChatbot();
   
+  
+  initPortraitFadeIn();
   console.log('Portfolio initialized successfully');
 });

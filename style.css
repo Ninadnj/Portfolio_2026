@@ -1248,6 +1248,78 @@ h3 {
 
 
 
+
+
+/* ============================================
+   ABOUT SECTION - Portrait Photo
+   ============================================ */
+
+.about-portrait {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-portrait.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portrait-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+  filter: grayscale(100%);
+  opacity: 0.92;
+  transition: opacity 0.4s ease;
+}
+
+.portrait-image:hover {
+  opacity: 1;
+}
+
+/* Update about-grid to accommodate portrait */
+.about-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Adjust about-text to work with portrait */
+.about-text {
+  flex: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-portrait {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme="midnight"] .portrait-image {
+  opacity: 0.88;
+  filter: grayscale(100%) brightness(0.95);
+}
+
+[data-theme="midnight"] .portrait-image:hover {
+  opacity: 0.95;
+}
+
 /* ============================================
    LIVE DEMOS SECTION - Embedded Previews
    ============================================ */
