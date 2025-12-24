@@ -246,7 +246,7 @@ h3 {
 }
 
 [data-theme="light"] #demos {
-  background: #ffffff; /* ensure white background in light mode */
+  background: #ffffff;
   color: var(--text-color);
 }
 
@@ -903,13 +903,21 @@ h3 {
   background: linear-gradient(135deg, #333 0%, #000 100%);
 }
 
+
+/* Light mode specific - ensure white backgrounds for project cards */
+[data-theme="light"] .project-item,
+[data-theme="light"] .project-panel,
+[data-theme="light"] .workflow-grid-layout {
+  background: var(--secondary-bg);
+}
+
 /* Embedded Workflow Section */
 .workflow-grid-layout {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 0;
   border: 1px solid var(--border-color);
-  background: #fff;
+  background: var(--secondary-bg);
   overflow: hidden;
 }
 
