@@ -265,19 +265,29 @@ function sendMessage() {
   }
 
   // Send to n8n Webhook
+  console.log('Sending to webhook:', message);
+
+  // Note: Ensure your n8n workflow is Active or you are clicking "Execute Workflow"
   fetch('https://n8n.ninadnj.me/webhook/portfolio-chatbot', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
     body: JSON.stringify({ chatInput: message })
   })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then(data => {
+      console.log('Webhook response:', data);
       if (typingIndicator) typingIndicator.classList.add('hidden');
 
-      // Expecting response in data.output or data.response
-      const botResponse = data.output || data.response || generateResponse(message);
+      // Check for various common n8n return formats
+      const botResponse = data.output || data.response || data.text || (data[0] && data[0].output) || generateResponse(message);
 
       const botMsg = document.createElement('div');
       botMsg.className = 'message bot';
@@ -286,7 +296,7 @@ function sendMessage() {
       chatBody.scrollTop = chatBody.scrollHeight;
     })
     .catch(error => {
-      console.error('Error:', error);
+      console.warn('Webhook connection failed, falling back to local:', error);
       if (typingIndicator) typingIndicator.classList.add('hidden');
 
       // Fallback to local logic on error
