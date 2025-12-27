@@ -9,27 +9,27 @@
 function initThemeToggle() {
   const themeToggle = document.querySelector('.theme-toggle');
   const html = document.documentElement;
-  
+
   if (!themeToggle) {
     console.warn('Theme toggle button not found');
     return;
   }
-  
+
   // Check for saved theme preference or default to 'light'
   const currentTheme = localStorage.getItem('theme') || 'light';
   html.setAttribute('data-theme', currentTheme);
-  
+
   // Update toggle button icon
   updateThemeIcon(themeToggle, currentTheme);
-  
-  themeToggle.addEventListener('click', function() {
+
+  themeToggle.addEventListener('click', function () {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'midnight' : 'light';
-    
+
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(themeToggle, newTheme);
-    
+
     console.log('Theme switched to:', newTheme);
   });
 }
@@ -50,19 +50,19 @@ function initCustomCursor() {
   const cursorDot = document.querySelector('[data-cursor-dot]');
   const cursorOutline = document.querySelector('[data-cursor-outline]');
   const cursorSpotlight = document.querySelector('[data-cursor-spotlight]');
-  
+
   if (!cursorDot || !cursorOutline || !cursorSpotlight) return;
-  
+
   let mouseX = 0, mouseY = 0;
   let dotX = 0, dotY = 0;
   let outlineX = 0, outlineY = 0;
   let spotlightX = 0, spotlightY = 0;
-  
+
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
   });
-  
+
   const animateCursor = () => {
     dotX += (mouseX - dotX) * 0.2;
     dotY += (mouseY - dotY) * 0.2;
@@ -70,16 +70,16 @@ function initCustomCursor() {
     outlineY += (mouseY - outlineY) * 0.15;
     spotlightX += (mouseX - spotlightX) * 0.05;
     spotlightY += (mouseY - spotlightY) * 0.05;
-    
+
     cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
     cursorOutline.style.transform = `translate(${outlineX - 20}px, ${outlineY - 20}px)`;
     cursorSpotlight.style.transform = `translate(${spotlightX}px, ${spotlightY}px) translate(-50%, -50%)`;
-    
+
     requestAnimationFrame(animateCursor);
   };
-  
+
   animateCursor();
-  
+
   // Cursor interactions
   const interactables = document.querySelectorAll('a, button, .demo-card, .persona-card');
   interactables.forEach(item => {
@@ -108,9 +108,9 @@ function handleIframeLoad(projectId) {
   const iframe = document.querySelector(`iframe[data-project="${projectId}"]`);
   const skeleton = document.getElementById(`skeleton-${projectId}`);
   const fallback = document.getElementById(`fallback-${projectId}`);
-  
+
   console.log(`Iframe loaded: ${projectId}`);
-  
+
   if (iframe && skeleton) {
     // Hide skeleton
     skeleton.classList.add('hidden');
@@ -119,7 +119,7 @@ function handleIframeLoad(projectId) {
     iframe.style.opacity = '1';
     iframe.style.zIndex = '2';
   }
-  
+
   // Make sure fallback stays hidden
   if (fallback) {
     fallback.classList.add('hidden');
@@ -130,7 +130,7 @@ function handleIframeError(projectId) {
   const skeleton = document.getElementById(`skeleton-${projectId}`);
   const fallback = document.getElementById(`fallback-${projectId}`);
   const iframe = document.querySelector(`iframe[data-project="${projectId}"]`);
-  
+
   if (skeleton && fallback && iframe) {
     skeleton.classList.add('hidden');
     iframe.style.display = 'none';
@@ -140,10 +140,10 @@ function handleIframeError(projectId) {
 
 function scrollToCaseNotes(projectId) {
   const caseNotes = document.getElementById(`notes-${projectId}`);
-  
+
   if (caseNotes) {
     const isHidden = caseNotes.classList.contains('hidden');
-    
+
     if (isHidden) {
       caseNotes.classList.remove('hidden');
       setTimeout(() => {
@@ -161,9 +161,9 @@ function initLiveDemos() {
   if (previewToggle) {
     const toggleOptions = previewToggle.querySelectorAll('.toggle-option');
     const previewContainers = document.querySelectorAll('.demo-preview-container');
-    
+
     toggleOptions.forEach(option => {
-      option.addEventListener('click', function() {
+      option.addEventListener('click', function () {
         const mode = this.getAttribute('data-mode');
         toggleOptions.forEach(opt => opt.classList.remove('active'));
         this.classList.add('active');
@@ -174,25 +174,25 @@ function initLiveDemos() {
       });
     });
   }
-  
+
   // DISABLED: Auto-detection was hiding working iframes
-// // Check for blocked iframes
-//   const iframes = document.querySelectorAll('.demo-iframe');
-//   iframes.forEach(iframe => {
-//     const projectId = iframe.getAttribute('data-project');
-//     setTimeout(() => {
-//       try {
-//         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-//         if (!iframe.classList.contains('loaded')) {
-//           if (iframe.contentWindow.length === 0) {
-//             handleIframeError(projectId);
-//           }
-//         }
-//       } catch (e) {
-//         handleIframeError(projectId);
-//       }
-//     }, 5000);
-//   });
+  // // Check for blocked iframes
+  //   const iframes = document.querySelectorAll('.demo-iframe');
+  //   iframes.forEach(iframe => {
+  //     const projectId = iframe.getAttribute('data-project');
+  //     setTimeout(() => {
+  //       try {
+  //         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+  //         if (!iframe.classList.contains('loaded')) {
+  //           if (iframe.contentWindow.length === 0) {
+  //             handleIframeError(projectId);
+  //           }
+  //         }
+  //       } catch (e) {
+  //         handleIframeError(projectId);
+  //       }
+  //     }, 5000);
+  //   });
 }
 
 // ============================================
@@ -239,32 +239,32 @@ function sendMessage() {
   const input = document.getElementById('chatInput');
   const chatBody = document.getElementById('chatBody');
   const typingIndicator = document.getElementById('typingIndicator');
-  
+
   if (!input || !chatBody) return;
-  
+
   const message = input.value.trim();
   if (!message) return;
-  
+
   // Add user message
   const userMsg = document.createElement('div');
   userMsg.className = 'message user';
   userMsg.textContent = message;
   chatBody.appendChild(userMsg);
-  
+
   input.value = '';
   chatBody.scrollTop = chatBody.scrollHeight;
-  
+
   // Show typing indicator
   if (typingIndicator) {
     typingIndicator.classList.remove('hidden');
   }
-  
+
   // Bot response
   setTimeout(() => {
     if (typingIndicator) {
       typingIndicator.classList.add('hidden');
     }
-    
+
     const response = generateResponse(message);
     const botMsg = document.createElement('div');
     botMsg.className = 'message bot';
@@ -276,7 +276,7 @@ function sendMessage() {
 
 function generateResponse(message) {
   const msg = message.toLowerCase();
-  
+
   if (msg.match(/hello|hi|hey|good morning|good afternoon/)) {
     return getRandomResponse(SALON_ASSISTANT.responses.greeting);
   }
@@ -295,7 +295,7 @@ function generateResponse(message) {
   if (msg.match(/thank|thanks/)) {
     return "You're welcome! Let me know if you need anything else. 😊";
   }
-  
+
   return getRandomResponse(SALON_ASSISTANT.responses.default);
 }
 
@@ -322,16 +322,16 @@ function resetChat() {
 function initChatbot() {
   const sendBtn = document.getElementById('sendBtn');
   const chatInput = document.getElementById('chatInput');
-  
+
   if (sendBtn) {
-    sendBtn.addEventListener('click', function(e) {
+    sendBtn.addEventListener('click', function (e) {
       e.preventDefault();
       sendMessage();
     });
   }
-  
+
   if (chatInput) {
-    chatInput.addEventListener('keypress', function(e) {
+    chatInput.addEventListener('keypress', function (e) {
       if (e.key === 'Enter') {
         e.preventDefault();
         sendMessage();
@@ -346,7 +346,7 @@ function initChatbot() {
 function initPortraitFadeIn() {
   const portrait = document.querySelector('.about-portrait');
   if (!portrait) return;
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -357,7 +357,7 @@ function initPortraitFadeIn() {
   }, {
     threshold: 0.2
   });
-  
+
   observer.observe(portrait);
 }
 
@@ -383,20 +383,20 @@ function fillPrompt(text) {
 function initLanguageToggle() {
   const langToggle = document.getElementById('langToggle');
   const body = document.body;
-  
+
   if (!langToggle) {
     console.warn('Language toggle button not found');
     return;
   }
-  
+
   // Get saved language or default to English
   const currentLang = localStorage.getItem('language') || 'en';
   setLanguage(currentLang);
-  
+
   // Toggle on click
-  langToggle.addEventListener('click', function() {
+  langToggle.addEventListener('click', function () {
     const currentLang = body.getAttribute('data-lang') || 'en';
-    const newLang = currentLang === 'en' ? 'ka' : (currentLang === 'ka' ? 'fr' : 'en');
+    const newLang = currentLang === 'en' ? 'fr' : 'en';
     setLanguage(newLang);
   });
 }
@@ -404,30 +404,26 @@ function initLanguageToggle() {
 function setLanguage(lang) {
   const body = document.body;
   const langEn = document.querySelector('.lang-en');
-  const langKa = document.querySelector('.lang-ka');
   const langFr = document.querySelector('.lang-fr');
-  
+
   // Set body attribute
   body.setAttribute('data-lang', lang);
-  
+
   // Save preference
   localStorage.setItem('language', lang);
-  
+
   // Update toggle button
-  if (langEn && langKa && langFr) {
+  if (langEn && langFr) {
     langEn.classList.remove('active');
-    langKa.classList.remove('active');
     langFr.classList.remove('active');
-    
+
     if (lang === 'en') {
       langEn.classList.add('active');
-    } else if (lang === 'ka') {
-      langKa.classList.add('active');
     } else if (lang === 'fr') {
       langFr.classList.add('active');
     }
   }
-  
+
   console.log('Language set to:', lang);
 }
 
@@ -435,17 +431,17 @@ function setLanguage(lang) {
 // INITIALIZE ALL ON DOM READY
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   console.log('Initializing portfolio...');
-  
+
   initLanguageToggle();
-  
+
   initThemeToggle();
   initCustomCursor();
   initLiveDemos();
   initChatbot();
-  
-  
+
+
   initPortraitFadeIn();
   console.log('Portfolio initialized successfully');
 });
