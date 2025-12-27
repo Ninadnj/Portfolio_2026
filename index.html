@@ -418,41 +418,28 @@
         </div>
 
         <div class="demo-layout">
-          <div class="demo-guidance">
-            <h3><span data-lang-en>How to try the demo</span><span data-lang-fr>Comment essayer la démo</span></h3>
-            <ul class="guidance-list">
-              <li><span data-lang-en>Ask about my tech stack</span><span data-lang-fr>Demander ma stack technique</span>
-              </li>
-              <li><span data-lang-en>Inquire about services</span><span data-lang-fr>Se renseigner sur les
-                  services</span></li>
-              <li><span data-lang-en>Find contact information</span><span data-lang-fr>Trouver les coordonnées</span>
-              </li>
-            </ul>
+          <div class="suggested-prompts">
+            <p class="prompts-label"><span data-lang-en>Try inquiring about:</span><span data-lang-fr>Essayez de
+                demander :</span></p>
+            <button class="prompt-chip" onclick="fillPrompt('What services do you offer?')"><span
+                data-lang-en>Services</span><span data-lang-fr>Services</span></button>
+            <button class="prompt-chip" onclick="fillPrompt('How can I contact Nina?')"><span
+                data-lang-en>Contact</span><span data-lang-fr>Contact</span></button>
+            <button class="prompt-chip" onclick="fillPrompt('Tell me about your projects')"><span
+                data-lang-en>Projects</span><span data-lang-fr>Projets</span></button>
+            <button class="prompt-chip" onclick="fillPrompt('What is your tech stack?')"><span data-lang-en>Tech
+                Stack</span><span data-lang-fr>Stack Tech</span></button>
+          </div>
 
-            <div class="suggested-prompts">
-              <p class="prompts-label"><span data-lang-en>Suggested prompts:</span><span data-lang-fr>Suggestions
-                  :</span></p>
-              <button class="prompt-chip" onclick="fillPrompt('What services do you offer?')"><span data-lang-en>What
-                  services do
-                  you offer?</span><span data-lang-fr>Quels services offrez-vous ?</span></button>
-              <button class="prompt-chip" onclick="fillPrompt('How can I contact Nina?')"><span data-lang-en>Contact
-                  info</span><span data-lang-fr>Contact</span></button>
-              <button class="prompt-chip" onclick="fillPrompt('Tell me about your projects')"><span data-lang-en>View
-                  projects</span><span data-lang-fr>Voir les projets</span></button>
-            </div>
-
-            <div class="system-flow">
-              <p class="flow-label"><span data-lang-en>System flow:</span><span data-lang-fr>Flux du système :</span>
-              </p>
-              <div class="flow-steps">
-                <span><span data-lang-en>Message</span><span data-lang-fr>Message</span></span>
-                <span class="flow-arrow">→</span>
-                <span>AI</span>
-                <span class="flow-arrow">→</span>
-                <span><span data-lang-en>Workflow</span><span data-lang-fr>Workflow</span></span>
-                <span class="flow-arrow">→</span>
-                <span><span data-lang-en>Action</span><span data-lang-fr>Action</span></span>
-              </div>
+          <div class="system-flow">
+            <div class="flow-steps">
+              <span>Message</span>
+              <span class="flow-arrow">→</span>
+              <span>AI Agent</span>
+              <span class="flow-arrow">→</span>
+              <span>Workflow</span>
+              <span class="flow-arrow">→</span>
+              <span>Response</span>
             </div>
           </div>
 
