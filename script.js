@@ -44,63 +44,7 @@ function updateThemeIcon(button, theme) {
   }
 }
 
-// ============================================
-// CUSTOM CURSOR
-// ============================================
 
-function initCustomCursor() {
-  const cursorDot = document.querySelector('[data-cursor-dot]');
-  const cursorOutline = document.querySelector('[data-cursor-outline]');
-  const cursorSpotlight = document.querySelector('[data-cursor-spotlight]');
-
-  if (!cursorDot || !cursorOutline || !cursorSpotlight) return;
-
-  let mouseX = 0, mouseY = 0;
-  let dotX = 0, dotY = 0;
-  let outlineX = 0, outlineY = 0;
-  let spotlightX = 0, spotlightY = 0;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  const animateCursor = () => {
-    dotX += (mouseX - dotX) * 0.2;
-    dotY += (mouseY - dotY) * 0.2;
-    outlineX += (mouseX - outlineX) * 0.15;
-    outlineY += (mouseY - outlineY) * 0.15;
-    spotlightX += (mouseX - spotlightX) * 0.05;
-    spotlightY += (mouseY - spotlightY) * 0.05;
-
-    cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
-    cursorOutline.style.transform = `translate(${outlineX - 20}px, ${outlineY - 20}px)`;
-    cursorSpotlight.style.transform = `translate(${spotlightX}px, ${spotlightY}px) translate(-50%, -50%)`;
-
-    requestAnimationFrame(animateCursor);
-  };
-
-  animateCursor();
-
-  // Cursor interactions
-  const interactables = document.querySelectorAll('a, button, .demo-card, .persona-card');
-  interactables.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      cursorOutline.style.width = '70px';
-      cursorOutline.style.height = '70px';
-      cursorOutline.style.backgroundColor = 'rgba(212, 175, 55, 0.05)';
-      cursorOutline.style.borderColor = 'var(--micro-accent)';
-      cursorDot.style.opacity = '0';
-    });
-    item.addEventListener('mouseleave', () => {
-      cursorOutline.style.width = '40px';
-      cursorOutline.style.height = '40px';
-      cursorOutline.style.backgroundColor = 'transparent';
-      cursorOutline.style.borderColor = 'var(--text-color)';
-      cursorDot.style.opacity = '1';
-    });
-  });
-}
 
 // ============================================
 // LIVE DEMOS - Iframe Handling
@@ -140,22 +84,7 @@ function handleIframeError(projectId) {
   }
 }
 
-function scrollToCaseNotes(projectId) {
-  const caseNotes = document.getElementById(`notes-${projectId}`);
 
-  if (caseNotes) {
-    const isHidden = caseNotes.classList.contains('hidden');
-
-    if (isHidden) {
-      caseNotes.classList.remove('hidden');
-      setTimeout(() => {
-        caseNotes.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 100);
-    } else {
-      caseNotes.classList.add('hidden');
-    }
-  }
-}
 
 function initLiveDemos() {
   // Preview toggle
@@ -335,7 +264,7 @@ function generateResponse(message) {
     return getRandomResponse(PORTFOLIO_ASSISTANT.responses.pricing);
   }
   if (msg.match(/thank/)) {
-    return "You're welcome! Let me know if you have other questions about Nina's work. 😊";
+    return "You're welcome. Let me know if you have other questions about the work.";
   }
 
   return getRandomResponse(PORTFOLIO_ASSISTANT.responses.default);
@@ -347,7 +276,7 @@ function resetChat() {
     chatBody.innerHTML = `
       <div class="message bot">
         <div class="message-content">
-          👋 Hi! I'm Nina's AI Assistant. I can help you with:
+          Hello. I am Nina's AI Assistant. I can help you with:
           <br>• Project inquiries
           <br>• Technical skills & Services
           <br>• Contact information
@@ -498,18 +427,11 @@ function setLanguage(lang) {
 // INITIALIZE ALL ON DOM READY
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('Initializing portfolio...');
-
+document.addEventListener('DOMContentLoaded', () => {
   initLanguageToggle();
   initMobileMenu();
-
   initThemeToggle();
-  initCustomCursor();
   initLiveDemos();
   initChatbot();
-
-
   initPortraitFadeIn();
-  console.log('Portfolio initialized successfully');
 });
