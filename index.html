@@ -293,6 +293,78 @@
       </div>
     </section>
 
+    <!-- Autonomous AI Booking Agent Section -->
+    <section id="booking-agent" class="section booking-agent">
+      <div class="container">
+        <div class="engine-card">
+          <div class="engine-header">
+            <h2 class="engine-title"><span data-lang-en>Autonomous AI Booking Agent</span><span data-lang-fr>Agent de
+                Réservation IA Autonome</span></h2>
+            <p class="engine-problem"><span data-lang-en>24/7 Digital Receptionist — Human-like intent detection and
+                autonomous calendar management.</span><span data-lang-fr>Réceptionniste Numérique 24/7 — Détection
+                d'intention humaine et gestion autonome du calendrier.</span></p>
+          </div>
+
+          <div class="engine-layout">
+            <div class="engine-visual">
+              <div class="fallback-preview"
+                style="background: var(--tertiary-bg); border-radius: 12px; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                <img src="ai-agent-thumb.jpg" alt="AI Booking Agent Preview"
+                  style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+              </div>
+            </div>
+
+            <div class="engine-content">
+              <p class="engine-description">
+                A production-grade n8n workflow that manages the entire appointment lifecycle. It doesn't just "take
+                messages"—it understands intent, checks real-time availability, and books into Google Calendar
+                autonomously.
+              </p>
+
+              <div class="engine-capabilities">
+                <h4>Core Logic</h4>
+                <ul>
+                  <li>Multi-step Intent Resolution (Book/Cancel/Check)</li>
+                  <li>Real-time Google Calendar API Orchestration</li>
+                  <li>Automated Client Onboarding via PostgreSQL</li>
+                  <li>Seamless Handover to Human for edge cases</li>
+                </ul>
+              </div>
+
+              <div class="engine-tech">
+                <span class="tech-label">n8n</span>
+                <span class="tech-divider">·</span>
+                <span class="tech-label">GPT-4</span>
+                <span class="tech-divider">·</span>
+                <span class="tech-label">LangChain</span>
+                <span class="tech-divider">·</span>
+                <span class="tech-label">Calendar API</span>
+              </div>
+
+              <div class="engine-actions">
+                <button class="engine-btn primary" onclick="scrollToCaseNotes('ai-booking-agent')">
+                  <span data-lang-en>View Agent Logic</span><span data-lang-fr>Voir la Logique</span>
+                </button>
+                <button class="engine-btn secondary" onclick="scrollToCaseNotes('ai-booking-agent')">
+                  <span data-lang-en>Case Notes</span><span data-lang-fr>Notes de Projet</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden Case Notes for Agent -->
+          <div class="case-notes hidden" id="notes-ai-booking-agent"
+            style="margin-top: 40px; padding: 40px; border-top: 1px solid var(--border-color);">
+            <h4>Technical Architecture</h4>
+            <p>Developed an end-to-end autonomous agent using <strong>n8n</strong>. The system employs a decision engine
+              that routes natural language inputs to specific API actions.</p>
+            <p><strong>Integration Stack:</strong> n8n orchestration, OpenAI GPT-4 for intent parsing, Google Calendar
+              for scheduling, and Supabase/PostgreSQL for persistent session management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Custom Automations Section -->
     <section id="custom-workflows" class="section custom-workflows">
@@ -344,15 +416,15 @@
         </div>
 
         <div class="demo-category">
-          <h3 class="category-header"><span data-lang-en>Intelligent Automation & AI Systems</span><span
-              data-lang-fr>Systèmes d'IA et d'Automatisation</span></h3>
+          <h3 class="category-header"><span data-lang-en>Deep Learning & AI Research</span><span data-lang-fr>Deep
+              Learning et Recherche IA</span></h3>
           <div class="live-demos-grid">
 
             <!-- Demo Card: Deep Learning Colorizer -->
             <div class="demo-card" data-project="colorizer">
               <div class="demo-card-header">
-                <h3 class="demo-title"><span data-lang-en>Deep Learning Image Colorizer</span><span
-                    data-lang-fr>Coloriseur d'Images par Deep Learning</span></h3>
+                <h3 class="demo-title"><span data-lang-en>AI Deep Learning Capstone Project</span><span
+                    data-lang-fr>Projet Capstone Deep Learning IA</span></h3>
                 <p class="demo-value"><span data-lang-en>The project implements a conditional GAN based on the Pix2Pix
                     architecture, using a U-Net generator and a PatchGAN discriminator to perform grayscale-to-color
                     image
@@ -407,58 +479,6 @@
               </div>
             </div>
 
-            <!-- Demo Card: Autonomous AI Booking Agent -->
-            <div class="demo-card" data-project="ai-booking-agent">
-              <div class="demo-card-header">
-                <h3 class="demo-title"><span data-lang-en>Autonomous AI Booking Agent</span><span data-lang-fr>Agent de
-                    Réservation IA Autonome</span></h3>
-                <p class="demo-value"><span data-lang-en>Production-grade n8n workflow — Autonomous calendar management,
-                    intent-driven booking, and real-time availability sync.</span><span data-lang-fr>Workflow n8n de
-                    niveau production — Gestion autonome du calendrier, réservation par intention et synchro de
-                    disponibilité en temps réel.</span></p>
-                <div class="tech-stack">
-                  <span class="tech-badge">n8n</span>
-                  <span class="tech-badge">LLM (GPT-4)</span>
-                  <span class="tech-badge">LangChain</span>
-                  <span class="tech-badge">Calendar Integration</span>
-                </div>
-              </div>
-
-              <div class="demo-preview-container desktop-mode">
-                <div class="iframe-skeleton hidden" id="skeleton-ai-booking-agent">
-                  <div class="skeleton-pulse"></div>
-                  <span class="skeleton-text">Loading preview...</span>
-                </div>
-                <div class="iframe-fallback-enhanced" id="fallback-ai-booking-agent">
-                  <div class="fallback-preview">
-                    <img src="ai-agent-thumb.jpg" alt="AI Booking Agent Preview" class="fallback-img"
-                      style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
-                    <h4>Autonomous System Orchestration</h4>
-                    <p>A sophisticated AI concierge that manages the entire appointment lifecycle: from checking
-                      availability to processing cancellations via natural language.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="demo-actions">
-                <button class="btn-demo primary" onclick="scrollToCaseNotes('ai-booking-agent')">
-                  View Agent Logic
-                </button>
-                <button class="btn-demo secondary" onclick="scrollToCaseNotes('ai-booking-agent')">
-                  Case Notes
-                </button>
-              </div>
-
-              <div class="case-notes hidden" id="notes-ai-booking-agent">
-                <h4>Project Overview</h4>
-                <p>Developed an end-to-end autonomous agent using <strong>n8n</strong> that serves as a 24/7 digital
-                  receptionist. The agent intelligently detects user intent to perform complex calendar actions without
-                  manual intervention.</p>
-                <p><strong>Key Capabilities:</strong> Multi-step intent resolution (Book/Cancel/Check), dynamic
-                  time-slot
-                  calculation via Google Calendar API, and automated client onboarding via PostgreSQL.</p>
-              </div>
-            </div>
           </div>
         </div>
 
