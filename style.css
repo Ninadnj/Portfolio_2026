@@ -3223,114 +3223,115 @@ body[data-lang="ka"] [data-lang-fr] {
       top: 100%;
     }
   }
+}
 
-  /* Mobile Menu Toggle */
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
+/* Mobile Menu Toggle */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle .bar {
+  width: 24px;
+  height: 1.5px;
+  background: var(--text-color);
+  transition: var(--transition);
+}
+
+/* Mobile Nav Overlay State */
+@media (max-width: 768px) {
   .mobile-menu-toggle {
-    display: none;
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-color);
     flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1000;
+    padding: 40px;
   }
 
-  .mobile-menu-toggle .bar {
-    width: 24px;
-    height: 1.5px;
-    background: var(--text-color);
-    transition: var(--transition);
+  .nav-links.active {
+    right: 0;
   }
 
-  /* Mobile Nav Overlay State */
-  @media (max-width: 768px) {
-    .mobile-menu-toggle {
-      display: flex;
-    }
-
-    .nav-links {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 100%;
-      height: 100vh;
-      background: var(--bg-color);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      z-index: 1000;
-      padding: 40px;
-    }
-
-    .nav-links.active {
-      right: 0;
-    }
-
-    .nav-links li a {
-      font-size: 1.8rem;
-    }
-
-    .mobile-menu-toggle.active .bar:nth-child(1) {
-      transform: translateY(7.5px) rotate(45deg);
-    }
-
-    .mobile-menu-toggle.active .bar:nth-child(2) {
-      transform: translateY(-7.5px) rotate(-45deg);
-    }
-
-    /* Chat Interface Mobile Fixes */
-    .chat-interface {
-      height: 500px;
-    }
-
-    .chat-messages {
-      padding: 24px;
-      gap: 16px;
-    }
-
-    .message.user .message-content,
-    .message.assistant .message-content {
-      padding: 14px 20px;
-      font-size: 0.9rem;
-    }
-
-    .chat-input-container {
-      padding: 16px 20px 24px;
-    }
-
-    .input-wrapper {
-      padding: 6px 6px 6px 20px;
-    }
-
-    .chat-input {
-      font-size: 0.9rem;
-    }
-
-    .send-button {
-      width: 44px;
-      height: 44px;
-    }
+  .nav-links li a {
+    font-size: 1.8rem;
   }
 
-  /* Removed redundant social links block */
-
-  .footer p {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    /* Increased from 0.6rem for consistency */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 1.6;
-    /* Added for better multiline readability */
-    opacity: 0.7;
-    /* Increased from 0.5 for better contrast */
+  .mobile-menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
   }
+
+  .mobile-menu-toggle.active .bar:nth-child(2) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* Chat Interface Mobile Fixes */
+  .chat-interface {
+    height: 500px;
+  }
+
+  .chat-messages {
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .message.user .message-content,
+  .message.assistant .message-content {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+
+  .chat-input-container {
+    padding: 16px 20px 24px;
+  }
+
+  .input-wrapper {
+    padding: 6px 6px 6px 20px;
+  }
+
+  .chat-input {
+    font-size: 0.9rem;
+  }
+
+  .send-button {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Removed redundant social links block */
+
+.footer p {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  /* Increased from 0.6rem for consistency */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  /* Added for better multiline readability */
+  opacity: 0.7;
+  /* Increased from 0.5 for better contrast */
+}
