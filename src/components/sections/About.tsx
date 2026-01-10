@@ -17,12 +17,11 @@ export function About() {
                         className="lg:col-span-4 flex justify-center lg:justify-start"
                     >
                         <div className="relative aspect-square w-full max-w-[320px] rounded-2xl overflow-hidden grayscale border border-border bg-muted">
-                            <Image
-                                src="/portrait.jpg"
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={`${process.env.NODE_ENV === 'production' ? '/Portfolio_2026' : ''}/portrait.jpg`}
                                 alt="Nina Professional Portrait"
-                                fill
-                                className="object-cover object-top transition-transform duration-500 hover:scale-105"
-                                sizes="(max-width: 1024px) 100vw, 33vw"
+                                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
                             />
                         </div>
                     </motion.div>
