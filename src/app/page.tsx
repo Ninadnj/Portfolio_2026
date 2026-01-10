@@ -21,7 +21,7 @@ export default function Home() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
             <div>
-              <Link href="/" className="text-lg tracking-tight text-foreground" style={{ fontWeight: 500 }}>nina<span className="text-accent">.</span></Link>
+              <Link href="/" className="text-lg tracking-tight text-foreground" style={{ fontWeight: 500 }}>Nina<span className="text-accent">.</span></Link>
             </div>
 
             <div className="flex items-center gap-10">

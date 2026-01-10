@@ -15,7 +15,7 @@ export function Navbar() {
         <header className="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md border-b border-border">
             <nav className="container mx-auto px-6 h-20 flex items-center justify-between max-w-7xl">
                 <Link href="/" className="text-xl tracking-tight text-foreground" style={{ fontWeight: 500 }}>
-                    nina<span className="text-accent">.</span>
+                    Nina<span className="text-accent">.</span>
                 </Link>
 
                 {/* Desktop Menu */}
