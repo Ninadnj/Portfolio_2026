@@ -134,12 +134,11 @@ export function ProjectCard({
                                     exit={{ opacity: 0 }}
                                     className="absolute inset-0"
                                 >
-                                    <Image
-                                        src={image || ""}
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={`${process.env.NODE_ENV === 'production' ? '/Portfolio_2026' : ''}${image || ""}`}
                                         alt={title}
-                                        fill
-                                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                                        sizes="(max-width: 1024px) 100vw, 50vw"
+                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                     />
                                 </motion.div>
                             )}

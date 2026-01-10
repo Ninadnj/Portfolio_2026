@@ -24,7 +24,7 @@ const projects = [
     {
         title: "Deep Learning Image Colorizer",
         description: "Implements a conditional GAN based on the Pix2Pix architecture, using a U-Net generator and a PatchGAN discriminator to perform grayscale-to-color image translation.",
-        image: "/colorizer-thumb.jpg",
+        image: "/colorizer-thumb.png",
         tags: ["TensorFlow", "Keras", "GAN", "Python"],
         caseNotes: "Developed a deep generative model specialized in transforming grayscale archives into vibrant imagery..."
     },
