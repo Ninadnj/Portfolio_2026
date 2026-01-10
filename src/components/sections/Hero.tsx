@@ -4,7 +4,11 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
+import { useLanguage } from "@/context/LanguageContext"
+
 export function Hero() {
+    const { t } = useLanguage()
+
     return (
         <section id="home" className="relative pt-40 pb-20 flex items-center justify-center overflow-hidden">
             {/* Subtle Atmosphere */}
@@ -17,7 +21,7 @@ export function Hero() {
                     transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="section-label text-center block"
                 >
-                    portfolio 2026
+                    {t.hero.portfolio_year}
                 </motion.span>
 
                 <motion.p
@@ -26,7 +30,7 @@ export function Hero() {
                     transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="body-text max-w-xl mx-auto text-center mb-10"
                 >
-                    building autonomous agents and intelligent workflows that eliminate manual overhead. systems designed for clarity.
+                    {t.hero.description}
                 </motion.p>
 
                 <motion.div
@@ -36,10 +40,10 @@ export function Hero() {
                     className="flex flex-col sm:flex-row items-center justify-center gap-3"
                 >
                     <Button size="lg" className="btn-premium w-full sm:w-auto" asChild>
-                        <Link href="#contact">start a project</Link>
+                        <Link href="#contact">{t.hero.start_project}</Link>
                     </Button>
                     <Button size="lg" variant="outline" className="btn-premium w-full sm:w-auto border-border hover:bg-secondary/50" asChild>
-                        <Link href="#demos">view case studies</Link>
+                        <Link href="#demos">{t.hero.view_case_studies}</Link>
                     </Button>
                 </motion.div>
             </div>

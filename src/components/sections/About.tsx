@@ -3,11 +3,15 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 
+import { useLanguage } from "@/context/LanguageContext"
+
 export function About() {
+    const { t } = useLanguage()
+
     return (
         <section id="about" className="py-24 sm:py-32 border-t border-border">
             <div className="container mx-auto px-4 max-w-6xl">
-                <span className="section-label">01 // Background</span>
+                <span className="section-label">{t.about.section_label}</span>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -40, scale: 0.98 }}
@@ -36,29 +40,29 @@ export function About() {
                         <div className="space-y-10 max-w-xl">
                             {/* Single accent headline — Playfair Display italic */}
                             <h3 className="accent-headline text-3xl sm:text-4xl text-foreground">
-                                i design systems that turn complexity into something quiet.
+                                {t.about.headline}
                             </h3>
 
                             {/* Supporting text — Inter Regular */}
                             <div className="space-y-1 text-lg text-foreground/70" style={{ lineHeight: 1.6 }}>
-                                <p>ai agents.</p>
-                                <p>autonomous workflows.</p>
-                                <p>clear architecture.</p>
+                                <p>{t.about.p1}</p>
+                                <p>{t.about.p2}</p>
+                                <p>{t.about.p3}</p>
                             </div>
 
                             <p className="body-text text-base">
-                                from data and models to automation, everything is built to reduce friction — not create it.
+                                {t.about.description}
                             </p>
 
                             {/* Signature principles */}
                             <div className="pt-8 border-t border-border space-y-4">
                                 <div className="space-y-1">
-                                    <p className="text-[11px] font-mono lowercase tracking-[0.1em] text-accent">less is more.</p>
-                                    <p className="text-[11px] font-mono lowercase tracking-[0.1em] text-muted-foreground">clarity over complexity.</p>
+                                    <p className="text-[11px] font-mono lowercase tracking-[0.1em] text-accent">{t.about.less_is_more}</p>
+                                    <p className="text-[11px] font-mono lowercase tracking-[0.1em] text-muted-foreground">{t.about.clarity}</p>
                                 </div>
                                 <div className="space-y-0.5">
-                                    <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-muted-foreground/50">location</span>
-                                    <p className="text-sm text-foreground/80">Paris — Worldwide</p>
+                                    <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-muted-foreground/50">{t.about.location_label}</span>
+                                    <p className="text-sm text-foreground/80">{t.about.location_value}</p>
                                 </div>
                             </div>
                         </div>

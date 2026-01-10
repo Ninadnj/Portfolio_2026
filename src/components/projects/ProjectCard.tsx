@@ -18,6 +18,8 @@ interface ProjectCardProps {
     iframeUrl?: string
     caseNotes?: string
     isReversed?: boolean
+    launchSiteLabel?: string
+    caseNotesLabel?: string
 }
 
 export function ProjectCard({
@@ -29,7 +31,9 @@ export function ProjectCard({
     liveUrl,
     iframeUrl,
     caseNotes,
-    isReversed = false
+    isReversed = false,
+    launchSiteLabel = "launch site",
+    caseNotesLabel = "case notes"
 }: ProjectCardProps) {
     const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop")
 
@@ -65,12 +69,12 @@ export function ProjectCard({
                         {liveUrl && liveUrl !== "#" && (
                             <Button size="sm" className="btn-premium rounded-full h-9 lowercase" asChild>
                                 <Link href={liveUrl} target="_blank">
-                                    launch site <ExternalLink className="ml-2 h-3 w-3" />
+                                    {launchSiteLabel} <ExternalLink className="ml-2 h-3 w-3" />
                                 </Link>
                             </Button>
                         )}
                         <Button variant="outline" size="sm" className="btn-premium rounded-full h-9 border-border hover:bg-secondary lowercase" onClick={() => { }}>
-                            case notes <Info className="ml-2 h-3 w-3" />
+                            {caseNotesLabel} <Info className="ml-2 h-3 w-3" />
                         </Button>
                     </div>
                 </div>

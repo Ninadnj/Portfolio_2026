@@ -1,23 +1,32 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Cpu, Zap, Share2, Calendar, Send, Bot, User } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Workflows() {
+    const { t } = useLanguage()
     const [messages, setMessages] = useState([
-        { role: 'assistant', content: "hi! i'm nina's ai assistant. i can help you with project inquiries, technical skills, and contact information. how can i assist you today?" }
+        { role: 'assistant', content: t.workflows.chat_initial }
     ])
+
+    // Update chat message when language changes
+    useEffect(() => {
+        setMessages([
+            { role: 'assistant', content: t.workflows.chat_initial }
+        ])
+    }, [t.workflows.chat_initial])
 
     return (
         <section id="workflows" className="py-24 sm:py-32 bg-secondary/30 border-t border-border">
             <div className="container mx-auto px-4 max-w-6xl">
-                <span className="section-label">02 // interactive interface</span>
+                <span className="section-label">{t.workflows.section_label}</span>
                 <div className="mb-16 max-w-xl">
-                    <h3 className="accent-headline text-2xl sm:text-3xl text-foreground mb-6">autonomous workflow logic</h3>
+                    <h3 className="accent-headline text-2xl sm:text-3xl text-foreground mb-6">{t.workflows.headline}</h3>
                     <p className="body-text">
-                        demonstrating specialized intent detection and autonomous response loops. systems designed to orchestrate complex tasks across multiple apis.
+                        {t.workflows.description}
                     </p>
                 </div>
 
@@ -27,7 +36,7 @@ export function Workflows() {
                         <div className="p-4 border-b border-border bg-card/50 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="h-1.5 w-1.5 rounded-full bg-accent" />
-                                <span className="text-[10px] font-mono lowercase tracking-[0.1em]">live system demo</span>
+                                <span className="text-[10px] font-mono lowercase tracking-[0.1em]">{t.workflows.live_demo}</span>
                             </div>
                             <Bot className="h-4 w-4 text-muted-foreground" />
                         </div>
@@ -54,7 +63,7 @@ export function Workflows() {
                             <div className="flex gap-3">
                                 <input
                                     type="text"
-                                    placeholder="inquire about technical architecture..."
+                                    placeholder={t.workflows.input_placeholder}
                                     className="flex-1 bg-background border border-border rounded-xl px-5 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-accent/50 transition-all lowercase"
                                 />
                                 <button className="h-11 w-11 flex items-center justify-center rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity">
@@ -68,7 +77,7 @@ export function Workflows() {
                     <div className="lg:col-span-2 glass-card rounded-2xl p-8 h-full border-border bg-card/20">
                         <div className="space-y-10">
                             <div>
-                                <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-accent mb-4 block">system logic</span>
+                                <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-accent mb-4 block">{t.workflows.system_logic}</span>
                                 <div className="aspect-square bg-muted/30 rounded-xl border border-border p-6 flex items-center justify-center relative overflow-hidden">
                                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--accent)_0%,transparent_70%)] opacity-[0.05]" />
                                     <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-6">
@@ -77,14 +86,14 @@ export function Workflows() {
                                         </div>
                                         <div className="grid grid-cols-2 gap-3 w-full">
                                             {[
-                                                { label: "Intent", icon: <Zap className="h-3 w-3" /> },
-                                                { label: "Sync", icon: <Share2 className="h-3 w-3" /> },
-                                                { label: "Vector", icon: <Cpu className="h-3 w-3" /> },
-                                                { label: "API", icon: <Share2 className="h-3 w-3" /> }
+                                                { label: t.workflows.nodes.intent, icon: <Zap className="h-3 w-3" /> },
+                                                { label: t.workflows.nodes.sync, icon: <Share2 className="h-3 w-3" /> },
+                                                { label: t.workflows.nodes.vector, icon: <Cpu className="h-3 w-3" /> },
+                                                { label: t.workflows.nodes.api, icon: <Share2 className="h-3 w-3" /> }
                                             ].map((node, i) => (
                                                 <div key={i} className="bg-background/80 border border-border rounded-lg p-3 flex items-center gap-2">
                                                     <div className="text-accent">{node.icon}</div>
-                                                    <span className="text-[10px] font-mono lowercase tracking-wide">{node.label.toLowerCase()}</span>
+                                                    <span className="text-[10px] font-mono lowercase tracking-wide">{node.label}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -93,14 +102,9 @@ export function Workflows() {
                             </div>
 
                             <div className="space-y-4">
-                                <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-muted-foreground block">capabilities</span>
+                                <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-muted-foreground block">{t.workflows.capabilities}</span>
                                 <div className="space-y-3">
-                                    {[
-                                        "natural language understanding",
-                                        "context-aware rag pipelines",
-                                        "autonomous api orchestration",
-                                        "multi-channel message routing"
-                                    ].map((cap, i) => (
+                                    {t.workflows.cap_items.map((cap, i) => (
                                         <div key={i} className="flex items-center gap-3 text-xs text-foreground/70">
                                             <div className="h-1 w-1 rounded-full bg-border" />
                                             {cap}

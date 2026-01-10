@@ -7,8 +7,11 @@ import { Projects } from "@/components/sections/Projects"
 import { Contact } from "@/components/sections/Contact"
 import { ArrowUp } from "lucide-react"
 import Link from "next/link"
+import { useLanguage } from "@/context/LanguageContext"
 
 export default function Home() {
+  const { t } = useLanguage()
+
   return (
     <main className="min-h-screen">
       <Hero />
@@ -29,17 +32,17 @@ export default function Home() {
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="text-[11px] lowercase tracking-[0.05em] text-muted-foreground hover:text-foreground transition-all flex items-center gap-2 group"
               >
-                top <ArrowUp className="h-3 w-3 group-hover:-translate-y-0.5 transition-transform" />
+                {t.footer.top} <ArrowUp className="h-3 w-3 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
           </div>
 
           <div className="mt-16 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-3">
             <p className="text-[10px] lowercase tracking-[0.08em] text-muted-foreground/50">
-              © 2026 all rights reserved.
+              {t.footer.rights}
             </p>
             <p className="text-[10px] lowercase tracking-[0.08em] text-muted-foreground/50">
-              Paris, France
+              {t.footer.location}
             </p>
           </div>
         </div>

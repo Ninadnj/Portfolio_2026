@@ -1,19 +1,20 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Mail, Linkedin, MessageSquare, ArrowRight } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Contact() {
+    const { t } = useLanguage()
+
     return (
         <section id="contact" className="py-24 sm:py-32 border-t border-border bg-secondary/10">
             <div className="container mx-auto px-4 max-w-6xl">
-                <span className="section-label">04 // contact</span>
+                <span className="section-label">{t.contact.section_label}</span>
                 <div className="max-w-lg mx-auto">
                     <div className="grid grid-cols-1 gap-3">
                         {[
-                            { label: "email", value: "contact via mail", href: "mailto:ninodoinjashvili@gmail.com", icon: <Mail className="h-4 w-4" /> },
-                            { label: "linkedin", value: "connect professionally", href: "https://www.linkedin.com/in/nina-doinjashvili-8928815a/", icon: <Linkedin className="h-4 w-4" /> },
-                            { label: "whatsapp", value: "direct message", href: "https://w.app/nina", icon: <MessageSquare className="h-4 w-4" /> }
+                            { label: "email", value: t.contact.email_value, href: "mailto:ninodoinjashvili@gmail.com", icon: <Mail className="h-4 w-4" /> },
+                            { label: "linkedin", value: t.contact.linkedin_value, href: "https://www.linkedin.com/in/nina-doinjashvili-8928815a/", icon: <Linkedin className="h-4 w-4" /> },
+                            { label: "whatsapp", value: t.contact.whatsapp_value, href: "https://w.app/nina", icon: <MessageSquare className="h-4 w-4" /> }
                         ].map((item, i) => (
                             <motion.a
                                 key={i}
