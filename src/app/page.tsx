@@ -36,10 +36,10 @@ export default function Home() {
 
           <div className="mt-16 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-3">
             <p className="text-[10px] lowercase tracking-[0.08em] text-muted-foreground/50">
-              © 2025 all rights reserved.
+              © 2026 all rights reserved.
             </p>
             <p className="text-[10px] lowercase tracking-[0.08em] text-muted-foreground/50">
-              paris, france
+              Paris, France
             </p>
           </div>
         </div>

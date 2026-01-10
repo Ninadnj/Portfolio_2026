@@ -131,13 +131,14 @@
 
 @layer components {
   .glass-card {
-    @apply relative overflow-hidden backdrop-blur-md transition-all duration-300;
+    @apply relative overflow-hidden backdrop-blur-md transition-all duration-500 ease-out;
     background: color-mix(in srgb, var(--card) 60%, transparent);
     border: 1px solid var(--border);
   }
 
   .glass-card:hover {
     @apply border-accent/20 shadow-xl shadow-accent/5;
+    transform: translateY(-2px);
   }
 
   /* Section labels: monospace, quiet */
@@ -148,10 +149,15 @@
 
   /* Premium button: Inter Medium, restrained */
   .btn-premium {
-    @apply h-11 px-7 font-sans transition-all duration-200 active:scale-[0.98];
+    @apply h-11 px-7 font-sans transition-all duration-300 active:scale-[0.98];
     font-weight: 500;
     font-size: 0.8125rem;
     letter-spacing: -0.01em;
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 20%, transparent);
   }
 
   /* Body text utility: generous line-height */
@@ -159,4 +165,45 @@
     @apply text-base text-muted-foreground leading-relaxed;
     line-height: 1.6;
   }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced animations */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtleFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Smooth link/button hover transitions */
+a,
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Image hover zoom */
+img {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }

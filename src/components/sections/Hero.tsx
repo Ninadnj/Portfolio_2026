@@ -12,27 +12,27 @@ export function Hero() {
 
             <div className="container relative z-10 mx-auto px-4 max-w-5xl">
                 <motion.span
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="section-label text-center block"
                 >
-                    portfolio 2025
+                    portfolio 2026
                 </motion.span>
 
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="body-text max-w-xl mx-auto text-center mb-10"
                 >
                     building autonomous agents and intelligent workflows that eliminate manual overhead. systems designed for clarity.
                 </motion.p>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-3"
                 >
                     <Button size="lg" className="btn-premium w-full sm:w-auto" asChild>
