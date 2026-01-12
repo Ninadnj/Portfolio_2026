@@ -40,6 +40,10 @@ export function Projects() {
             tags: ["React", "Express", "MongoDB", "Auth"],
             liveUrl: "https://ninadnj.github.io/bookingwebapp/",
             iframeUrl: "https://ninadnj.github.io/bookingwebapp/",
+        },
+        {
+            image: "/loyalty-program-thumb.jpg",
+            tags: ["n8n", "GPT-4 Vision", "WhatsApp API", "Google Sheets"],
         }
     ]
 

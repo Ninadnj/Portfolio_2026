@@ -84,6 +84,11 @@ export const translations = {
                     title: "Booking Application Demo",
                     description: "Full-featured booking system for service businesses. Handles appointment scheduling, calendar integration, and customer management. Reduced admin time by 60%.",
                     caseNotes: "Created a full-stack booking system with real-time availability and automated notifications."
+                },
+                {
+                    title: "Loyalty Program Automation",
+                    description: "End-to-end customer loyalty system with AI-powered receipt scanning. Uses GPT-4 Vision to extract purchase amounts from photos, automatically calculates points, and distributes voucher codes via WhatsApp and Telegram.",
+                    caseNotes: "Built an autonomous loyalty workflow using n8n orchestration, OpenAI Vision API for OCR, Google Sheets as database, and multi-channel messaging for seamless customer engagement."
                 }
             ]
         },
@@ -182,6 +187,11 @@ export const translations = {
                     title: "Démonstration d'Application de Réservation",
                     description: "Système de réservation complet pour les entreprises de services. Gère la prise de rendez-vous, l'intégration du calendrier et la gestion des clients. Réduction du temps administratif de 60%.",
                     caseNotes: "Création d'un système de réservation full-stack avec disponibilité en temps réel et notifications automatisées."
+                },
+                {
+                    title: "Automatisation de Programme de Fidélité",
+                    description: "Système de fidélité client complet avec scan de reçus alimenté par l'IA. Utilise GPT-4 Vision pour extraire les montants d'achat des photos, calcule automatiquement les points et distribue des codes de bons via WhatsApp et Telegram.",
+                    caseNotes: "Création d'un workflow de fidélité autonome utilisant l'orchestration n8n, l'API Vision OpenAI pour l'OCR, Google Sheets comme base de données et la messagerie multi-canaux pour un engagement client fluide."
                 }
             ]
         },
