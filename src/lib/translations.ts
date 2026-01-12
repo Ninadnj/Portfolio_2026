@@ -16,7 +16,7 @@ export const translations = {
         },
         about: {
             section_label: "01 // Background",
-            headline: "i design systems that turn complexity into something quiet.",
+            headline: "Applied Data Scientist building production-ready ML & AI automation systems.",
             p1: "ai agents.",
             p2: "autonomous workflows.",
             p3: "clear architecture.",
@@ -119,7 +119,7 @@ export const translations = {
         },
         about: {
             section_label: "01 // Contexte",
-            headline: "je conçois des systèmes qui transforment la complexité en quelque chose de calme.",
+            headline: "Data Scientist Appliqué créant des systèmes ML & IA d'automatisation prêts pour la production.",
             p1: "agents ia.",
             p2: "workflows autonomes.",
             p3: "architecture claire.",
