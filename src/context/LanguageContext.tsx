@@ -38,14 +38,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         t: translations[language]
     }
 
-    // Prevent flash of wrong content by rendering only after mounting
-    if (!mounted) {
-        return <div className="invisible">{children}</div>
-    }
-
     return (
         <LanguageContext.Provider value={value}>
-            {children}
+            {!mounted ? (
+                <div className="invisible">{children}</div>
+            ) : (
+                children
+            )}
         </LanguageContext.Provider>
     )
 }

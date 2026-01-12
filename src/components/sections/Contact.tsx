@@ -1,6 +1,8 @@
 "use client"
 
 import { useLanguage } from "@/context/LanguageContext"
+import { motion } from "framer-motion"
+import { Mail, Linkedin, MessageSquare, ArrowRight } from "lucide-react"
 
 export function Contact() {
     const { t } = useLanguage()
