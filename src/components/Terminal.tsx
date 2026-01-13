@@ -25,27 +25,27 @@ const commands: Record<string, string | string[]> = {
         "Tip: Press ↑/↓ for command history"
     ],
     whoami: [
-        "Nina",
+        "Nina Doinjashvili",
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "",
-        "Applied Data Scientist building",
-        "production-ready ML & AI automation systems.",
+        "Applied AI Engineer",
+        "Machine Learning Systems & AI Automation",
         "",
         "Location: Paris — Worldwide",
-        "Focus: Deep Learning, AI Agents, Automation"
+        "Focus: Deep Learning, AI Agents, ML Automation"
     ],
     skills: [
         "Technical Skills",
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "",
-        "ML/DL      → TensorFlow, Keras, PyTorch, scikit-learn",
-        "AI         → GPT-4, LangChain, RAG, Vision APIs",
-        "Automation → n8n, Make, Zapier, Custom workflows",
-        "Backend    → Python, Node.js, Express, FastAPI",
-        "Frontend   → React, Next.js, TypeScript",
-        "Data       → Pandas, NumPy, SQL, Google Sheets API",
-        "Cloud      → GCP, Docker, GitHub Actions",
-        "APIs       → WhatsApp, Telegram, Calendar, OpenAI"
+        "ML/DL       → TensorFlow, Keras, PyTorch, scikit-learn",
+        "AI/LLM      → GPT-4, LangChain, Hugging Face, RAG",
+        "Vision      → OpenAI Vision API, Computer Vision",
+        "Automation  → n8n, Make, Zapier, Workflow orchestration",
+        "Python      → FastAPI, Pandas, NumPy, Data processing",
+        "Data        → SQL, Google Sheets API, Data pipelines",
+        "Cloud/Ops   → GCP, Docker, GitHub Actions, CI/CD",
+        "APIs        → WhatsApp, Telegram, Calendar, OpenAI"
     ],
     projects: [
         "Selected Projects",
@@ -69,8 +69,8 @@ const commands: Record<string, string | string[]> = {
         "Contact",
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "",
-        "Email    → contact@nina.dev",
-        "LinkedIn → linkedin.com/in/nina",
+        "Email    → ninodoinjashvili@gmail.com",
+        "LinkedIn → linkedin.com/in/nina-doinjashvili-8928815a",
         "GitHub   → github.com/Ninadnj",
         "WhatsApp → Available on request",
         "",

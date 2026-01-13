@@ -9,7 +9,7 @@ import { SideProjects } from "@/components/sections/SideProjects"
 import { Blog } from "@/components/sections/Blog"
 import { Contact } from "@/components/sections/Contact"
 import { Terminal } from "@/components/Terminal"
-import { ArrowUp, Github, FileDown, TerminalSquare } from "lucide-react"
+import { ArrowUp, Github, FileDown, TerminalSquare, Linkedin } from "lucide-react"
 import Link from "next/link"
 import { useLanguage } from "@/context/LanguageContext"
 
@@ -63,6 +63,16 @@ export default function Home() {
           <Github className="h-4 w-4 text-muted-foreground group-hover:text-accent transition-colors" />
         </Link>
 
+        {/* LinkedIn */}
+        <Link
+          href="https://www.linkedin.com/in/nina-doinjashvili-8928815a/"
+          target="_blank"
+          className="p-3 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:border-accent hover:bg-accent/10 transition-all shadow-lg group"
+          title="LinkedIn Profile"
+        >
+          <Linkedin className="h-4 w-4 text-muted-foreground group-hover:text-accent transition-colors" />
+        </Link>
+
         {/* Resume Download */}
         <a
           href={`${process.env.NODE_ENV === 'production' ? '/Portfolio_2026' : ''}/Nina_Resume_2026.pdf`}
@@ -88,6 +98,13 @@ export default function Home() {
                   className="text-[11px] lowercase tracking-[0.05em] text-muted-foreground hover:text-foreground transition-all flex items-center gap-1.5"
                 >
                   <Github className="h-3 w-3" /> github
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/nina-doinjashvili-8928815a/"
+                  target="_blank"
+                  className="text-[11px] lowercase tracking-[0.05em] text-muted-foreground hover:text-foreground transition-all flex items-center gap-1.5"
+                >
+                  <Linkedin className="h-3 w-3" /> linkedin
                 </Link>
                 <a
                   href={`${process.env.NODE_ENV === 'production' ? '/Portfolio_2026' : ''}/Nina_Resume_2026.pdf`}
