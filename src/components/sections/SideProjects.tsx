@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Monitor, Smartphone } from "lucide-react"
+import { ExternalLink, Monitor, Smartphone, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { useLanguage } from "@/context/LanguageContext"
 
@@ -18,6 +18,7 @@ interface SideProjectProps {
 
 function SideProjectCard({ title, description, iframeUrl, tags, liveUrl }: SideProjectProps) {
     const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop")
+    const [isLoading, setIsLoading] = useState(true)
 
     return (
         <motion.div
@@ -56,6 +57,16 @@ function SideProjectCard({ title, description, iframeUrl, tags, liveUrl }: SideP
                         </div>
                     </div>
 
+                    {/* Loading State */}
+                    {isLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-muted/30 backdrop-blur-sm z-20">
+                            <div className="flex flex-col items-center gap-3">
+                                <Loader2 className="h-6 w-6 animate-spin text-accent" />
+                                <p className="text-xs text-muted-foreground font-mono">loading preview...</p>
+                            </div>
+                        </div>
+                    )}
+
                     {/* Iframe */}
                     <div className="absolute inset-0 pt-9">
                         <iframe
@@ -66,6 +77,7 @@ function SideProjectCard({ title, description, iframeUrl, tags, liveUrl }: SideP
                                 }`}
                             title={`${title} Live Preview`}
                             loading="lazy"
+                            onLoad={() => setIsLoading(false)}
                         />
                     </div>
                 </div>
@@ -130,7 +142,7 @@ export function SideProjects() {
     ]
 
     return (
-        <section id="side-projects" className="py-24 sm:py-32 border-t border-border bg-muted/10">
+        <section id="side-projects" className="py-32 border-t border-border bg-muted/10">
             <div className="container mx-auto px-4 max-w-6xl">
                 <span className="section-label">{t.sideProjects.section_label}</span>
                 <div className="mb-16 max-w-xl">

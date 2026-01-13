@@ -103,29 +103,52 @@
     font-family: var(--font-sans), system-ui, sans-serif;
     font-weight: 400;
     letter-spacing: -0.01em;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
-  /* Primary headings: Inter Medium, restrained */
-  h1,
-  h2,
-  h3,
+  /* Primary headings: Better hierarchy with varied weights */
+  h1 {
+    @apply font-sans text-foreground;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply font-sans text-foreground;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply font-sans text-foreground;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
   h4,
   h5,
   h6 {
     @apply font-sans text-foreground;
     font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    letter-spacing: -0.015em;
+    line-height: 1.4;
   }
 
-  /* Accent headline class: Inter Medium, tight tracking */
+  /* Accent headline class: Bolder for impact */
   .accent-headline {
     font-family: var(--font-sans), system-ui, sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
     letter-spacing: -0.025em;
     line-height: 1.15;
+  }
+
+  /* Paragraph spacing */
+  p {
+    line-height: 1.7;
   }
 }
 
@@ -141,13 +164,13 @@
     transform: translateY(-2px);
   }
 
-  /* Section labels: monospace, quiet */
+  /* Section labels: Smaller, lighter */
   .section-label {
-    @apply font-mono text-[10px] lowercase tracking-[0.15em] text-muted-foreground mb-6 block;
+    @apply font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/60 mb-8 block;
     font-weight: 400;
   }
 
-  /* Premium button: Inter Medium, restrained */
+  /* Premium button: Better weight */
   .btn-premium {
     @apply h-11 px-7 font-sans transition-all duration-300 active:scale-[0.98];
     font-weight: 500;
@@ -160,10 +183,11 @@
     box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 20%, transparent);
   }
 
-  /* Body text utility: generous line-height */
+  /* Body text utility: Better readability */
   .body-text {
-    @apply text-base text-muted-foreground leading-relaxed;
-    line-height: 1.6;
+    @apply text-base text-muted-foreground;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
   }
 }
 
