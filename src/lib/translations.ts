@@ -104,8 +104,13 @@ export const translations = {
                 }
             ]
         },
+        blog: {
+            section_label: "05 // writing",
+            headline: "technical notes",
+            description: "thoughts on building ml systems, ai automation, and lessons from production."
+        },
         contact: {
-            section_label: "05 // contact",
+            section_label: "06 // contact",
             email_value: "contact via mail",
             linkedin_value: "connect professionally",
             whatsapp_value: "direct message"
@@ -219,8 +224,13 @@ export const translations = {
                 }
             ]
         },
+        blog: {
+            section_label: "05 // écriture",
+            headline: "notes techniques",
+            description: "réflexions sur la construction de systèmes ml, l'automatisation ia et les leçons de production."
+        },
         contact: {
-            section_label: "05 // contact",
+            section_label: "06 // contact",
             email_value: "contact par e-mail",
             linkedin_value: "connexion professionnelle",
             whatsapp_value: "message direct"
