@@ -10,40 +10,20 @@ export function Projects() {
 
     const projectsConfig = [
         {
-            visual: <BookingAgentVisual />,
-            tags: ["n8n", "GPT-4", "LangChain", "Calendar API"],
-            liveUrl: "#",
-        },
-        {
-            visual: <ContentEngineVisual />,
-            tags: ["n8n", "LLM", "APIs", "Automation"],
-            liveUrl: "#",
-        },
-        {
             image: "/colorizer-thumb.png",
             tags: ["TensorFlow", "Keras", "GAN", "Python"],
         },
         {
-            image: "/booking-agent-thumb.jpg",
-            tags: ["React", "Node.js", "Calendar API", "SMS Reminders"],
-            liveUrl: "https://themrstudio.net",
-            iframeUrl: "https://themrstudio.net",
-        },
-        {
-            image: "/booking-agent-workflow.jpg",
-            tags: ["Next.js", "Framer Motion", "Tailwind", "Responsive"],
-            liveUrl: "https://ninadnj.github.io/AlpineStay/",
-            iframeUrl: "https://ninadnj.github.io/AlpineStay/",
-        },
-        {
-            image: "/ai-agent-thumb.jpg",
-            tags: ["React", "Express", "MongoDB", "Auth"],
-            liveUrl: "https://ninadnj.github.io/bookingwebapp/",
-            iframeUrl: "https://ninadnj.github.io/bookingwebapp/",
+            visual: <BookingAgentVisual />,
+            tags: ["n8n", "GPT-4", "LangChain", "Calendar API"],
         },
         {
             image: "/loyalty-program-thumb.jpg",
             tags: ["n8n", "GPT-4 Vision", "WhatsApp API", "Google Sheets"],
+        },
+        {
+            visual: <ContentEngineVisual />,
+            tags: ["n8n", "LLM", "APIs", "Automation"],
         }
     ]
 
@@ -63,8 +43,10 @@ export function Projects() {
                         <ProjectCard
                             key={index}
                             title={project.title}
-                            description={project.description}
-                            caseNotes={project.caseNotes}
+                            problem={project.problem}
+                            approach={project.approach}
+                            solution={project.solution}
+                            outcome={project.outcome}
                             {...projectsConfig[index]}
                             isReversed={index % 2 !== 0}
                             launchSiteLabel={t.projects.launch_site}

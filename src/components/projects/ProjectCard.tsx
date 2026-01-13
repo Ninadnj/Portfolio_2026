@@ -10,13 +10,15 @@ import Link from "next/link"
 
 interface ProjectCardProps {
     title: string
-    description: string
+    problem?: string
+    approach?: string
+    solution?: string
+    outcome?: string
     image?: string
-    visual?: React.ReactNode // New prop for interactive visuals
+    visual?: React.ReactNode
     tags: string[]
     liveUrl?: string
     iframeUrl?: string
-    caseNotes?: string
     isReversed?: boolean
     launchSiteLabel?: string
     caseNotesLabel?: string
@@ -24,18 +26,21 @@ interface ProjectCardProps {
 
 export function ProjectCard({
     title,
-    description,
+    problem,
+    approach,
+    solution,
+    outcome,
     image,
     visual,
     tags,
     liveUrl,
     iframeUrl,
-    caseNotes,
     isReversed = false,
     launchSiteLabel = "launch site",
     caseNotesLabel = "case notes"
 }: ProjectCardProps) {
     const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop")
+    const [showDetails, setShowDetails] = useState(false)
 
     return (
         <motion.div
@@ -45,9 +50,9 @@ export function ProjectCard({
             transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="group"
         >
-            <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center`}>
+            <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start`}>
                 {/* Content */}
-                <div className={`lg:col-span-5 space-y-8 ${isReversed ? "lg:order-2" : ""}`}>
+                <div className={`lg:col-span-5 space-y-6 ${isReversed ? "lg:order-2" : ""}`}>
                     <div className="space-y-4">
                         <div className="flex flex-wrap gap-2">
                             {tags.map((tag) => (
@@ -61,9 +66,33 @@ export function ProjectCard({
                         </h3>
                     </div>
 
-                    <p className="body-text text-base">
-                        {description.toLowerCase()}
-                    </p>
+                    {/* Problem/Approach/Solution/Outcome Format */}
+                    <div className="space-y-4 text-sm">
+                        {problem && (
+                            <div>
+                                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent">problem</span>
+                                <p className="body-text mt-1">{problem.toLowerCase()}</p>
+                            </div>
+                        )}
+                        {approach && (
+                            <div>
+                                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent">approach</span>
+                                <p className="body-text mt-1">{approach.toLowerCase()}</p>
+                            </div>
+                        )}
+                        {solution && (
+                            <div>
+                                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent">solution</span>
+                                <p className="body-text mt-1">{solution.toLowerCase()}</p>
+                            </div>
+                        )}
+                        {outcome && (
+                            <div>
+                                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent">outcome</span>
+                                <p className="body-text mt-1">{outcome.toLowerCase()}</p>
+                            </div>
+                        )}
+                    </div>
 
                     <div className="flex flex-wrap gap-4 pt-4">
                         {liveUrl && liveUrl !== "#" && (

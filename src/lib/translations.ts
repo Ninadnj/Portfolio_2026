@@ -49,46 +49,39 @@ export const translations = {
             }
         },
         projects: {
-            section_label: "03 // selected case studies",
-            headline: "ai & agentic workflows",
-            description: "from autonomous agents to intelligent automation pipelines. each project represents clarity and precision.",
+            section_label: "03 // selected projects",
+            headline: "ml & ai automation",
+            description: "production-ready systems from model development to deployment. each project demonstrates end-to-end problem solving.",
             launch_site: "launch site",
             case_notes: "case notes",
             items: [
                 {
-                    title: "Autonomous AI Booking Agent",
-                    description: "A production-grade agentic workflow that manages the entire appointment lifecycle. It understands intent, checks real-time availability, and books into Google Calendar autonomously.",
-                    caseNotes: "Built as an end-to-end autonomous agent using n8n orchestration..."
-                },
-                {
-                    title: "Content Repurposing Engine",
-                    description: "A high-performance automation workflow that transforms a single content input into multiple platform-optimized formats. Eliminates manual rewriting across channels.",
-                    caseNotes: "Designed a multi-channel distribution engine that scales content creation without increasing manual overhead."
-                },
-                {
                     title: "Deep Learning Image Colorizer",
-                    description: "Implements a conditional GAN based on the Pix2Pix architecture, using a U-Net generator and a PatchGAN discriminator to perform grayscale-to-color image translation.",
-                    caseNotes: "Developed a deep generative model specialized in transforming grayscale archives into vibrant imagery..."
+                    problem: "Grayscale images require time-consuming manual colorization, limiting restoration of historical archives.",
+                    approach: "Implemented a conditional GAN using Pix2Pix architecture with U-Net generator and PatchGAN discriminator for image-to-image translation.",
+                    solution: "Built an end-to-end ML pipeline with TensorFlow/Keras — from data preprocessing to model training and inference.",
+                    outcome: "Demonstrated practical application of generative models, strengthening experience in deep learning architectures and image processing."
                 },
                 {
-                    title: "THE MR Studio",
-                    description: "Premium salon booking system — Streamlined appointments, reduced no-shows by 75%. Created a seamless appointment flow with calendar integration and automated reminders.",
-                    caseNotes: "Designed and developed a premium booking system for a high-end salon..."
-                },
-                {
-                    title: "AlpineStay Luxury",
-                    description: "Premium cabin booking platform — Quiet luxury aesthetic, cinematic scrolls. Focused on atmosphere and a seamless booking flow for high-end alpine retreats.",
-                    caseNotes: "Designed a quiet luxury booking experience with cinematic scroll reveals..."
-                },
-                {
-                    title: "Booking Application Demo",
-                    description: "Full-featured booking system for service businesses. Handles appointment scheduling, calendar integration, and customer management. Reduced admin time by 60%.",
-                    caseNotes: "Created a full-stack booking system with real-time availability and automated notifications."
+                    title: "Autonomous AI Booking Agent",
+                    problem: "Manual appointment scheduling creates operational overhead and requires constant human intervention.",
+                    approach: "Designed an agentic workflow using n8n with GPT-4 for intent classification and LangChain for context-aware responses.",
+                    solution: "Production-grade agent that autonomously handles booking requests, checks real-time availability, and syncs with Google Calendar API.",
+                    outcome: "Achieved end-to-end task automation, eliminating manual booking overhead with autonomous decision-making."
                 },
                 {
                     title: "Loyalty Program Automation",
-                    description: "End-to-end customer loyalty system with AI-powered receipt scanning. Uses GPT-4 Vision to extract purchase amounts from photos, automatically calculates points, and distributes voucher codes via WhatsApp and Telegram.",
-                    caseNotes: "Built an autonomous loyalty workflow using n8n orchestration, OpenAI Vision API for OCR, Google Sheets as database, and multi-channel messaging for seamless customer engagement."
+                    problem: "Customer loyalty programs require manual receipt verification, points tracking, and reward distribution.",
+                    approach: "Integrated GPT-4 Vision for receipt OCR with automated points calculation logic and multi-channel messaging APIs.",
+                    solution: "Deployed n8n workflow connecting WhatsApp/Telegram, OpenAI Vision API, and Google Sheets for seamless loyalty management.",
+                    outcome: "Created production-ready automation handling customer engagement without human intervention — bridging AI vision with business logic."
+                },
+                {
+                    title: "Content Repurposing Engine",
+                    problem: "Creating platform-optimized content across multiple channels is inefficient and doesn't scale.",
+                    approach: "Built a multi-channel transformation engine using LLM APIs with platform-specific prompting strategies.",
+                    solution: "Automated workflow that transforms single content input into multiple optimized formats for different platforms.",
+                    outcome: "Scaled content production without increasing manual overhead — demonstrating practical LLM integration for business automation."
                 }
             ]
         },
@@ -152,46 +145,39 @@ export const translations = {
             }
         },
         projects: {
-            section_label: "03 // études de cas sélectionnées",
-            headline: "ia & workflows agentiques",
-            description: "des agents autonomes aux pipelines d'automatisation intelligente. chaque projet représente clarté et précision.",
+            section_label: "03 // projets sélectionnés",
+            headline: "ml & automatisation ia",
+            description: "systèmes prêts pour la production, du développement de modèles au déploiement. chaque projet démontre une résolution de problèmes de bout en bout.",
             launch_site: "voir le site",
             case_notes: "notes de cas",
             items: [
                 {
-                    title: "Agent de Réservation IA Autonome",
-                    description: "Un workflow agentique de niveau production qui gère tout le cycle de rendez-vous. Il comprend l'intention, vérifie la disponibilité en temps réel et réserve dans Google Calendar de manière autonome.",
-                    caseNotes: "Construit comme un agent autonome de bout en bout utilisant l'orchestration n8n..."
+                    title: "Coloriseur d'Image Deep Learning",
+                    problem: "Les images en niveaux de gris nécessitent une colorisation manuelle chronophage, limitant la restauration d'archives historiques.",
+                    approach: "Implémentation d'un GAN conditionnel avec architecture Pix2Pix utilisant un générateur U-Net et un discriminateur PatchGAN.",
+                    solution: "Construction d'un pipeline ML complet avec TensorFlow/Keras — du prétraitement des données à l'entraînement et l'inférence.",
+                    outcome: "Démonstration de l'application pratique des modèles génératifs, renforçant l'expérience en architectures deep learning."
+                },
+                {
+                    title: "Agent IA Autonome de Réservation",
+                    problem: "La prise de rendez-vous manuelle crée une surcharge opérationnelle et nécessite une intervention humaine constante.",
+                    approach: "Conception d'un workflow agentique avec n8n, GPT-4 pour la classification d'intention et LangChain pour les réponses contextuelles.",
+                    solution: "Agent de niveau production gérant les demandes de réservation, vérifiant la disponibilité et synchronisant avec l'API Google Calendar.",
+                    outcome: "Automatisation de bout en bout éliminant la surcharge manuelle avec prise de décision autonome."
+                },
+                {
+                    title: "Automatisation Programme de Fidélité",
+                    problem: "Les programmes de fidélité nécessitent une vérification manuelle des reçus, suivi des points et distribution des récompenses.",
+                    approach: "Intégration de GPT-4 Vision pour l'OCR des reçus avec logique de calcul de points et APIs de messagerie multi-canaux.",
+                    solution: "Déploiement d'un workflow n8n connectant WhatsApp/Telegram, l'API Vision OpenAI et Google Sheets.",
+                    outcome: "Automatisation production-ready gérant l'engagement client sans intervention humaine — liant vision IA et logique métier."
                 },
                 {
                     title: "Moteur de Réutilisation de Contenu",
-                    description: "Un workflow d'automatisation haute performance qui transforme une entrée de contenu unique en plusieurs formats optimisés pour les plateformes. Élimine la réécriture manuelle sur les canaux.",
-                    caseNotes: "Conception d'un moteur de distribution multi-canaux qui gère la création de contenu sans augmenter la charge manuelle."
-                },
-                {
-                    title: "Coloriseur d'Image Deep Learning",
-                    description: "Implémente un GAN conditionnel basé sur l'architecture Pix2Pix, utilisant un générateur U-Net et un discriminateur PatchGAN pour effectuer la traduction d'image noir et blanc vers couleur.",
-                    caseNotes: "Développement d'un modèle génératif profond spécialisé dans la transformation d'archives en niveaux de gris en imagerie vibrante..."
-                },
-                {
-                    title: "THE MR Studio",
-                    description: "Système de réservation de salon premium — Rendez-vous rationalisés, réduction des absences de 75%. Création d'un flux de rendez-vous fluide avec intégration de calendrier et rappels automatisés.",
-                    caseNotes: "Conception et développement d'un système de réservation premium pour un salon haut de gamme..."
-                },
-                {
-                    title: "AlpineStay Luxury",
-                    description: "Plateforme de réservation de chalets premium — Esthétique luxe calme, défilements cinématiques. Axé sur l'atmosphère et un flux de réservation fluide pour des retraites alpines haut de gamme.",
-                    caseNotes: "Conception d'une expérience de réservation luxe calme avec des révélations cinématiques au défilement..."
-                },
-                {
-                    title: "Démonstration d'Application de Réservation",
-                    description: "Système de réservation complet pour les entreprises de services. Gère la prise de rendez-vous, l'intégration du calendrier et la gestion des clients. Réduction du temps administratif de 60%.",
-                    caseNotes: "Création d'un système de réservation full-stack avec disponibilité en temps réel et notifications automatisées."
-                },
-                {
-                    title: "Automatisation de Programme de Fidélité",
-                    description: "Système de fidélité client complet avec scan de reçus alimenté par l'IA. Utilise GPT-4 Vision pour extraire les montants d'achat des photos, calcule automatiquement les points et distribue des codes de bons via WhatsApp et Telegram.",
-                    caseNotes: "Création d'un workflow de fidélité autonome utilisant l'orchestration n8n, l'API Vision OpenAI pour l'OCR, Google Sheets comme base de données et la messagerie multi-canaux pour un engagement client fluide."
+                    problem: "Créer du contenu optimisé pour plusieurs plateformes est inefficace et ne passe pas à l'échelle.",
+                    approach: "Construction d'un moteur de transformation multi-canaux utilisant les APIs LLM avec des stratégies de prompting spécifiques.",
+                    solution: "Workflow automatisé transformant une entrée unique en formats optimisés pour différentes plateformes.",
+                    outcome: "Production de contenu à l'échelle sans augmenter la charge manuelle — démontrant l'intégration pratique des LLM."
                 }
             ]
         },
