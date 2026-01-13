@@ -16,7 +16,7 @@ export const translations = {
         },
         about: {
             section_label: "01 // Background",
-            headline: "Applied Data Scientist building production-ready ML & AI automation systems.",
+            headline: "Applied AI Engineer | Machine Learning Systems & AI Automation",
             p1: "ai agents.",
             p2: "autonomous workflows.",
             p3: "clear architecture.",
@@ -136,7 +136,7 @@ export const translations = {
         },
         about: {
             section_label: "01 // Contexte",
-            headline: "Data Scientist Appliqué créant des systèmes ML & IA d'automatisation prêts pour la production.",
+            headline: "Ingénieur IA Appliqué | Systèmes Machine Learning & Automatisation IA",
             p1: "agents ia.",
             p2: "workflows autonomes.",
             p3: "architecture claire.",
