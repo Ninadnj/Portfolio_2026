@@ -12,6 +12,8 @@ export function Projects() {
         {
             image: "/colorizer-thumb.png",
             tags: ["TensorFlow", "Keras", "GAN", "Python"],
+            liveUrl: "https://huggingface.co/spaces/NinaDNJ/image-colorizer",
+            iframeUrl: "https://ninadnj-image-colorizer.hf.space",
         },
         {
             visual: <BookingAgentVisual />,
