@@ -117,7 +117,7 @@ export const translations = {
         },
         footer: {
             top: "top",
-            rights: "© 2026 all rights reserved.",
+            rights: "Created by Nina.",
             location: "Paris, France"
         }
     },
@@ -237,7 +237,7 @@ export const translations = {
         },
         footer: {
             top: "haut",
-            rights: "© 2026 tous droits réservés.",
+            rights: "Créé par Nina.",
             location: "Paris, France"
         }
     }
