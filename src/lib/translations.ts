@@ -85,8 +85,27 @@ export const translations = {
                 }
             ]
         },
+        sideProjects: {
+            section_label: "04 // side projects",
+            headline: "web development",
+            description: "full-stack applications and design-focused builds. practical systems deployed for real clients.",
+            items: [
+                {
+                    title: "THE MR Studio",
+                    description: "premium salon booking system — streamlined appointments, reduced no-shows by 75%. seamless calendar integration and automated sms reminders."
+                },
+                {
+                    title: "AlpineStay Luxury",
+                    description: "premium cabin booking platform — quiet luxury aesthetic with cinematic scroll reveals. focused on atmosphere and seamless booking flow."
+                },
+                {
+                    title: "Booking Application Demo",
+                    description: "full-featured booking system for service businesses. handles scheduling, calendar integration, and customer management. reduced admin time by 60%."
+                }
+            ]
+        },
         contact: {
-            section_label: "04 // contact",
+            section_label: "05 // contact",
             email_value: "contact via mail",
             linkedin_value: "connect professionally",
             whatsapp_value: "direct message"
@@ -181,8 +200,27 @@ export const translations = {
                 }
             ]
         },
+        sideProjects: {
+            section_label: "04 // projets annexes",
+            headline: "développement web",
+            description: "applications full-stack et constructions axées sur le design. systèmes pratiques déployés pour de vrais clients.",
+            items: [
+                {
+                    title: "THE MR Studio",
+                    description: "système de réservation de salon premium — rendez-vous rationalisés, réduction des absences de 75%. intégration de calendrier et rappels sms automatisés."
+                },
+                {
+                    title: "AlpineStay Luxury",
+                    description: "plateforme de réservation de chalets premium — esthétique luxe calme avec révélations cinématiques au défilement. axé sur l'atmosphère."
+                },
+                {
+                    title: "Démonstration Application de Réservation",
+                    description: "système de réservation complet pour entreprises de services. gère la prise de rendez-vous, intégration calendrier et gestion clients."
+                }
+            ]
+        },
         contact: {
-            section_label: "04 // contact",
+            section_label: "05 // contact",
             email_value: "contact par e-mail",
             linkedin_value: "connexion professionnelle",
             whatsapp_value: "message direct"

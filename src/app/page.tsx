@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero"
 import { About } from "@/components/sections/About"
 import { Workflows } from "@/components/sections/Workflows"
 import { Projects } from "@/components/sections/Projects"
+import { SideProjects } from "@/components/sections/SideProjects"
 import { Contact } from "@/components/sections/Contact"
 import { ArrowUp } from "lucide-react"
 import Link from "next/link"
@@ -18,6 +19,7 @@ export default function Home() {
       <About />
       <Workflows />
       <Projects />
+      <SideProjects />
       <Contact />
 
       <footer className="py-16 border-t border-border bg-background">
