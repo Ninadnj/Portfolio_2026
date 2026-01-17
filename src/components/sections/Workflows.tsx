@@ -11,6 +11,8 @@ export function Workflows() {
     const [messages, setMessages] = useState([
         { role: 'assistant', content: t.workflows.chat_initial }
     ])
+    const [input, setInput] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     // Update chat message when language changes
     useEffect(() => {
@@ -18,6 +20,58 @@ export function Workflows() {
             { role: 'assistant', content: t.workflows.chat_initial }
         ])
     }, [t.workflows.chat_initial])
+
+    const sendMessage = async () => {
+        if (!input.trim() || isLoading) return
+
+        const userMessage = input.trim()
+        setInput('')
+
+        // Add user message
+        setMessages(prev => [...prev, { role: 'user', content: userMessage }])
+        setIsLoading(true)
+
+        try {
+            // Send to n8n webhook
+            const response = await fetch('https://n8n.ninadnj.me/webhook/portfolio-chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ chatInput: userMessage })
+            })
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+
+            const data = await response.json()
+
+            // Extract response from various possible formats
+            const botResponse = data.output || data.response || data.text ||
+                (data[0]?.output) ||
+                "I received your message but couldn't generate a response. Please try again."
+
+            setMessages(prev => [...prev, { role: 'assistant', content: botResponse }])
+        } catch (error) {
+            console.error('Webhook error:', error)
+            // Fallback response
+            setMessages(prev => [...prev, {
+                role: 'assistant',
+                content: "I'm currently experiencing connection issues. Please try reaching out via email at ninodoinjashvili@gmail.com or check back later."
+            }])
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault()
+            sendMessage()
+        }
+    }
 
     return (
         <section id="workflows" className="py-24 sm:py-32 bg-secondary/30 border-t border-border">
@@ -42,31 +96,56 @@ export function Workflows() {
                         </div>
 
                         <div className="flex-1 overflow-y-auto p-8 space-y-6">
-                            {messages.map((msg, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                                >
-                                    <div className={`max-w-[85%] p-5 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
-                                        ? 'bg-primary text-primary-foreground shadow-lg'
-                                        : 'bg-muted/50 border border-border'
-                                        }`}>
-                                        {msg.content}
-                                    </div>
-                                </motion.div>
-                            ))}
+                            <AnimatePresence>
+                                {messages.map((msg, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                                    >
+                                        <div className={`max-w-[85%] p-5 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
+                                            ? 'bg-primary text-primary-foreground shadow-lg'
+                                            : 'bg-muted/50 border border-border'
+                                            }`}>
+                                            {msg.content}
+                                        </div>
+                                    </motion.div>
+                                ))}
+                                {isLoading && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="flex justify-start"
+                                    >
+                                        <div className="bg-muted/50 border border-border p-5 rounded-2xl flex items-center gap-2">
+                                            <div className="flex gap-1">
+                                                <div className="h-2 w-2 rounded-full bg-accent animate-bounce" style={{ animationDelay: '0ms' }} />
+                                                <div className="h-2 w-2 rounded-full bg-accent animate-bounce" style={{ animationDelay: '150ms' }} />
+                                                <div className="h-2 w-2 rounded-full bg-accent animate-bounce" style={{ animationDelay: '300ms' }} />
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </div>
 
                         <div className="p-6 bg-card/50 border-t border-border">
                             <div className="flex gap-3">
                                 <input
                                     type="text"
+                                    value={input}
+                                    onChange={(e) => setInput(e.target.value)}
+                                    onKeyPress={handleKeyPress}
                                     placeholder={t.workflows.input_placeholder}
-                                    className="flex-1 bg-background border border-border rounded-xl px-5 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-accent/50 transition-all lowercase"
+                                    disabled={isLoading}
+                                    className="flex-1 bg-background border border-border rounded-xl px-5 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-accent/50 transition-all lowercase disabled:opacity-50"
                                 />
-                                <button className="h-11 w-11 flex items-center justify-center rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity">
+                                <button
+                                    onClick={sendMessage}
+                                    disabled={isLoading || !input.trim()}
+                                    className="h-11 w-11 flex items-center justify-center rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
                                     <Send className="h-4 w-4" />
                                 </button>
                             </div>
