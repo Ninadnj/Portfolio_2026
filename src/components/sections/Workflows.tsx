@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Cpu, Zap, Share2, Calendar, Send, Bot, User } from "lucide-react"
@@ -13,6 +13,14 @@ export function Workflows() {
     ])
     const [input, setInput] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+    const chatContainerRef = useRef<HTMLDivElement>(null)
+
+    // Auto-scroll to bottom when messages change
+    useEffect(() => {
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+        }
+    }, [messages, isLoading])
 
     // Update chat message when language changes
     useEffect(() => {
@@ -86,16 +94,22 @@ export function Workflows() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
                     {/* Chat Interface */}
-                    <div className="lg:col-span-3 glass-card rounded-2xl overflow-hidden flex flex-col h-[550px]">
+                    <div className="lg:col-span-3 glass-card rounded-2xl overflow-hidden flex flex-col h-[550px] shadow-lg">
                         <div className="p-4 border-b border-border bg-card/50 flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                <div className="h-1.5 w-1.5 rounded-full bg-accent" />
-                                <span className="text-[10px] font-mono lowercase tracking-[0.1em]">{t.workflows.live_demo}</span>
+                                <div className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                                <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-foreground">{t.workflows.live_demo}</span>
                             </div>
-                            <Bot className="h-4 w-4 text-muted-foreground" />
+                            <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-muted/50 border border-border/50">
+                                    <Zap className="h-3 w-3 text-accent" />
+                                    <span className="text-[9px] font-mono lowercase tracking-wider text-muted-foreground">n8n</span>
+                                </div>
+                                <Bot className="h-4 w-4 text-muted-foreground" />
+                            </div>
                         </div>
 
-                        <div className="flex-1 overflow-y-auto p-8 space-y-6">
+                        <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-8 space-y-6 scroll-smooth">
                             <AnimatePresence>
                                 {messages.map((msg, i) => (
                                     <motion.div
@@ -131,23 +145,36 @@ export function Workflows() {
                         </div>
 
                         <div className="p-6 bg-card/50 border-t border-border">
-                            <div className="flex gap-3">
-                                <input
-                                    type="text"
-                                    value={input}
-                                    onChange={(e) => setInput(e.target.value)}
-                                    onKeyPress={handleKeyPress}
-                                    placeholder={t.workflows.input_placeholder}
-                                    disabled={isLoading}
-                                    className="flex-1 bg-background border border-border rounded-xl px-5 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-accent/50 transition-all lowercase disabled:opacity-50"
-                                />
-                                <button
-                                    onClick={sendMessage}
-                                    disabled={isLoading || !input.trim()}
-                                    className="h-11 w-11 flex items-center justify-center rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    <Send className="h-4 w-4" />
-                                </button>
+                            <div className="space-y-2">
+                                <div className="flex gap-3">
+                                    <input
+                                        type="text"
+                                        value={input}
+                                        onChange={(e) => setInput(e.target.value)}
+                                        onKeyPress={handleKeyPress}
+                                        placeholder={t.workflows.input_placeholder}
+                                        disabled={isLoading}
+                                        className="flex-1 bg-background border border-border rounded-xl px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all lowercase disabled:opacity-50 placeholder:text-muted-foreground/50"
+                                    />
+                                    <button
+                                        onClick={sendMessage}
+                                        disabled={isLoading || !input.trim()}
+                                        className="h-11 w-11 flex items-center justify-center rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-sm"
+                                        title="Send message (Enter)"
+                                    >
+                                        <Send className="h-4 w-4" />
+                                    </button>
+                                </div>
+                                <div className="flex items-center justify-between px-1">
+                                    <span className="text-[9px] font-mono text-muted-foreground/50 lowercase tracking-wide">
+                                        press enter to send
+                                    </span>
+                                    {input.trim() && !isLoading && (
+                                        <span className="text-[9px] font-mono text-accent/70 lowercase tracking-wide">
+                                            ready to send
+                                        </span>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
