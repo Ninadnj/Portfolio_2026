@@ -3,6 +3,7 @@
 import { ProjectCard } from "@/components/projects/ProjectCard"
 import { BookingAgentVisual } from "@/components/projects/BookingAgentVisual"
 import { ContentEngineVisual } from "@/components/projects/ContentEngineVisual"
+import { LoyaltyVisual } from "@/components/projects/LoyaltyVisual"
 import { UnifiedEngineVisual } from "@/components/projects/UnifiedEngineVisual"
 import { useLanguage } from "@/context/LanguageContext"
 
@@ -25,7 +26,7 @@ export function Projects() {
             tags: ["n8n", "GPT-4", "LangChain", "Calendar API"],
         },
         {
-            image: "/loyalty-program-thumb.jpg",
+            visual: <LoyaltyVisual />,
             tags: ["n8n", "GPT-4 Vision", "WhatsApp API", "Google Sheets"],
         },
         {
