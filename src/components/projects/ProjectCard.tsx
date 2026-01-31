@@ -14,6 +14,11 @@ interface ProjectCardProps {
     approach?: string
     solution?: string
     outcome?: string
+    architecture?: {
+        directive: string
+        orchestration: string
+        execution: string
+    }
     image?: string
     visual?: React.ReactNode
     tags: string[]
@@ -30,6 +35,7 @@ export function ProjectCard({
     approach,
     solution,
     outcome,
+    architecture,
     image,
     visual,
     tags,
@@ -40,7 +46,7 @@ export function ProjectCard({
     caseNotesLabel = "case notes"
 }: ProjectCardProps) {
     const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop")
-    const [showDetails, setShowDetails] = useState(false)
+    const [showArchitecture, setShowArchitecture] = useState(false)
 
     return (
         <motion.div
@@ -102,7 +108,12 @@ export function ProjectCard({
                                 </Link>
                             </Button>
                         )}
-                        <Button variant="outline" size="sm" className="btn-premium rounded-full h-9 border-border hover:bg-secondary lowercase" onClick={() => { }}>
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className={`btn-premium rounded-full h-9 border-border lowercase transition-all ${showArchitecture ? "bg-accent text-accent-foreground border-accent" : "hover:bg-secondary"}`}
+                            onClick={() => setShowArchitecture(!showArchitecture)}
+                        >
                             {caseNotesLabel} <Info className="ml-2 h-3 w-3" />
                         </Button>
                     </div>
@@ -112,6 +123,81 @@ export function ProjectCard({
                 <div className={`lg:col-span-7 ${isReversed ? "lg:order-1" : ""}`}>
                     <div className="relative aspect-[16/10] w-full rounded-3xl overflow-hidden bg-muted/50 border border-border shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-accent/5">
                         <AnimatePresence mode="wait">
+                            {showArchitecture && architecture ? (
+                                <motion.div
+                                    key="architecture"
+                                    initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+                                    animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
+                                    exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+                                    className="absolute inset-0 z-30 bg-background/80 flex flex-col items-center justify-center p-8 overflow-hidden"
+                                >
+                                    <div className="w-full max-w-sm space-y-6 relative">
+                                        <div className="absolute -top-12 -left-4 text-[60px] font-bold text-accent/5 pointer-events-none select-none uppercase">architect</div>
+
+                                        {/* Layer 1: Directive */}
+                                        <motion.div
+                                            initial={{ x: -20, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            transition={{ delay: 0.1 }}
+                                            className="relative flex items-center gap-4 group/layer"
+                                        >
+                                            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-accent">
+                                                <span className="text-[10px] font-mono">01</span>
+                                            </div>
+                                            <div className="space-y-0.5">
+                                                <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-accent/60">directive</span>
+                                                <p className="text-xs font-medium text-foreground lowercase">{architecture.directive}</p>
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Connection Line */}
+                                        <div className="ml-5 w-[1px] h-6 bg-gradient-to-b from-accent/20 to-transparent" />
+
+                                        {/* Layer 2: Orchestration */}
+                                        <motion.div
+                                            initial={{ x: -20, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            transition={{ delay: 0.2 }}
+                                            className="relative flex items-center gap-4 group/layer"
+                                        >
+                                            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary border border-primary flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20">
+                                                <span className="text-[10px] font-mono">02</span>
+                                            </div>
+                                            <div className="space-y-0.5">
+                                                <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-primary/60">orchestration</span>
+                                                <p className="text-xs font-medium text-foreground lowercase">{architecture.orchestration}</p>
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Connection Line */}
+                                        <div className="ml-5 w-[1px] h-6 bg-gradient-to-b from-accent/20 to-transparent" />
+
+                                        {/* Layer 3: Execution */}
+                                        <motion.div
+                                            initial={{ x: -20, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            transition={{ delay: 0.3 }}
+                                            className="relative flex items-center gap-4 group/layer"
+                                        >
+                                            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-accent">
+                                                <span className="text-[10px] font-mono">03</span>
+                                            </div>
+                                            <div className="space-y-0.5">
+                                                <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-accent/60">execution</span>
+                                                <p className="text-xs font-medium text-foreground lowercase">{architecture.execution}</p>
+                                            </div>
+                                        </motion.div>
+                                    </div>
+
+                                    <button
+                                        onClick={() => setShowArchitecture(false)}
+                                        className="mt-12 text-[9px] font-mono uppercase tracking-[0.2em] text-muted-foreground hover:text-accent transition-colors"
+                                    >
+                                        [ close architecture ]
+                                    </button>
+                                </motion.div>
+                            ) : null}
+
                             {visual ? (
                                 <motion.div
                                     key="visual"

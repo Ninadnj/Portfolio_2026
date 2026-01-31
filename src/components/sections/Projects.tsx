@@ -55,6 +55,7 @@ export function Projects() {
                             approach={project.approach}
                             solution={project.solution}
                             outcome={project.outcome}
+                            architecture={project.architecture}
                             {...projectsConfig[index]}
                             isReversed={index % 2 !== 0}
                             launchSiteLabel={t.projects.launch_site}

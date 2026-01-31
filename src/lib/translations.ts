@@ -60,35 +60,60 @@ export const translations = {
                     problem: "Unstructured AI implementations lead to probabilistic failures and lack of deterministic control in production.",
                     approach: "Engineered a 3-layer architecture (Directive, Orchestration, Execution) to separate strategy from mechanism, integrated with MCP for tool discovery.",
                     solution: "A robust framework where directives define strategy, orchestration handles intent, and execution scripts perform deterministic actions.",
-                    outcome: "Established a scalable standard for building reliable, self-annealing agents with clear brand isolation and operational protocols."
+                    outcome: "Established a scalable standard for building reliable, self-annealing agents with clear brand isolation and operational protocols.",
+                    architecture: {
+                        directive: "brand guidelines & operational protocol",
+                        orchestration: "intent reasoning & agentic flow",
+                        execution: "deterministic python/mcp tools"
+                    }
                 },
                 {
                     title: "Deep Learning Image Colorizer",
                     problem: "Grayscale images require time-consuming manual colorization, limiting restoration of historical archives.",
                     approach: "Implemented a conditional GAN using Pix2Pix architecture with U-Net generator and PatchGAN discriminator for image-to-image translation.",
                     solution: "Built an end-to-end ML pipeline with TensorFlow/Keras — from data preprocessing to model training and inference.",
-                    outcome: "Demonstrated practical application of generative models, strengthening experience in deep learning architectures and image processing."
+                    outcome: "Demonstrated practical application of generative models, strengthening experience in deep learning architectures and image processing.",
+                    architecture: {
+                        directive: "loss weighting & feature mapping",
+                        orchestration: "gan generator-discriminator loop",
+                        execution: "tensorflow inference pipeline"
+                    }
                 },
                 {
                     title: "Autonomous AI Booking Agent",
                     problem: "Manual appointment scheduling creates operational overhead and requires constant human intervention.",
                     approach: "Designed an agentic workflow using n8n with GPT-4 for intent classification and LangChain for context-aware responses.",
                     solution: "Production-grade agent that autonomously handles booking requests, checks real-time availability, and syncs with Google Calendar API.",
-                    outcome: "Achieved end-to-end task automation, eliminating manual booking overhead with autonomous decision-making."
+                    outcome: "Achieved end-to-end task automation, eliminating manual booking overhead with autonomous decision-making.",
+                    architecture: {
+                        directive: "scheduling policy & data privacy",
+                        orchestration: "n8n agentic workflow nodes",
+                        execution: "api sync & real-time notification"
+                    }
                 },
                 {
                     title: "Loyalty Program Automation",
                     problem: "Customer loyalty programs require manual receipt verification, points tracking, and reward distribution.",
                     approach: "Integrated GPT-4 Vision for receipt OCR with automated points calculation logic and multi-channel messaging APIs.",
                     solution: "Deployed n8n workflow connecting WhatsApp/Telegram, OpenAI Vision API, and Google Sheets for seamless loyalty management.",
-                    outcome: "Created production-ready automation handling customer engagement without human intervention — bridging AI vision with business logic."
+                    outcome: "Created production-ready automation handling customer engagement without human intervention — bridging AI vision with business logic.",
+                    architecture: {
+                        directive: "reward rules & verification specs",
+                        orchestration: "gpt-4 vision reasoning layer",
+                        execution: "multi-channel sheets/api sync"
+                    }
                 },
                 {
                     title: "Content Repurposing Engine",
                     problem: "Creating platform-optimized content across multiple channels is inefficient and doesn't scale.",
                     approach: "Built a multi-channel transformation engine using LLM APIs with platform-specific prompting strategies.",
                     solution: "Automated workflow that transforms single content input into multiple optimized formats for different platforms.",
-                    outcome: "Scaled content production without increasing manual overhead — demonstrating practical LLM integration for business automation."
+                    outcome: "Scaled content production without increasing manual overhead — demonstrating practical LLM integration for business automation.",
+                    architecture: {
+                        directive: "tone-of-voice & platform specs",
+                        orchestration: "llm transformation pipeline",
+                        execution: "automated repurposing workflow"
+                    }
                 }
             ]
         },
@@ -187,35 +212,60 @@ export const translations = {
                     problem: "Les implémentations d'IA non structurées entraînent des échecs probabilistes et un manque de contrôle déterministe en production.",
                     approach: "Conception d'une architecture à 3 couches (Directive, Orchestration, Exécution) pour séparer la stratégie du mécanisme, intégrée au protocole MCP.",
                     solution: "Un framework robuste où les directives définissent la stratégie, l'orchestration gère l'intention et les scripts d'exécution effectuent des actions déterministes.",
-                    outcome: "Établissement d'un standard évolutif pour construire des agents fiables, auto-correcteurs avec une isolation de marque claire."
+                    outcome: "Établissement d'un standard évolutif pour construire des agents fiables, auto-correcteurs avec une isolation de marque claire.",
+                    architecture: {
+                        directive: "directives de marque & protocole",
+                        orchestration: "raisonnement d'intention & flux",
+                        execution: "outils déterministes python/mcp"
+                    }
                 },
                 {
                     title: "Coloriseur d'Image Deep Learning",
                     problem: "Les images en niveaux de gris nécessitent une colorisation manuelle chronophage, limitant la restauration d'archives historiques.",
                     approach: "Implémentation d'un GAN conditionnel avec architecture Pix2Pix utilisant un générateur U-Net et un discriminateur PatchGAN.",
                     solution: "Construction d'un pipeline ML complet avec TensorFlow/Keras — du prétraitement des données à l'entraînement et l'inférence.",
-                    outcome: "Démonstration de l'application pratique des modèles génératifs, renforçant l'expérience en architectures deep learning."
+                    outcome: "Démonstration de l'application pratique des modèles génératifs, renforçant l'expérience en architectures deep learning.",
+                    architecture: {
+                        directive: "pondération des pertes & mapping",
+                        orchestration: "boucle gan générateur-discrim.",
+                        execution: "pipeline d'inférence tensorflow"
+                    }
                 },
                 {
                     title: "Agent IA Autonome de Réservation",
                     problem: "La prise de rendez-vous manuelle crée une surcharge opérationnelle et nécessite une intervention humaine constante.",
                     approach: "Conception d'un workflow agentique avec n8n, GPT-4 pour la classification d'intention et LangChain pour les réponses contextuelles.",
                     solution: "Agent de niveau production gérant les demandes de réservation, vérifiant la disponibilité et synchronisant avec l'API Google Calendar.",
-                    outcome: "Automatisation de bout en bout éliminant la surcharge manuelle avec prise de décision autonome."
+                    outcome: "Automatisation de bout en bout éliminant la surcharge manuelle avec prise de décision autonome.",
+                    architecture: {
+                        directive: "politique de réservation & règles",
+                        orchestration: "nœuds de workflow n8n",
+                        execution: "sync api & notification temps réel"
+                    }
                 },
                 {
                     title: "Automatisation Programme de Fidélité",
                     problem: "Les programmes de fidélité nécessitent une vérification manuelle des reçus, suivi des points et distribution des récompenses.",
                     approach: "Intégration de GPT-4 Vision pour l'OCR des reçus avec logique de calcul de points et APIs de messagerie multi-canaux.",
                     solution: "Déploiement d'un workflow n8n connectant WhatsApp/Telegram, l'API Vision OpenAI et Google Sheets.",
-                    outcome: "Automatisation production-ready gérant l'engagement client sans intervention humaine — liant vision IA et logique métier."
+                    outcome: "Automatisation production-ready gérant l'engagement client sans intervention humaine — liant vision IA et logique métier.",
+                    architecture: {
+                        directive: "règles de récompense & vérif",
+                        orchestration: "couche raisonnement gpt-4 vision",
+                        execution: "sync multi-canal sheets/api"
+                    }
                 },
                 {
                     title: "Moteur de Réutilisation de Contenu",
                     problem: "Créer du contenu optimisé pour plusieurs plateformes est inefficace et ne passe pas à l'échelle.",
                     approach: "Construction d'un moteur de transformation multi-canaux utilisant les APIs LLM avec des stratégies de prompting spécifiques.",
                     solution: "Workflow automatisé transformant une entrée unique en formats optimisés pour différentes plateformes.",
-                    outcome: "Production de contenu à l'échelle sans augmenter la charge manuelle — démontrant l'intégration pratique des LLM."
+                    outcome: "Production de contenu à l'échelle sans augmenter la charge manuelle — démontrant l'intégration pratique des LLM.",
+                    architecture: {
+                        directive: "ton & spécifications plateformes",
+                        orchestration: "pipeline de transformation llm",
+                        execution: "workflow de réutilisation auto"
+                    }
                 }
             ]
         },
