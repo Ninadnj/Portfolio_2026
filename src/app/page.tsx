@@ -9,6 +9,7 @@ import { SideProjects } from "@/components/sections/SideProjects"
 import { Blog } from "@/components/sections/Blog"
 import { Contact } from "@/components/sections/Contact"
 import { Terminal } from "@/components/Terminal"
+import { SystemHealth } from "@/components/SystemHealth"
 import { ArrowUp, Github, FileDown, TerminalSquare, Linkedin } from "lucide-react"
 import Link from "next/link"
 import { useLanguage } from "@/context/LanguageContext"
@@ -38,6 +39,9 @@ export default function Home() {
       <SideProjects />
       <Blog />
       <Contact />
+
+      {/* System Health Monitor */}
+      <SystemHealth />
 
       {/* Terminal Easter Egg */}
       <Terminal isOpen={terminalOpen} onClose={() => setTerminalOpen(false)} />
