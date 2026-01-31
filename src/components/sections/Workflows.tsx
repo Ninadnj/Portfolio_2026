@@ -13,14 +13,24 @@ export function Workflows() {
     ])
     const [input, setInput] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+    const [currentTool, setCurrentTool] = useState<string | null>(null)
     const chatContainerRef = useRef<HTMLDivElement>(null)
 
-    // Auto-scroll to bottom when messages change
+    // Auto-scroll to bottom when messages change (with slight delay for rendering)
     useEffect(() => {
-        if (chatContainerRef.current) {
-            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+        const scrollToBottom = () => {
+            if (chatContainerRef.current) {
+                chatContainerRef.current.scrollTo({
+                    top: chatContainerRef.current.scrollHeight,
+                    behavior: 'smooth'
+                })
+            }
         }
-    }, [messages, isLoading])
+
+        // Small delay to ensure content is rendered
+        const timer = setTimeout(scrollToBottom, 100)
+        return () => clearTimeout(timer)
+    }, [messages, isLoading, currentTool])
 
     // Update chat message when language changes
     useEffect(() => {
@@ -40,6 +50,16 @@ export function Workflows() {
         setIsLoading(true)
 
         try {
+            // Simulate MCP Tool Discovery
+            await new Promise(r => setTimeout(r, 600))
+            setCurrentTool('SEARCHING LOCAL_FILES_MCP...')
+            await new Promise(r => setTimeout(r, 800))
+            setCurrentTool('EXECUTING WEB_SEARCH_MCP...')
+            await new Promise(r => setTimeout(r, 600))
+            setCurrentTool('OPTIMIZING RESPONSE...')
+            await new Promise(r => setTimeout(r, 400))
+            setCurrentTool(null)
+
             // Send to n8n webhook
             const response = await fetch('https://n8n.ninadnj.me/webhook/portfolio-chatbot', {
                 method: 'POST',
@@ -71,6 +91,7 @@ export function Workflows() {
             }])
         } finally {
             setIsLoading(false)
+            setCurrentTool(null)
         }
     }
 
@@ -101,7 +122,10 @@ export function Workflows() {
                                 <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-foreground">{t.workflows.live_demo}</span>
                             </div>
                             <div className="flex items-center gap-3">
-                                <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-muted/50 border border-border/50">
+                                <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-accent/10 border border-accent/20">
+                                    <span className="text-[8px] font-mono uppercase tracking-widest text-accent font-bold">mcp integrated</span>
+                                </div>
+                                <div className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded-md bg-muted/50 border border-border/50">
                                     <Zap className="h-3 w-3 text-accent" />
                                     <span className="text-[9px] font-mono lowercase tracking-wider text-muted-foreground">n8n</span>
                                 </div>
@@ -126,7 +150,24 @@ export function Workflows() {
                                         </div>
                                     </motion.div>
                                 ))}
-                                {isLoading && (
+                                {currentTool && (
+                                    <motion.div
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: 10 }}
+                                        className="flex justify-start"
+                                    >
+                                        <div className="bg-accent/5 border border-accent/20 px-4 py-2 rounded-lg flex items-center gap-3">
+                                            <div className="flex gap-1">
+                                                <div className="h-1.5 w-1.5 rounded-full bg-accent animate-ping" />
+                                            </div>
+                                            <span className="text-[10px] font-mono text-accent uppercase tracking-[0.1em]">
+                                                {currentTool}
+                                            </span>
+                                        </div>
+                                    </motion.div>
+                                )}
+                                {isLoading && !currentTool && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}

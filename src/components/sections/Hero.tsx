@@ -1,6 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
@@ -8,6 +9,20 @@ import { useLanguage } from "@/context/LanguageContext"
 
 export function Hero() {
     const { t } = useLanguage()
+
+    const identities = [
+        "Building Autonomous Agentic Flows.",
+        "Architecting Deterministically Controlled AI.",
+        "Defining the 3-Layer Systems Standard."
+    ]
+    const [identityIndex, setIdentityIndex] = useState(0)
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setIdentityIndex((prev) => (prev + 1) % identities.length)
+        }, 3000)
+        return () => clearInterval(timer)
+    }, [])
 
     return (
         <section id="home" className="relative pt-40 pb-20 flex items-center justify-center overflow-hidden">
@@ -24,10 +39,25 @@ export function Hero() {
                     {t.hero.portfolio_year}
                 </motion.span>
 
+                <div className="h-20 sm:h-24 mb-6 flex items-center justify-center">
+                    <AnimatePresence mode="wait">
+                        <motion.h1
+                            key={identityIndex}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.5, ease: "circOut" }}
+                            className="text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-center lowercase text-foreground max-w-3xl"
+                        >
+                            {identities[identityIndex]}
+                        </motion.h1>
+                    </AnimatePresence>
+                </div>
+
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="body-text max-w-xl mx-auto text-center mb-10"
                 >
                     {t.hero.description}
