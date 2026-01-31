@@ -4,16 +4,34 @@ from PIL import Image
 import tensorflow as tf
 from tensorflow import keras
 
+# Define custom loss function (mae - Mean Absolute Error)
+def mae(y_true, y_pred):
+    """Mean Absolute Error loss function"""
+    return tf.reduce_mean(tf.abs(y_true - y_pred))
+
 # Load your trained model
 # Using the model trained on Colab (December 2025)
 MODEL_PATH = "colorizer_model.keras"
 
+print("=" * 50)
+print("LOADING MODEL...")
 try:
-    model = keras.models.load_model(MODEL_PATH)
-    print("✓ Model loaded successfully")
+    # Load model with custom objects
+    model = keras.models.load_model(
+        MODEL_PATH,
+        custom_objects={'mae': mae}
+    )
+    print("✅ MODEL LOADED SUCCESSFULLY!")
+    print(f"Input shape: {model.input_shape}")
+    print(f"Output shape: {model.output_shape}")
+    print("🎨 USING REAL AI COLORIZATION")
 except Exception as e:
-    print(f"⚠️ Model not found. Using demo mode. Error: {e}")
+    print("❌ MODEL LOADING FAILED!")
+    print(f"Error: {e}")
+    print("⚠️ USING DEMO MODE (Sepia Filter)")
     model = None
+print("=" * 50)
+
 
 def preprocess_image(image):
     """Preprocess grayscale image for the model"""
@@ -36,14 +54,34 @@ def preprocess_image(image):
 def colorize_image(input_image):
     """Colorize a grayscale image using the trained model"""
     
+    # Handle None input
+    if input_image is None:
+        return None
+    
+    # Convert to grayscale if it's a color image
+    if len(input_image.shape) == 3 and input_image.shape[2] == 3:
+        # Color image - convert to grayscale
+        grayscale = np.mean(input_image, axis=2).astype(np.uint8)
+    elif len(input_image.shape) == 2:
+        # Already grayscale
+        grayscale = input_image.astype(np.uint8)
+    else:
+        # Handle RGBA or other formats
+        grayscale = np.mean(input_image[:, :, :3], axis=2).astype(np.uint8)
+    
     if model is None:
-        # Demo mode: return a simple tinted version
-        colored = np.stack([input_image * 0.8, input_image * 0.9, input_image], axis=-1)
-        return (colored * 255).astype(np.uint8)
+        # Demo mode: return a visible sepia-toned version
+        # Create a warm sepia effect so users can see it's working
+        sepia_r = np.clip(grayscale * 1.2, 0, 255).astype(np.uint8)
+        sepia_g = np.clip(grayscale * 1.0, 0, 255).astype(np.uint8)
+        sepia_b = np.clip(grayscale * 0.7, 0, 255).astype(np.uint8)
+        colored = np.stack([sepia_r, sepia_g, sepia_b], axis=-1)
+        return colored
+    
     
     try:
         # Preprocess
-        processed = preprocess_image(input_image)
+        processed = preprocess_image(grayscale)
         
         # Predict
         colorized = model.predict(processed, verbose=0)
@@ -54,7 +92,7 @@ def colorize_image(input_image):
         colorized = (colorized * 255).astype(np.uint8)
         
         # Resize back to original size
-        original_size = input_image.shape[:2][::-1]
+        original_size = grayscale.shape[:2][::-1]
         colorized = Image.fromarray(colorized)
         colorized = colorized.resize(original_size, Image.LANCZOS)
         
@@ -63,7 +101,7 @@ def colorize_image(input_image):
     except Exception as e:
         print(f"Error during colorization: {e}")
         # Fallback: return grayscale as RGB
-        return np.stack([input_image] * 3, axis=-1)
+        return np.stack([grayscale] * 3, axis=-1)
 
 # Create Gradio interface
 demo = gr.Interface(
@@ -104,7 +142,7 @@ demo = gr.Interface(
     - **Output:** RGB colorized images
     
     ### Limitations
-    - Works best on natural images (landscapes, portraits)
+    - Works best on cats, portraits, and animals
     - May struggle with abstract or highly stylized images
     - Color choices are learned from training data
     """,

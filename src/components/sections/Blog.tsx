@@ -17,28 +17,36 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
     {
-        title: "Building a Loyalty Program with GPT-4 Vision",
-        excerpt: "How I used AI vision to automate receipt scanning and points calculation for a flower shop. From OCR challenges to multi-channel messaging integration.",
-        date: "2026-01-10",
-        tags: ["GPT-4 Vision", "n8n", "Automation"],
-        readTime: "5 min",
-        slug: "loyalty-program-gpt4-vision"
+        title: "The 3-Layer Agentic Architecture: Moving Beyond Probabilistic UI",
+        excerpt: "A deep dive into separating Directive (strategy), Orchestration (intent), and Execution (mechanism) to build reliable, production-grade AI systems.",
+        date: "2026-01-28",
+        tags: ["Architecture", "System Design", "AI Strategy"],
+        readTime: "12 min",
+        slug: "three-layer-agentic-architecture"
     },
     {
-        title: "From GAN Theory to Production: Image Colorization",
-        excerpt: "A deep dive into implementing Pix2Pix architecture for grayscale-to-color translation. Lessons learned from training conditional GANs.",
-        date: "2025-12-15",
-        tags: ["Deep Learning", "GAN", "TensorFlow"],
+        title: "Deterministic Control in Generative Workflows",
+        excerpt: "Strategies for integrating MCP-enabled tools and local verification scripts to eliminate hallucinations in high-stakes automation pipelines.",
+        date: "2026-01-15",
+        tags: ["MCP", "Reliability", "Automation"],
         readTime: "8 min",
-        slug: "gan-image-colorization"
+        slug: "deterministic-generative-workflows"
     },
     {
-        title: "Designing Autonomous AI Agents with LangChain",
-        excerpt: "Practical patterns for building production-ready AI agents. Intent classification, context management, and graceful fallbacks.",
-        date: "2025-11-20",
-        tags: ["LangChain", "AI Agents", "n8n"],
-        readTime: "6 min",
-        slug: "autonomous-ai-agents-langchain"
+        title: "Optimizing Latency in Multi-Agent Reasoning Chains",
+        excerpt: "Performance engineering for complex n8n and LangGraph pipelines—how to manage token usage and concurrent tool execution for real-time speed.",
+        date: "2026-01-05",
+        tags: ["Performance", "n8n", "LangGraph"],
+        readTime: "10 min",
+        slug: "optimizing-agent-latency"
+    },
+    {
+        title: "Tool Discovery Protocols: Mapping MCP to Legacy APIs",
+        excerpt: "A technical guide on building standardized interfaces for LLM tool selection using the Model Context Protocol across enterprise infrastructure.",
+        date: "2025-12-20",
+        tags: ["MCP", "API Design", "Enterprise"],
+        readTime: "7 min",
+        slug: "mcp-legacy-api-integration"
     }
 ]
 

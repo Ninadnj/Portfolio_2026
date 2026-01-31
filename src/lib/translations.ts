@@ -137,9 +137,9 @@ export const translations = {
             ]
         },
         blog: {
-            section_label: "05 // writing",
-            headline: "technical notes",
-            description: "thoughts on building ml systems, ai automation, and lessons from production."
+            section_label: "05 // technical writing",
+            headline: "architectural insights",
+            description: "detailed dissections of agentic systems, deterministic workflows, and the future of ai orchestration."
         },
         contact: {
             section_label: "06 // contact",
@@ -289,9 +289,9 @@ export const translations = {
             ]
         },
         blog: {
-            section_label: "05 // écriture",
-            headline: "notes techniques",
-            description: "réflexions sur la construction de systèmes ml, l'automatisation ia et les leçons de production."
+            section_label: "05 // rédaction technique",
+            headline: "analyses architecturales",
+            description: "dissections détaillées des systèmes agentiques, des workflows déterministes et du futur de l'orchestration ia."
         },
         contact: {
             section_label: "06 // contact",
