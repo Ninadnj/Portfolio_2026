@@ -4,13 +4,17 @@ import { ProjectCard } from "@/components/projects/ProjectCard"
 import { BookingAgentVisual } from "@/components/projects/BookingAgentVisual"
 import { ContentEngineVisual } from "@/components/projects/ContentEngineVisual"
 import { UnifiedEngineVisual } from "@/components/projects/UnifiedEngineVisual"
-import { VideoArchitectVisual } from "@/components/projects/VideoArchitectVisual"
 import { useLanguage } from "@/context/LanguageContext"
 
 export function Projects() {
     const { t } = useLanguage()
 
     const projectsConfig = [
+        {
+            visual: <UnifiedEngineVisual />,
+            tags: ["MCP", "Python", "3-Layer Arch", "Intelligence"],
+            liveUrl: "https://github.com/Ninadnj/Nina_Content/blob/main/nina_master_mcp.py",
+        },
         {
             image: "/colorizer-thumb.png",
             tags: ["TensorFlow", "Keras", "GAN", "Python"],
@@ -27,16 +31,6 @@ export function Projects() {
         {
             visual: <ContentEngineVisual />,
             tags: ["n8n", "LLM", "APIs", "Automation"],
-        },
-        {
-            visual: <UnifiedEngineVisual />,
-            tags: ["MCP", "Python", "3-Layer Arch", "Intelligence"],
-            liveUrl: "https://github.com/Ninadnj/Nina_Content/blob/main/nina_master_mcp.py",
-        },
-        {
-            visual: <VideoArchitectVisual />,
-            tags: ["MoviePy", "Python", "Automation", "Video-as-Code"],
-            liveUrl: "https://github.com/Ninadnj/Nina_Content/tree/main/skills/video-architect",
         }
     ]
 
