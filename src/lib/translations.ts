@@ -82,6 +82,20 @@ export const translations = {
                     approach: "Built a multi-channel transformation engine using LLM APIs with platform-specific prompting strategies.",
                     solution: "Automated workflow that transforms single content input into multiple optimized formats for different platforms.",
                     outcome: "Scaled content production without increasing manual overhead — demonstrating practical LLM integration for business automation."
+                },
+                {
+                    title: "Unified Agentic Engine",
+                    problem: "Unstructured AI implementations lead to probabilistic failures and lack of deterministic control in production.",
+                    approach: "Engineered a 3-layer architecture (Directive, Orchestration, Execution) to separate strategy from mechanism, integrated with MCP for tool discovery.",
+                    solution: "A robust framework where directives define strategy, orchestration handles intent, and execution scripts perform deterministic actions.",
+                    outcome: "Established a scalable standard for building reliable, self-annealing agents with clear brand isolation and operational protocols."
+                },
+                {
+                    title: "AI Video-as-Code Architect",
+                    problem: "Manual video production for technical demos and personal branding is slow and inconsistent.",
+                    approach: "Developed a 'Video-as-Code' engine using MoviePy to procedurally generate brand-aligned video assets from technical specs.",
+                    solution: "Automated pipeline for high-authority intros, project spotlights, and UI walkthroughs with unified brand calibration.",
+                    outcome: "Reduced video creation time by 90% while ensuring 100% adherence to Minimal Slate brand guidelines."
                 }
             ]
         },
@@ -202,6 +216,20 @@ export const translations = {
                     approach: "Construction d'un moteur de transformation multi-canaux utilisant les APIs LLM avec des stratégies de prompting spécifiques.",
                     solution: "Workflow automatisé transformant une entrée unique en formats optimisés pour différentes plateformes.",
                     outcome: "Production de contenu à l'échelle sans augmenter la charge manuelle — démontrant l'intégration pratique des LLM."
+                },
+                {
+                    title: "Moteur Agentique Unifié",
+                    problem: "Les implémentations d'IA non structurées entraînent des échecs probabilistes et un manque de contrôle déterministe en production.",
+                    approach: "Conception d'une architecture à 3 couches (Directive, Orchestration, Exécution) pour séparer la stratégie du mécanisme, intégrée au protocole MCP.",
+                    solution: "Un framework robuste où les directives définissent la stratégie, l'orchestration gère l'intention et les scripts d'exécution effectuent des actions déterministes.",
+                    outcome: "Établissement d'un standard évolutif pour construire des agents fiables, auto-correcteurs avec une isolation de marque claire."
+                },
+                {
+                    title: "Architecte Vidéo IA (as-Code)",
+                    problem: "La production vidéo manuelle pour les démos techniques et le personal branding est lente et irrégulière.",
+                    approach: "Développement d'un moteur 'Video-as-Code' utilisant MoviePy pour générer de manière procédurale des vidéos alignées sur la marque.",
+                    solution: "Pipeline automatisé pour des intros, des spotlights de projets et des démos UI avec une calibration de marque unifiée.",
+                    outcome: "Réduction du temps de création vidéo de 90 % tout en garantissant une conformité totale aux directives de la marque."
                 }
             ]
         },

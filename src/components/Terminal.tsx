@@ -63,6 +63,12 @@ const commands: Record<string, string | string[]> = {
         "[LLM] Content Repurposing Engine",
         "      Multi-channel content transformation",
         "",
+        "[AI]  Unified Agentic Engine",
+        "      3-layer architecture + MCP framework",
+        "",
+        "[VID] AI Video-as-Code Architect",
+        "      Procedural video generation engine",
+        "",
         "Type 'open projects' to view in portfolio"
     ],
     contact: [
