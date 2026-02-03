@@ -137,6 +137,15 @@ export default function Home() {
               </button>
             </div>
           </div>
+
+          <div className="mt-12 pt-6 border-t border-border flex flex-col items-center justify-center gap-3 text-center">
+            <p className="text-[10px] lowercase tracking-[0.08em] text-muted-foreground/40 hover:text-muted-foreground transition-colors">
+              {t.footer.rights}
+            </p>
+            <p className="text-[10px] lowercase tracking-[0.08em] text-muted-foreground/40">
+              {t.footer.location}
+            </p>
+          </div>
         </div>
       </footer>
     </main>
