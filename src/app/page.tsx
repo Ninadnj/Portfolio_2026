@@ -7,6 +7,7 @@ import { Workflows } from "@/components/sections/Workflows"
 import { Projects } from "@/components/sections/Projects"
 import { SideProjects } from "@/components/sections/SideProjects"
 import { Blog } from "@/components/sections/Blog"
+import { Skills } from "@/components/sections/Skills"
 import { Contact } from "@/components/sections/Contact"
 import { Terminal } from "@/components/Terminal"
 import { SystemHealth } from "@/components/SystemHealth"
@@ -38,6 +39,7 @@ export default function Home() {
       <Projects />
       <SideProjects />
       <Blog />
+      <Skills />
       <Contact />
 
       {/* System Health Monitor */}
@@ -134,15 +136,6 @@ export default function Home() {
                 {t.footer.top} <ArrowUp className="h-3 w-3 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
-          </div>
-
-          <div className="mt-16 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-3">
-            <p className="text-[10px] lowercase tracking-[0.08em] text-muted-foreground/50">
-              {t.footer.rights}
-            </p>
-            <p className="text-[10px] lowercase tracking-[0.08em] text-muted-foreground/50">
-              {t.footer.location}
-            </p>
           </div>
         </div>
       </footer>
