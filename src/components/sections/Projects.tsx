@@ -5,6 +5,7 @@ import { BookingAgentVisual } from "@/components/projects/BookingAgentVisual"
 import { ContentEngineVisual } from "@/components/projects/ContentEngineVisual"
 import { LoyaltyVisual } from "@/components/projects/LoyaltyVisual"
 import { UnifiedEngineVisual } from "@/components/projects/UnifiedEngineVisual"
+import { ColorizerVisual } from "@/components/projects/ColorizerVisual"
 import { useLanguage } from "@/context/LanguageContext"
 
 export function Projects() {
@@ -17,7 +18,7 @@ export function Projects() {
             liveUrl: "https://github.com/Ninadnj/Nina_Content/blob/main/nina_master_mcp.py",
         },
         {
-            image: "/colorizer-thumb.png",
+            visual: <ColorizerVisual />,
             tags: ["TensorFlow", "Keras", "GAN", "Python"],
             liveUrl: "https://huggingface.co/spaces/NinaDNJ/image-colorizer",
         },
