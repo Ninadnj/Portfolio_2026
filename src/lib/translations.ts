@@ -56,6 +56,18 @@ export const translations = {
             case_notes: "case notes",
             items: [
                 {
+                    title: "Zero-G AI Engineering Toolkit",
+                    problem: "AI engineers lack standardized tools for auditing code quality, optimizing prompts, selecting models, and making deployment decisions, leading to inconsistent implementations and suboptimal production systems.",
+                    approach: "Built a comprehensive MCP server with specialized tools covering the full AI development lifecycle: security scanning, UX auditing, React performance checks, prompt optimization, model selection, vector database recommendations, and cost analysis.",
+                    solution: "Production-ready toolkit with 30+ tools organized into categories: Project Auditing (security, linting, schema validation), AI Engineering (prompt optimization, model selection, fine-tuning decisions), Performance (React checks, accessibility, SEO), and Deployment (cost breakeven analysis, deployment option comparison).",
+                    outcome: "Created a deterministic framework for AI engineering decisions, eliminating guesswork in model selection, prompt engineering, and infrastructure choices. Enables rapid prototyping with production-grade quality standards.",
+                    architecture: {
+                        directive: "ai engineering best practices",
+                        orchestration: "autonomous controller w/ memory",
+                        execution: "30+ specialized mcp tools"
+                    }
+                },
+                {
                     title: "Unified Agentic Engine",
                     problem: "Unstructured AI implementations lead to probabilistic failures and lack of deterministic control in production.",
                     approach: "Engineered a 3-layer architecture (Directive, Orchestration, Execution) to separate strategy from mechanism, integrated with MCP for tool discovery.",
@@ -207,6 +219,18 @@ export const translations = {
             launch_site: "voir le site",
             case_notes: "notes de cas",
             items: [
+                {
+                    title: "Boîte à Outils Zero-G pour l'Ingénierie IA",
+                    problem: "Les ingénieurs IA manquent d'outils standardisés pour auditer la qualité du code, optimiser les prompts, sélectionner les modèles et prendre des décisions de déploiement, ce qui conduit à des implémentations incohérentes et des systèmes de production sous-optimaux.",
+                    approach: "Construction d'un serveur MCP complet avec des outils spécialisés couvrant le cycle de vie complet du développement IA : analyse de sécurité, audit UX, vérifications de performance React, optimisation de prompts, sélection de modèles, recommandations de bases de données vectorielles et analyse de coûts.",
+                    solution: "Boîte à outils production-ready avec plus de 30 outils organisés en catégories : Audit de Projet (sécurité, linting, validation de schéma), Ingénierie IA (optimisation de prompts, sélection de modèles, décisions de fine-tuning), Performance (vérifications React, accessibilité, SEO) et Déploiement (analyse de rentabilité, comparaison d'options de déploiement).",
+                    outcome: "Création d'un framework déterministe pour les décisions d'ingénierie IA, éliminant les approximations dans la sélection de modèles, l'ingénierie de prompts et les choix d'infrastructure. Permet un prototypage rapide avec des standards de qualité production.",
+                    architecture: {
+                        directive: "meilleures pratiques ingénierie ia",
+                        orchestration: "contrôleur autonome avec mémoire",
+                        execution: "30+ outils mcp spécialisés"
+                    }
+                },
                 {
                     title: "Moteur Agentique Unifié",
                     problem: "Les implémentations d'IA non structurées entraînent des échecs probabilistes et un manque de contrôle déterministe en production.",

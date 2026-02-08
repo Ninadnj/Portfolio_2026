@@ -14,6 +14,11 @@ export function Projects() {
     const projectsConfig = [
         {
             visual: <UnifiedEngineVisual />,
+            tags: ["MCP", "Zero-G", "AI Engineering", "Auditing"],
+            liveUrl: "https://github.com/Ninadnj/Nina_Content",
+        },
+        {
+            visual: <UnifiedEngineVisual />,
             tags: ["MCP", "Python", "3-Layer Arch", "Intelligence"],
             liveUrl: "https://github.com/Ninadnj/Nina_Content/blob/main/nina_master_mcp.py",
         },
