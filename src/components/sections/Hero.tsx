@@ -47,7 +47,7 @@ function useTypewriter(phrases: string[], typingSpeed = 100, deletingSpeed = 50,
 export function Hero() {
     const { t } = useLanguage()
 
-    const typedText = useTypewriter(["architecting deterministic systems."], 80, 40, 1500)
+    const typedText = useTypewriter(["still building."], 80, 40, 1500)
 
     return (
         <section id="home" className="relative pt-40 pb-20 flex items-center justify-center overflow-hidden">
@@ -65,12 +65,21 @@ export function Hero() {
                     {t.hero.portfolio_year}
                 </motion.span>
 
-                <div className="h-20 sm:h-24 mb-6 flex items-center justify-center">
+                <div className="h-20 sm:h-24 mb-2 flex items-center justify-center">
                     <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-center lowercase text-foreground max-w-3xl">
                         {typedText}
                         <span className="animate-pulse">|</span>
                     </h1>
                 </div>
+
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-sm text-muted-foreground text-center mb-6 lowercase tracking-wide"
+                >
+                    green apple. café crème. lofi. labrador.
+                </motion.p>
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
