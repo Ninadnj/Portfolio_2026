@@ -581,7 +581,15 @@
               </div>
 
               <div class="demo-preview-container desktop-mode">
-                <div class="iframe-fallback-enhanced" id="fallback-mrstudio">
+                <div class="iframe-skeleton" id="skeleton-mrstudio">
+                  <div class="skeleton-pulse"></div>
+                  <span class="skeleton-text">Loading preview...</span>
+                </div>
+                <iframe src="https://themrstudio.net" title="THE MR Studio - Live Preview" loading="lazy"
+                  class="demo-iframe" data-project="mrstudio" onload="handleIframeLoad('mrstudio')"
+                  onerror="handleIframeError('mrstudio')">
+                </iframe>
+                <div class="iframe-fallback-enhanced hidden" id="fallback-mrstudio">
                   <div class="fallback-preview">
                     <div class="fallback-icon">
                       <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"

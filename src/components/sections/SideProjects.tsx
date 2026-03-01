@@ -147,7 +147,7 @@ export function SideProjects() {
             iframeUrl: "https://themrstudio.net",
             tags: ["React", "Node.js", "Calendar API", "SMS Reminders"],
             liveUrl: "https://themrstudio.net",
-            hideIframe: true,
+            hideIframe: false,
         },
         {
             iframeUrl: "https://ninadnj.github.io/AlpineStay/",
