@@ -14,11 +14,12 @@ interface SideProjectProps {
     iframeUrl: string
     tags: string[]
     liveUrl: string
+    hideIframe?: boolean
 }
 
-function SideProjectCard({ title, description, iframeUrl, tags, liveUrl }: SideProjectProps) {
+function SideProjectCard({ title, description, iframeUrl, tags, liveUrl, hideIframe }: SideProjectProps) {
     const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop")
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(!hideIframe)
 
     return (
         <motion.div
@@ -67,18 +68,36 @@ function SideProjectCard({ title, description, iframeUrl, tags, liveUrl }: SideP
                         </div>
                     )}
 
-                    {/* Iframe */}
+                    {/* Iframe or Fallback */}
                     <div className="absolute inset-0 pt-9">
-                        <iframe
-                            src={iframeUrl}
-                            className={`w-full h-full border-none transition-all duration-500 mx-auto ${previewMode === "mobile"
+                        {hideIframe ? (
+                            <div className="w-full h-full flex flex-col items-center justify-center bg-muted/10 p-4 text-center">
+                                <div className="mb-4 text-muted-foreground/40">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                                        <path d="M7 7h10M7 11h6" strokeOpacity="0.3"></path>
+                                    </svg>
+                                </div>
+                                <h4 className="text-sm font-medium text-foreground mb-1">Live Preview Unavailable</h4>
+                                <p className="text-xs text-muted-foreground mb-5">This site cannot be embedded.</p>
+                                <Button size="sm" variant="default" className="h-8 rounded-full text-[10px] tracking-wider bg-foreground text-background hover:bg-foreground/90" asChild>
+                                    <Link href={liveUrl} target="_blank">Open Live Site &rarr;</Link>
+                                </Button>
+                            </div>
+                        ) : (
+                            <iframe
+                                src={iframeUrl}
+                                className={`w-full h-full border-none transition-all duration-500 mx-auto ${previewMode === "mobile"
                                     ? "max-w-[280px] shadow-xl scale-[0.9] origin-top mt-2 rounded-2xl border-4 border-slate-800"
                                     : "max-w-none"
-                                }`}
-                            title={`${title} Live Preview`}
-                            loading="lazy"
-                            onLoad={() => setIsLoading(false)}
-                        />
+                                    }`}
+                                title={`${title} Live Preview`}
+                                loading="lazy"
+                                onLoad={() => setIsLoading(false)}
+                            />
+                        )}
                     </div>
                 </div>
 
@@ -128,6 +147,7 @@ export function SideProjects() {
             iframeUrl: "https://themrstudio.net",
             tags: ["React", "Node.js", "Calendar API", "SMS Reminders"],
             liveUrl: "https://themrstudio.net",
+            hideIframe: true,
         },
         {
             iframeUrl: "https://ninadnj.github.io/AlpineStay/",
