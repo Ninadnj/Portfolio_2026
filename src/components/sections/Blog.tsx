@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowUpRight, Calendar } from "lucide-react"
 import Link from "next/link"
 import { useLanguage } from "@/context/LanguageContext"
+import { formatDate } from "@/lib/utils"
 
 interface BlogPost {
     title: string
@@ -49,15 +50,6 @@ const blogPosts: BlogPost[] = [
         slug: "mcp-legacy-api-integration"
     }
 ]
-
-function formatDate(dateString: string) {
-    const date = new Date(dateString)
-    return date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric"
-    }).toLowerCase()
-}
 
 function BlogCard({ post, index }: { post: BlogPost; index: number }) {
     return (
