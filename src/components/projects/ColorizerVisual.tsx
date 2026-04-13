@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Palette, Sparkles, ArrowRight, Zap, Layers } from "lucide-react"
+import { Sparkles, Layers } from "lucide-react"
 
 export function ColorizerVisual() {
     const [isProcessing, setIsProcessing] = useState(false)
