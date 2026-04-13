@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Sparkles, MessageSquare, Share2, Calendar, Layout, ArrowRight } from "lucide-react"
+import { Sparkles, MessageSquare, Calendar, Layout, ArrowRight } from "lucide-react"
 
 export function ContentEngineVisual() {
     return (

@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
-import { Cpu, Zap, Share2, Calendar, Send, Bot, User } from "lucide-react"
+import { Cpu, Zap, Share2, Send, Bot } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 
 export function Workflows() {
