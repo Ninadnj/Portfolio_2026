@@ -9,6 +9,7 @@ export function ColorizerVisual() {
     const [colorLevel, setColorLevel] = useState(0)
     const [randomValues] = useState(() => Array.from({ length: 9 }, () => Math.random()))
 
+
     // Continuous animation cycle
     useEffect(() => {
         const cycle = () => {

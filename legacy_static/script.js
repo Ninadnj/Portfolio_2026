@@ -239,7 +239,11 @@ function sendMessage() {
 
       const botMsg = document.createElement('div');
       botMsg.className = 'message bot';
-      botMsg.innerHTML = botResponse;
+      const msgContent = document.createElement('div');
+      msgContent.className = 'message-content';
+      msgContent.style.whiteSpace = 'pre-wrap';
+      msgContent.textContent = botResponse;
+      botMsg.appendChild(msgContent);
       chatBody.appendChild(botMsg);
       chatBody.scrollTop = chatBody.scrollHeight;
     })
@@ -251,7 +255,11 @@ function sendMessage() {
       const response = generateResponse(message);
       const botMsg = document.createElement('div');
       botMsg.className = 'message bot';
-      botMsg.innerHTML = response;
+      const msgContent = document.createElement('div');
+      msgContent.className = 'message-content';
+      msgContent.style.whiteSpace = 'pre-wrap';
+      msgContent.textContent = response;
+      botMsg.appendChild(msgContent);
       chatBody.appendChild(botMsg);
       chatBody.scrollTop = chatBody.scrollHeight;
     });
@@ -292,17 +300,15 @@ function generateResponse(message) {
 function resetChat() {
   const chatBody = document.getElementById('chatBody');
   if (chatBody) {
-    chatBody.innerHTML = `
-      <div class="message bot">
-        <div class="message-content">
-          Hello. I am Nina's AI Assistant. I can help you with:
-          <br>• Project inquiries
-          <br>• Technical skills & Services
-          <br>• Contact information
-          <br><br>How can I assist you today?
-        </div>
-      </div>
-    `;
+    chatBody.innerHTML = '';
+    const botMsg = document.createElement('div');
+    botMsg.className = 'message bot';
+    const msgContent = document.createElement('div');
+    msgContent.className = 'message-content';
+    msgContent.style.whiteSpace = 'pre-wrap';
+    msgContent.textContent = "Hello. I am Nina's AI Assistant. I can help you with:\n• Project inquiries\n• Technical skills & Services\n• Contact information\n\nHow can I assist you today?";
+    botMsg.appendChild(msgContent);
+    chatBody.appendChild(botMsg);
   }
 }
 
