@@ -1,12 +1,17 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Sparkles, Layers } from "lucide-react"
 
 export function ColorizerVisual() {
     const [isProcessing, setIsProcessing] = useState(false)
     const [colorLevel, setColorLevel] = useState(0)
+
+    // Memoize input grid colors to prevent re-calculation on every render
+    const inputLuminance = useMemo(() =>
+        Array.from({ length: 9 }, () => 30 + Math.random() * 40),
+    [])
 
     // Continuous animation cycle
     useEffect(() => {
@@ -76,12 +81,12 @@ export function ColorizerVisual() {
                         <div className="relative w-20 h-20 rounded-xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-gray-300 to-gray-600">
                             {/* Grayscale Grid Pattern */}
                             <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-0.5 p-1">
-                                {[...Array(9)].map((_, i) => (
+                                {inputLuminance.map((lum, i) => (
                                     <div
                                         key={i}
                                         className="rounded-sm"
                                         style={{
-                                            backgroundColor: `hsl(0, 0%, ${30 + Math.random() * 40}%)`
+                                            backgroundColor: `hsl(0, 0%, ${lum}%)`
                                         }}
                                     />
                                 ))}
