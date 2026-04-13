@@ -1,7 +1,6 @@
 "use client"
 
 import { useLanguage } from "@/context/LanguageContext"
-import { motion } from "framer-motion"
 
 export function LanguageSwitcher() {
     const { language, setLanguage } = useLanguage()

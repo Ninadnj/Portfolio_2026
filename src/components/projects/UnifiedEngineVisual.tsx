@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Layers, Zap, Cpu, Code2, Shield, Network } from "lucide-react"
+import { Zap, Cpu, Code2, Shield, Network } from "lucide-react"
 
 export function UnifiedEngineVisual() {
     return (
