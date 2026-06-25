@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Sparkles, Layers } from "lucide-react"
 
@@ -8,10 +8,7 @@ export function ColorizerVisual() {
     const [isProcessing, setIsProcessing] = useState(false)
     const [colorLevel, setColorLevel] = useState(0)
 
-    // Memoize input grid colors to prevent re-calculation on every render
-    const inputLuminance = useMemo(() =>
-        Array.from({ length: 9 }, () => 30 + Math.random() * 40),
-    [])
+    const inputLuminance = [34, 58, 41, 66, 49, 37, 61, 45, 54]
 
     // Continuous animation cycle
     useEffect(() => {

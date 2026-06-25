@@ -12,15 +12,16 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-    const [language, setLanguage] = useState<Language>("en")
+    const [language, setLanguage] = useState<Language>(() => {
+        if (typeof window === "undefined") return "en"
+
+        const savedLang = localStorage.getItem("language") as Language | null
+        return savedLang === "en" || savedLang === "fr" ? savedLang : "en"
+    })
     const [mounted, setMounted] = useState(false)
 
-    // Hydrate language from local storage on mount
     useEffect(() => {
-        const savedLang = localStorage.getItem("language") as Language
-        if (savedLang && (savedLang === "en" || savedLang === "fr")) {
-            setLanguage(savedLang)
-        }
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true)
     }, [])
 

@@ -1,11 +1,7 @@
 "use client"
 
 import { ProjectCard } from "@/components/projects/ProjectCard"
-import { BookingAgentVisual } from "@/components/projects/BookingAgentVisual"
-import { ContentEngineVisual } from "@/components/projects/ContentEngineVisual"
 import { LoyaltyVisual } from "@/components/projects/LoyaltyVisual"
-import { UnifiedEngineVisual } from "@/components/projects/UnifiedEngineVisual"
-import { ColorizerVisual } from "@/components/projects/ColorizerVisual"
 import { useLanguage } from "@/context/LanguageContext"
 
 export function Projects() {
@@ -13,32 +9,9 @@ export function Projects() {
 
     const projectsConfig = [
         {
-            visual: <UnifiedEngineVisual />,
-            tags: ["MCP", "Zero-G", "AI Engineering", "Auditing"],
-            liveUrl: "https://github.com/Ninadnj/Nina_Content",
-        },
-        {
-            visual: <UnifiedEngineVisual />,
-            tags: ["MCP", "Python", "3-Layer Arch", "Intelligence"],
-            liveUrl: "https://github.com/Ninadnj/Nina_Content/blob/main/nina_master_mcp.py",
-        },
-        {
-            visual: <ColorizerVisual />,
-            tags: ["TensorFlow", "Keras", "GAN", "Python"],
-            liveUrl: "https://huggingface.co/spaces/NinaDNJ/image-colorizer",
-        },
-        {
-            visual: <BookingAgentVisual />,
-            tags: ["n8n", "GPT-4", "LangChain", "Calendar API"],
-        },
-        {
             visual: <LoyaltyVisual />,
-            tags: ["n8n", "GPT-4 Vision", "WhatsApp API", "Google Sheets"],
+            tags: ["n8n", "GPT-4o Vision", "WhatsApp API", "Telegram", "Google Sheets"],
         },
-        {
-            visual: <ContentEngineVisual />,
-            tags: ["n8n", "LLM", "APIs", "Automation"],
-        }
     ]
 
     return (

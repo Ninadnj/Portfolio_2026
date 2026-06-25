@@ -5,4 +5,4 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export { formatDate } from "./pure/formatDate.ts"
+export { formatDate } from "./pure/formatDate"

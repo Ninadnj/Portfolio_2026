@@ -49,82 +49,22 @@ export const translations = {
             }
         },
         projects: {
-            section_label: "03 // selected projects",
-            headline: "ml & ai automation",
-            description: "production-ready systems from model development to deployment. each project demonstrates end-to-end problem solving.",
+            section_label: "03 // flagship project",
+            headline: "applied genai automation",
+            description: "one production workflow showing how i connect llm vision, business rules, customer data, and messaging channels into a usable system.",
             launch_site: "launch site",
             case_notes: "case notes",
             items: [
                 {
-                    title: "Zero-G AI Engineering Toolkit",
-                    problem: "AI engineers lack standardized tools for auditing code quality, optimizing prompts, selecting models, and making deployment decisions, leading to inconsistent implementations and suboptimal production systems.",
-                    approach: "Built a comprehensive MCP server with specialized tools covering the full AI development lifecycle: security scanning, UX auditing, React performance checks, prompt optimization, model selection, vector database recommendations, and cost analysis.",
-                    solution: "Production-ready toolkit with 30+ tools organized into categories: Project Auditing (security, linting, schema validation), AI Engineering (prompt optimization, model selection, fine-tuning decisions), Performance (React checks, accessibility, SEO), and Deployment (cost breakeven analysis, deployment option comparison).",
-                    outcome: "Created a deterministic framework for AI engineering decisions, eliminating guesswork in model selection, prompt engineering, and infrastructure choices. Enables rapid prototyping with production-grade quality standards.",
+                    title: "AI Loyalty & Voucher Automation",
+                    problem: "The client could generate discount codes, but did not have a clear customer database or a direct way to distribute vouchers to customers across WhatsApp and Telegram.",
+                    approach: "Designed a 64-node n8n workflow that registers customers, validates purchase receipts with GPT-4o vision, calculates loyalty points, and routes users through WhatsApp, Telegram, and web form entry points.",
+                    solution: "Connected OpenAI vision, Google Sheets, WhatsApp Business, Telegram, webhook forms, custom JavaScript, duplicate checks, point updates, voucher lookup, and code-used marking into one operational customer-retention system.",
+                    outcome: "Turned manual customer identification and voucher delivery into an automated loyalty flow: customers submit receipts, receive points or voucher codes, and the business keeps a usable customer and campaign history.",
                     architecture: {
-                        directive: "ai engineering best practices",
-                        orchestration: "autonomous controller w/ memory",
-                        execution: "30+ specialized mcp tools"
-                    }
-                },
-                {
-                    title: "Unified Agentic Engine",
-                    problem: "Unstructured AI implementations lead to probabilistic failures and lack of deterministic control in production.",
-                    approach: "Engineered a 3-layer architecture (Directive, Orchestration, Execution) to separate strategy from mechanism, integrated with MCP for tool discovery.",
-                    solution: "A robust framework where directives define strategy, orchestration handles intent, and execution scripts perform deterministic actions.",
-                    outcome: "Established a scalable standard for building reliable, self-annealing agents with clear brand isolation and operational protocols.",
-                    architecture: {
-                        directive: "brand guidelines & operational protocol",
-                        orchestration: "intent reasoning & agentic flow",
-                        execution: "deterministic python/mcp tools"
-                    }
-                },
-                {
-                    title: "Deep Learning Image Colorizer",
-                    problem: "Grayscale images require time-consuming manual colorization, limiting restoration of historical archives.",
-                    approach: "Implemented a conditional GAN using Pix2Pix architecture with U-Net generator and PatchGAN discriminator for image-to-image translation.",
-                    solution: "Built an end-to-end ML pipeline with TensorFlow/Keras — from data preprocessing to model training and inference.",
-                    outcome: "Demonstrated practical application of generative models, strengthening experience in deep learning architectures and image processing.",
-                    architecture: {
-                        directive: "loss weighting & feature mapping",
-                        orchestration: "gan generator-discriminator loop",
-                        execution: "tensorflow inference pipeline"
-                    }
-                },
-                {
-                    title: "Autonomous AI Booking Agent",
-                    problem: "Manual appointment scheduling creates operational overhead and requires constant human intervention.",
-                    approach: "Designed an agentic workflow using n8n with GPT-4 for intent classification and LangChain for context-aware responses.",
-                    solution: "Production-grade agent that autonomously handles booking requests, checks real-time availability, and syncs with Google Calendar API.",
-                    outcome: "Achieved end-to-end task automation, eliminating manual booking overhead with autonomous decision-making.",
-                    architecture: {
-                        directive: "scheduling policy & data privacy",
-                        orchestration: "n8n agentic workflow nodes",
-                        execution: "api sync & real-time notification"
-                    }
-                },
-                {
-                    title: "Loyalty Program Automation",
-                    problem: "Customer loyalty programs require manual receipt verification, points tracking, and reward distribution.",
-                    approach: "Integrated GPT-4 Vision for receipt OCR with automated points calculation logic and multi-channel messaging APIs.",
-                    solution: "Deployed n8n workflow connecting WhatsApp/Telegram, OpenAI Vision API, and Google Sheets for seamless loyalty management.",
-                    outcome: "Created production-ready automation handling customer engagement without human intervention — bridging AI vision with business logic.",
-                    architecture: {
-                        directive: "reward rules & verification specs",
-                        orchestration: "gpt-4 vision reasoning layer",
-                        execution: "multi-channel sheets/api sync"
-                    }
-                },
-                {
-                    title: "Content Repurposing Engine",
-                    problem: "Creating platform-optimized content across multiple channels is inefficient and doesn't scale.",
-                    approach: "Built a multi-channel transformation engine using LLM APIs with platform-specific prompting strategies.",
-                    solution: "Automated workflow that transforms single content input into multiple optimized formats for different platforms.",
-                    outcome: "Scaled content production without increasing manual overhead — demonstrating practical LLM integration for business automation.",
-                    architecture: {
-                        directive: "tone-of-voice & platform specs",
-                        orchestration: "llm transformation pipeline",
-                        execution: "automated repurposing workflow"
+                        directive: "loyalty rules & receipt validation",
+                        orchestration: "n8n multi-channel workflow",
+                        execution: "gpt-4o vision + sheets/api sync"
                     }
                 }
             ]
@@ -213,82 +153,22 @@ export const translations = {
             }
         },
         projects: {
-            section_label: "03 // projets sélectionnés",
-            headline: "ml & automatisation ia",
-            description: "systèmes prêts pour la production, du développement de modèles au déploiement. chaque projet démontre une résolution de problèmes de bout en bout.",
+            section_label: "03 // projet principal",
+            headline: "automatisation genai appliquée",
+            description: "un workflow de production montrant comment je connecte vision llm, règles métier, données client et canaux de messagerie dans un système utilisable.",
             launch_site: "voir le site",
             case_notes: "notes de cas",
             items: [
                 {
-                    title: "Boîte à Outils Zero-G pour l'Ingénierie IA",
-                    problem: "Les ingénieurs IA manquent d'outils standardisés pour auditer la qualité du code, optimiser les prompts, sélectionner les modèles et prendre des décisions de déploiement, ce qui conduit à des implémentations incohérentes et des systèmes de production sous-optimaux.",
-                    approach: "Construction d'un serveur MCP complet avec des outils spécialisés couvrant le cycle de vie complet du développement IA : analyse de sécurité, audit UX, vérifications de performance React, optimisation de prompts, sélection de modèles, recommandations de bases de données vectorielles et analyse de coûts.",
-                    solution: "Boîte à outils production-ready avec plus de 30 outils organisés en catégories : Audit de Projet (sécurité, linting, validation de schéma), Ingénierie IA (optimisation de prompts, sélection de modèles, décisions de fine-tuning), Performance (vérifications React, accessibilité, SEO) et Déploiement (analyse de rentabilité, comparaison d'options de déploiement).",
-                    outcome: "Création d'un framework déterministe pour les décisions d'ingénierie IA, éliminant les approximations dans la sélection de modèles, l'ingénierie de prompts et les choix d'infrastructure. Permet un prototypage rapide avec des standards de qualité production.",
+                    title: "Automatisation IA Fidélité & Vouchers",
+                    problem: "Le client pouvait générer des codes de réduction, mais n'avait pas de base client claire ni de moyen direct pour distribuer les vouchers via WhatsApp et Telegram.",
+                    approach: "Conception d'un workflow n8n de 64 nœuds qui enregistre les clients, valide les reçus avec GPT-4o vision, calcule les points de fidélité et route les utilisateurs via WhatsApp, Telegram et formulaire web.",
+                    solution: "Connexion d'OpenAI vision, Google Sheets, WhatsApp Business, Telegram, webhooks, JavaScript personnalisé, contrôles de doublons, mises à jour de points, attribution de vouchers et marquage des codes utilisés dans un seul système opérationnel.",
+                    outcome: "Transformation de l'identification client et de la distribution de vouchers en flux automatisé : les clients envoient leurs reçus, reçoivent points ou codes, et l'entreprise conserve un historique client et campagne exploitable.",
                     architecture: {
-                        directive: "meilleures pratiques ingénierie ia",
-                        orchestration: "contrôleur autonome avec mémoire",
-                        execution: "30+ outils mcp spécialisés"
-                    }
-                },
-                {
-                    title: "Moteur Agentique Unifié",
-                    problem: "Les implémentations d'IA non structurées entraînent des échecs probabilistes et un manque de contrôle déterministe en production.",
-                    approach: "Conception d'une architecture à 3 couches (Directive, Orchestration, Exécution) pour séparer la stratégie du mécanisme, intégrée au protocole MCP.",
-                    solution: "Un framework robuste où les directives définissent la stratégie, l'orchestration gère l'intention et les scripts d'exécution effectuent des actions déterministes.",
-                    outcome: "Établissement d'un standard évolutif pour construire des agents fiables, auto-correcteurs avec une isolation de marque claire.",
-                    architecture: {
-                        directive: "directives de marque & protocole",
-                        orchestration: "raisonnement d'intention & flux",
-                        execution: "outils déterministes python/mcp"
-                    }
-                },
-                {
-                    title: "Coloriseur d'Image Deep Learning",
-                    problem: "Les images en niveaux de gris nécessitent une colorisation manuelle chronophage, limitant la restauration d'archives historiques.",
-                    approach: "Implémentation d'un GAN conditionnel avec architecture Pix2Pix utilisant un générateur U-Net et un discriminateur PatchGAN.",
-                    solution: "Construction d'un pipeline ML complet avec TensorFlow/Keras — du prétraitement des données à l'entraînement et l'inférence.",
-                    outcome: "Démonstration de l'application pratique des modèles génératifs, renforçant l'expérience en architectures deep learning.",
-                    architecture: {
-                        directive: "pondération des pertes & mapping",
-                        orchestration: "boucle gan générateur-discrim.",
-                        execution: "pipeline d'inférence tensorflow"
-                    }
-                },
-                {
-                    title: "Agent IA Autonome de Réservation",
-                    problem: "La prise de rendez-vous manuelle crée une surcharge opérationnelle et nécessite une intervention humaine constante.",
-                    approach: "Conception d'un workflow agentique avec n8n, GPT-4 pour la classification d'intention et LangChain pour les réponses contextuelles.",
-                    solution: "Agent de niveau production gérant les demandes de réservation, vérifiant la disponibilité et synchronisant avec l'API Google Calendar.",
-                    outcome: "Automatisation de bout en bout éliminant la surcharge manuelle avec prise de décision autonome.",
-                    architecture: {
-                        directive: "politique de réservation & règles",
-                        orchestration: "nœuds de workflow n8n",
-                        execution: "sync api & notification temps réel"
-                    }
-                },
-                {
-                    title: "Automatisation Programme de Fidélité",
-                    problem: "Les programmes de fidélité nécessitent une vérification manuelle des reçus, suivi des points et distribution des récompenses.",
-                    approach: "Intégration de GPT-4 Vision pour l'OCR des reçus avec logique de calcul de points et APIs de messagerie multi-canaux.",
-                    solution: "Déploiement d'un workflow n8n connectant WhatsApp/Telegram, l'API Vision OpenAI et Google Sheets.",
-                    outcome: "Automatisation production-ready gérant l'engagement client sans intervention humaine — liant vision IA et logique métier.",
-                    architecture: {
-                        directive: "règles de récompense & vérif",
-                        orchestration: "couche raisonnement gpt-4 vision",
-                        execution: "sync multi-canal sheets/api"
-                    }
-                },
-                {
-                    title: "Moteur de Réutilisation de Contenu",
-                    problem: "Créer du contenu optimisé pour plusieurs plateformes est inefficace et ne passe pas à l'échelle.",
-                    approach: "Construction d'un moteur de transformation multi-canaux utilisant les APIs LLM avec des stratégies de prompting spécifiques.",
-                    solution: "Workflow automatisé transformant une entrée unique en formats optimisés pour différentes plateformes.",
-                    outcome: "Production de contenu à l'échelle sans augmenter la charge manuelle — démontrant l'intégration pratique des LLM.",
-                    architecture: {
-                        directive: "ton & spécifications plateformes",
-                        orchestration: "pipeline de transformation llm",
-                        execution: "workflow de réutilisation auto"
+                        directive: "règles fidélité & validation reçu",
+                        orchestration: "workflow n8n multi-canal",
+                        execution: "gpt-4o vision + sync sheets/api"
                     }
                 }
             ]
