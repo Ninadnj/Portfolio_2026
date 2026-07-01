@@ -33,7 +33,7 @@ const links = [
 const openSource = [
   {
     name: "agent-memory-engine",
-    href: "https://github.com/Ninadnj/agent-memory-engine",
+    href: "https://github.com/Ninadnj/ai-agent-memory-scaffold",
     result: "78% fewer context tokens at 93% recall",
     description:
       "One shared memory for coding agents (Claude Code, Codex, Cursor) over MCP — token-budgeted recall, cross-agent handoffs, and an evaluation harness that proves the token savings.",
