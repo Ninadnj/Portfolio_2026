@@ -1,110 +1,147 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { ArrowRight, FileDown, Github, Linkedin } from "lucide-react"
 
 import { useLanguage } from "@/context/LanguageContext"
 
-// Custom typewriter hook
-function useTypewriter(phrases: string[], typingSpeed = 100, deletingSpeed = 50, pauseDuration = 2000) {
-    const [text, setText] = useState('')
-    const [isDeleting, setIsDeleting] = useState(false)
-    const [loopNum, setLoopNum] = useState(0)
-    const [delta, setDelta] = useState(typingSpeed)
-
-    useEffect(() => {
-        const handleType = () => {
-            const currentPhrase = phrases[loopNum % phrases.length]
-
-            if (isDeleting) {
-                setText(currentPhrase.substring(0, text.length - 1))
-                setDelta(deletingSpeed)
-            } else {
-                setText(currentPhrase.substring(0, text.length + 1))
-                setDelta(typingSpeed)
-            }
-
-            // Check if phrase is complete
-            if (!isDeleting && text === currentPhrase) {
-                setDelta(pauseDuration)
-                setIsDeleting(true)
-            } else if (isDeleting && text === '') {
-                setIsDeleting(false)
-                setLoopNum(loopNum + 1)
-                setDelta(500) // Brief pause before starting next phrase
-            }
-        }
-
-        const timer = setTimeout(handleType, delta)
-        return () => clearTimeout(timer)
-    }, [text, isDeleting, loopNum, delta, phrases, typingSpeed, deletingSpeed, pauseDuration])
-
-    return text
-}
+const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 export function Hero() {
     const { t } = useLanguage()
 
-    const typedText = useTypewriter(["still building."], 80, 40, 1500)
-
     return (
-        <section id="home" className="relative pt-40 pb-20 flex items-center justify-center overflow-hidden">
-            {/* Modern Gradient Mesh */}
-            <div className="absolute inset-0 pointer-events-none" style={{ background: 'var(--gradient-mesh)' }} />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,var(--accent)_0%,transparent_70%)] opacity-[0.02] pointer-events-none" />
+        <section
+            id="home"
+            className="relative pt-40 pb-24 sm:pt-48 sm:pb-32 overflow-hidden border-b border-border"
+        >
+            {/* Technical grid backdrop, faded toward the edges */}
+            <div className="absolute inset-0 bg-grid bg-dots mask-fade-edges opacity-[0.6] pointer-events-none" />
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "var(--gradient-mesh)" }}
+            />
 
-            <div className="container relative z-10 mx-auto px-4 max-w-5xl">
-                <motion.span
-                    initial={{ opacity: 0, y: 20 }}
+            <div className="container relative z-10 mx-auto px-6 max-w-5xl">
+                {/* Status line */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="section-label text-center block"
+                    transition={{ duration: 0.7, ease }}
+                    className="flex items-center gap-2.5 mb-8"
                 >
-                    {t.hero.portfolio_year}
-                </motion.span>
+                    <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500/70 animate-ping" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                    </span>
+                    <span className="mono-label">{t.hero.status}</span>
+                </motion.div>
 
-                <div className="h-20 sm:h-24 mb-2 flex items-center justify-center">
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-center lowercase text-foreground max-w-3xl">
-                        {typedText}
-                        <span className="animate-pulse">|</span>
-                    </h1>
-                </div>
-
+                {/* Role headline */}
+                <motion.h1
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.05, ease }}
+                    className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight lowercase text-foreground leading-[1.04]"
+                >
+                    {t.hero.role}
+                </motion.h1>
                 <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="text-sm text-muted-foreground text-center mb-6 lowercase tracking-wide"
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.12, ease }}
+                    className="mt-3 text-lg sm:text-2xl md:text-3xl font-normal tracking-tight lowercase text-muted-foreground"
                 >
-                    green apple. café crème. lofi. labrador.
+                    {t.hero.role_line}
                 </motion.p>
 
+                {/* Narrative */}
                 <motion.p
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="body-text max-w-xl mx-auto text-center mb-10"
+                    transition={{ duration: 0.8, delay: 0.2, ease }}
+                    className="mt-8 max-w-xl body-text text-base sm:text-lg"
                 >
                     {t.hero.description}
                 </motion.p>
 
+                {/* Technical tags */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-3"
+                    transition={{ duration: 0.7, delay: 0.3, ease }}
+                    className="mt-9 flex flex-wrap gap-2"
                 >
-                    <Button size="lg" className="btn-premium btn-primary-cta w-full sm:w-auto" asChild>
-                        <Link href="#contact">{t.hero.start_project}</Link>
+                    {t.hero.tags.map((tag) => (
+                        <span key={tag} className="tech-tag">
+                            {tag}
+                        </span>
+                    ))}
+                </motion.div>
+
+                {/* CTAs */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.38, ease }}
+                    className="mt-11 flex flex-wrap items-center gap-3"
+                >
+                    <Button size="lg" className="btn-premium btn-primary-cta lowercase group" asChild>
+                        <Link href="#demos">
+                            {t.hero.view_projects}
+                            <ArrowRight className="ml-2 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        </Link>
                     </Button>
-                    <Button size="lg" variant="outline" className="btn-premium w-full sm:w-auto border-border hover:bg-secondary/50" asChild>
-                        <Link href="#demos">{t.hero.view_case_studies}</Link>
+                    <Button
+                        size="lg"
+                        variant="outline"
+                        className="btn-premium lowercase border-border hover:bg-secondary/50"
+                        asChild
+                    >
+                        <Link href="#contact">{t.hero.contact}</Link>
+                    </Button>
+                    <Button
+                        size="lg"
+                        variant="outline"
+                        className="btn-premium lowercase border-border hover:bg-secondary/50"
+                        asChild
+                    >
+                        <a href="/Portfolio_2026/Nina_Resume_2026.pdf" download="Nina_Resume_2026.pdf">
+                            <FileDown className="mr-2 h-3.5 w-3.5" />
+                            {t.hero.resume}
+                        </a>
+                    </Button>
+
+                    <div className="h-6 w-px bg-border mx-1 hidden sm:block" />
+
+                    <Button
+                        size="lg"
+                        variant="ghost"
+                        className="btn-premium h-11 w-11 px-0 text-muted-foreground hover:text-foreground hover:bg-secondary/50 hidden sm:inline-flex"
+                        asChild
+                    >
+                        <Link href="https://github.com/Ninadnj" target="_blank" aria-label="GitHub">
+                            <Github className="h-4 w-4" />
+                        </Link>
+                    </Button>
+                    <Button
+                        size="lg"
+                        variant="ghost"
+                        className="btn-premium h-11 w-11 px-0 text-muted-foreground hover:text-foreground hover:bg-secondary/50 hidden sm:inline-flex"
+                        asChild
+                    >
+                        <Link
+                            href="https://www.linkedin.com/in/nina-doinjashvili-8928815a/"
+                            target="_blank"
+                            aria-label="LinkedIn"
+                        >
+                            <Linkedin className="h-4 w-4" />
+                        </Link>
                     </Button>
                 </motion.div>
             </div>
         </section>
     )
 }
-

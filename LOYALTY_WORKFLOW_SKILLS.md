@@ -2,9 +2,9 @@
 
 ## Project Summary
 
-Built a production n8n workflow for a client who could generate discount codes but did not have a simple way to identify customers, track loyalty activity, or distribute vouchers directly through customer communication channels.
+Built a production n8n workflow for a client who needed a usable customer database for loyalty and future marketing campaigns, plus a simple way to distribute voucher codes directly through customer communication channels.
 
-The workflow connects WhatsApp, Telegram, Google Sheets, webhook registration, GPT-4o vision receipt validation, points calculation, voucher assignment, and code usage tracking into one automated customer-retention system.
+The workflow connects WhatsApp, Telegram, SMS-ready messaging, Google Sheets, webhook registration, GPT-4o vision receipt validation, points calculation, voucher assignment, and code usage tracking into one automated customer-retention system.
 
 ## Core Skills Demonstrated
 
@@ -14,6 +14,7 @@ The workflow connects WhatsApp, Telegram, Google Sheets, webhook registration, G
 - Prompt engineering for strict structured outputs
 - n8n workflow architecture
 - Multi-channel automation with WhatsApp and Telegram
+- SMS-ready customer messaging for marketing campaigns
 - Customer registration and duplicate detection
 - Google Sheets as a lightweight CRM/database
 - Voucher inventory lookup and assignment
@@ -52,6 +53,7 @@ The workflow connects WhatsApp, Telegram, Google Sheets, webhook registration, G
 ## Business Value
 
 - Replaced manual customer identification with automated customer capture.
+- Created a customer database for future loyalty and marketing campaigns.
 - Turned discount-code distribution into a direct customer communication flow.
 - Created a reusable customer history for future campaigns.
 - Reduced manual work around receipt verification, point calculation, and voucher delivery.

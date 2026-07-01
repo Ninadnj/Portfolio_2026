@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/context/LanguageContext"
 import { motion } from "framer-motion"
-import { Mail, Linkedin, MessageSquare, ArrowRight } from "lucide-react"
+import { Mail, Linkedin, MessageSquare, ArrowRight, FileDown } from "lucide-react"
 
 export function Contact() {
     const { t } = useLanguage()
@@ -12,15 +12,23 @@ export function Contact() {
             <div className="container mx-auto px-4 max-w-6xl">
                 <span className="section-label">{t.contact.section_label}</span>
                 <div className="max-w-lg mx-auto">
+                    <div className="mb-10 text-center">
+                        <h2 className="accent-headline text-2xl sm:text-3xl text-foreground mb-4 lowercase">
+                            {t.contact.headline}
+                        </h2>
+                        <p className="body-text">{t.contact.description}</p>
+                    </div>
                     <div className="grid grid-cols-1 gap-3">
                         {[
                             { label: "email", value: t.contact.email_value, href: "mailto:ninodoinjashvili@gmail.com", icon: <Mail className="h-4 w-4" /> },
                             { label: "linkedin", value: t.contact.linkedin_value, href: "https://www.linkedin.com/in/nina-doinjashvili-8928815a/", icon: <Linkedin className="h-4 w-4" /> },
+                            { label: "resume", value: t.contact.resume_value, href: "/Portfolio_2026/Nina_Resume_2026.pdf", icon: <FileDown className="h-4 w-4" />, download: "Nina_Resume_2026.pdf" },
                             { label: "whatsapp", value: t.contact.whatsapp_value, href: "https://w.app/nina", icon: <MessageSquare className="h-4 w-4" /> }
                         ].map((item, i) => (
                             <motion.a
                                 key={i}
                                 href={item.href}
+                                download={item.download}
                                 target="_blank"
                                 rel="noopener"
                                 initial={{ opacity: 0, y: 10 }}

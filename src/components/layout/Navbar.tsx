@@ -25,8 +25,9 @@ export function Navbar() {
                 <div className="hidden md:flex items-center gap-8">
                     {[
                         { label: t.navbar.about, href: "#about" },
-                        { label: t.navbar.ai_agents, href: "#workflows" },
-                        { label: t.navbar.workflows, href: "#demos" }
+                        { label: t.navbar.expertise, href: "#expertise" },
+                        { label: t.navbar.ai_agents, href: "#demos" },
+                        { label: t.navbar.workflows, href: "#skills" }
                     ].map((item) => (
                         <Link
                             key={item.href}
@@ -76,8 +77,9 @@ export function Navbar() {
                         className="md:hidden absolute top-20 left-0 w-full bg-background border-b border-border p-8 flex flex-col gap-6 items-center"
                     >
                         <Link href="#about" onClick={() => setIsMenuOpen(false)} className="text-sm lowercase tracking-wide">{t.navbar.about}</Link>
-                        <Link href="#workflows" onClick={() => setIsMenuOpen(false)} className="text-sm lowercase tracking-wide">{t.navbar.ai_agents}</Link>
-                        <Link href="#demos" onClick={() => setIsMenuOpen(false)} className="text-sm lowercase tracking-wide">{t.navbar.workflows}</Link>
+                        <Link href="#expertise" onClick={() => setIsMenuOpen(false)} className="text-sm lowercase tracking-wide">{t.navbar.expertise}</Link>
+                        <Link href="#demos" onClick={() => setIsMenuOpen(false)} className="text-sm lowercase tracking-wide">{t.navbar.ai_agents}</Link>
+                        <Link href="#skills" onClick={() => setIsMenuOpen(false)} className="text-sm lowercase tracking-wide">{t.navbar.workflows}</Link>
                         <Button className="btn-premium w-full rounded-full lowercase" asChild>
                             <Link href="#contact" onClick={() => setIsMenuOpen(false)}>{t.navbar.start_project}</Link>
                         </Button>

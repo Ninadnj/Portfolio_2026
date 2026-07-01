@@ -39,33 +39,50 @@ type FlowNodeProps = {
   tone?: "blue" | "green" | "amber" | "violet"
 }
 
-const toneClasses = {
-  blue: "bg-blue-100/80 text-blue-800",
-  green: "bg-emerald-100/80 text-emerald-800",
-  amber: "bg-amber-100/80 text-amber-800",
-  violet: "bg-violet-100/80 text-violet-800",
+// Excalidraw-style hand-drawn look: an SVG turbulence + displacement filter
+// (defined once in <Projects/>) wobbles the strokes only; text stays crisp.
+const INK = "#1b1b1f"
+const rough = { filter: "url(#sketchy)" } as const
+
+const toneChip = {
+  blue: "bg-blue-100 text-blue-700 ring-blue-400",
+  green: "bg-emerald-100 text-emerald-700 ring-emerald-400",
+  amber: "bg-amber-100 text-amber-700 ring-amber-400",
+  violet: "bg-violet-100 text-violet-700 ring-violet-400",
+}
+
+const toneFill = {
+  blue: "bg-blue-50",
+  green: "bg-emerald-50",
+  amber: "bg-amber-50",
+  violet: "bg-violet-50",
 }
 
 const tiltClasses = {
-  blue: "rotate-[0.35deg]",
-  green: "-rotate-[0.4deg]",
-  amber: "rotate-[0.5deg]",
-  violet: "-rotate-[0.25deg]",
+  blue: "rotate-[0.4deg]",
+  green: "-rotate-[0.5deg]",
+  amber: "rotate-[0.55deg]",
+  violet: "-rotate-[0.3deg]",
 }
 
 function FlowNode({ icon: Icon, title, detail, tone = "blue" }: FlowNodeProps) {
   return (
-    <div
-      className={`relative flex min-h-24 min-w-0 flex-1 flex-col justify-between rounded-[8px_13px_9px_12px] border-[1.5px] border-slate-700 bg-[#fffefb] p-3 shadow-[2px_3px_0_rgba(15,23,42,0.12)] after:pointer-events-none after:absolute after:inset-[2px] after:rounded-[11px_7px_12px_8px] after:border after:border-slate-300/70 after:content-[''] ${tiltClasses[tone]}`}
-    >
-      <div className={`flex h-7 w-7 items-center justify-center rounded-[48%_52%_46%_54%] ${toneClasses[tone]}`}>
-        <Icon className="h-4 w-4" strokeWidth={1.7} aria-hidden="true" />
-      </div>
-      <div className="mt-3 min-w-0">
-        <p className="break-words font-[family-name:var(--font-sketch)] text-[17px] font-semibold leading-none text-slate-900">
+    <div className={`relative min-h-[116px] min-w-0 flex-1 ${tiltClasses[tone]}`}>
+      {/* wobbly hand-drawn border + fill (filtered) */}
+      <div
+        className={`pointer-events-none absolute inset-0 rounded-[14px_10px_15px_11px] border-[2.5px] ${toneFill[tone]}`}
+        style={{ ...rough, borderColor: INK }}
+        aria-hidden="true"
+      />
+      {/* crisp content on top */}
+      <div className="relative flex h-full flex-col p-3.5">
+        <div className={`flex h-9 w-9 items-center justify-center rounded-[46%_54%_45%_55%] ring-2 ${toneChip[tone]}`}>
+          <Icon className="h-[18px] w-[18px]" strokeWidth={2} aria-hidden="true" />
+        </div>
+        <p className="mt-2.5 break-words font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-[1.05]" style={{ color: INK }}>
           {title}
         </p>
-        <p className="mt-1 break-words text-[11px] leading-snug text-muted-foreground">{detail}</p>
+        <p className="mt-1.5 break-words text-[12.5px] leading-snug text-slate-600">{detail}</p>
       </div>
     </div>
   )
@@ -73,18 +90,18 @@ function FlowNode({ icon: Icon, title, detail, tone = "blue" }: FlowNodeProps) {
 
 function Connector() {
   return (
-    <div className="relative flex w-6 shrink-0 items-center justify-center text-slate-600 sm:w-8">
-      <span className="absolute left-0 right-1 top-1/2 rotate-[2deg] border-t border-dashed border-slate-500" />
-      <ArrowRight className="relative ml-auto h-5 w-5 -rotate-[3deg]" strokeWidth={1.5} aria-hidden="true" />
+    <div className="relative flex w-8 shrink-0 items-center justify-center sm:w-11" style={{ color: INK }}>
+      <span className="absolute left-0 right-1 top-1/2 border-t-[2.5px]" style={{ ...rough, borderColor: INK }} />
+      <ArrowRight className="relative ml-auto h-6 w-6" strokeWidth={2.4} style={rough} aria-hidden="true" />
     </div>
   )
 }
 
 function DownConnector() {
   return (
-    <div className="relative flex h-11 items-end justify-center pb-1 text-slate-600">
-      <span className="absolute bottom-2 top-0 rotate-[2deg] border-l border-dashed border-slate-500" />
-      <ArrowDown className="relative h-5 w-5 rotate-[2deg]" strokeWidth={1.5} aria-hidden="true" />
+    <div className="relative flex h-12 items-end justify-center pb-1" style={{ color: INK }}>
+      <span className="absolute bottom-2 top-0 border-l-[2.5px]" style={{ ...rough, borderColor: INK }} />
+      <ArrowDown className="relative h-6 w-6" strokeWidth={2.4} style={rough} aria-hidden="true" />
     </div>
   )
 }
@@ -104,12 +121,27 @@ function ResponsiveConnector() {
 
 function WorkflowFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative rounded-[10px_16px_11px_14px] border-[1.5px] border-slate-700 bg-[#fffdf7] p-3 shadow-[4px_5px_0_rgba(15,23,42,0.10)] before:pointer-events-none before:absolute before:inset-[3px] before:rotate-[0.15deg] before:rounded-[14px_9px_16px_10px] before:border before:border-slate-300 before:content-[''] sm:p-5">
-      <p className="mb-5 flex items-center gap-2 font-[family-name:var(--font-sketch)] text-xl font-semibold leading-none text-slate-700">
-        <PencilLine className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-        System flow sketch
+    <div
+      className="relative rounded-[16px_12px_18px_13px] bg-[#fffdf7] p-4 sm:p-6"
+      style={{
+        backgroundImage: "radial-gradient(rgba(15,23,42,0.05) 1.1px, transparent 1.1px)",
+        backgroundSize: "18px 18px",
+      }}
+    >
+      {/* wobbly frame border */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-[16px_12px_18px_13px] border-[2.5px]"
+        style={{ ...rough, borderColor: INK }}
+        aria-hidden="true"
+      />
+      <p className="relative mb-5 inline-flex items-end gap-2 font-[family-name:var(--font-sketch)] text-xl font-bold leading-none" style={{ color: INK }}>
+        <PencilLine className="h-[18px] w-[18px]" strokeWidth={1.8} style={rough} aria-hidden="true" />
+        <span className="relative flex flex-col">
+          System flow sketch
+          <span className="mt-1 h-[3px] w-full bg-amber-400" style={rough} aria-hidden="true" />
+        </span>
       </p>
-      {children}
+      <div className="relative">{children}</div>
     </div>
   )
 }
@@ -135,7 +167,7 @@ function BookingWorkflow() {
 
       <DownConnector />
 
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         The agent checks two memory layers
       </p>
       <div className="grid grid-cols-2 gap-2 sm:gap-3">
@@ -155,7 +187,7 @@ function BookingWorkflow() {
 
       <DownConnector />
 
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         Then chooses the right action
       </p>
 
@@ -192,7 +224,7 @@ function BookingWorkflow() {
 function LoyaltyWorkflow() {
   return (
     <WorkflowFrame>
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         1. Join the loyalty program
       </p>
       <div className="flex">
@@ -212,7 +244,7 @@ function LoyaltyWorkflow() {
 
       <div className="my-6 rotate-[0.3deg] border-t-2 border-dashed border-slate-400/70" />
 
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         2. Earn and receive rewards
       </p>
       <div className="flex">
@@ -229,7 +261,7 @@ function LoyaltyWorkflow() {
 function RetailOperationsWorkflow() {
   return (
     <WorkflowFrame>
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         1. Control every location remotely
       </p>
       <div className="flex flex-col min-[520px]:flex-row">
@@ -257,7 +289,7 @@ function RetailOperationsWorkflow() {
 
       <div className="my-6 rotate-[0.3deg] border-t-2 border-dashed border-slate-400/70" />
 
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         2. Turn operations into decisions
       </p>
       <div className="flex flex-col min-[520px]:flex-row">
@@ -289,7 +321,7 @@ function RetailOperationsWorkflow() {
 function SocialAgentWorkflow() {
   return (
     <WorkflowFrame>
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         1. The LLM brain plans the post
       </p>
       <div className="flex flex-col min-[520px]:flex-row">
@@ -317,7 +349,7 @@ function SocialAgentWorkflow() {
 
       <div className="my-6 rotate-[0.3deg] border-t-2 border-dashed border-slate-400/70" />
 
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         2. Render once, publish everywhere
       </p>
       <div className="flex flex-col min-[520px]:flex-row">
@@ -349,7 +381,7 @@ function SocialAgentWorkflow() {
 function SkillsKitWorkflow() {
   return (
     <WorkflowFrame>
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         1. A skill = instructions + typed tools + eval
       </p>
       <div className="flex flex-col min-[520px]:flex-row">
@@ -377,7 +409,7 @@ function SkillsKitWorkflow() {
 
       <div className="my-6 rotate-[0.3deg] border-t-2 border-dashed border-slate-400/70" />
 
-      <p className="mb-3 font-[family-name:var(--font-sketch)] text-lg font-semibold leading-none text-slate-600">
+      <p className="mb-3 font-[family-name:var(--font-sketch)] text-[19px] font-bold leading-none text-slate-800">
         2. Route, evaluate, serve over MCP
       </p>
       <div className="flex flex-col min-[520px]:flex-row">
@@ -449,6 +481,7 @@ const projects = [
     capabilities: "LLM planning & copywriting · structured outputs (JSON mode) · grounding & de-duplication · prompt engineering · A/B testing (caption variants) · graceful fallback · multi-platform API orchestration",
     impact: "Runs a brand's entire Meta presence end-to-end with no human in the loop; one platform failing never blocks the others, and the whole pipeline demos with zero credentials.",
     stack: "Python · OpenAI API · Playwright (headless Chromium) · Meta Graph API · Threads API · cron",
+    github: "https://github.com/Ninadnj/meta-social-agent",
     workflow: <SocialAgentWorkflow />,
   },
   {
@@ -460,6 +493,7 @@ const projects = [
     capabilities: "MCP server · tool design (JSON-schema from type hints) · agent-skills architecture · dynamic capability loading · evaluation harness · RAG (BM25) · graceful degradation",
     impact: "Add a capability by dropping in a folder — no core changes. Every skill ships with tests, and the whole kit runs and evaluates offline (9/9 eval cases passing).",
     stack: "Python · Model Context Protocol (FastMCP) · OpenAI API (optional) · BM25 retrieval · pytest",
+    github: "https://github.com/Ninadnj/mcp-skills-kit",
     workflow: <SkillsKitWorkflow />,
   },
 ]
@@ -467,6 +501,13 @@ const projects = [
 export function Projects() {
   return (
     <section id="projects" aria-labelledby="projects-heading" className="mx-auto max-w-6xl px-5 sm:px-8">
+      {/* Hand-drawn (Excalidraw-style) stroke wobble — applied to borders/arrows only */}
+      <svg width="0" height="0" className="absolute" aria-hidden="true">
+        <filter id="sketchy" x="-6%" y="-6%" width="112%" height="112%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
       {projects.map((project) => (
         <article
           key={project.number}
@@ -501,6 +542,19 @@ export function Projects() {
             <p className="mt-7 text-xs leading-relaxed text-muted-foreground">
               <span className="font-semibold text-foreground">Technology:</span> {project.stack}
             </p>
+
+            {"github" in project && project.github && (
+              <p className="mt-3 text-xs">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-foreground underline underline-offset-4 hover:text-muted-foreground"
+                >
+                  View code on GitHub →
+                </a>
+              </p>
+            )}
           </div>
 
           {project.workflow}

@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 
 import { useLanguage } from "@/context/LanguageContext"
 
@@ -12,59 +11,47 @@ export function About() {
         <section id="about" className="py-24 sm:py-32 border-t border-border">
             <div className="container mx-auto px-4 max-w-6xl">
                 <span className="section-label">{t.about.section_label}</span>
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                    {/* Left: positioning */}
                     <motion.div
-                        initial={{ opacity: 0, x: -40, scale: 0.98 }}
-                        whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className="lg:col-span-4 flex justify-center lg:justify-start"
+                        className="lg:col-span-7 space-y-8"
                     >
-                        <div className="relative aspect-square w-full max-w-[320px] rounded-2xl overflow-hidden grayscale border border-border bg-muted">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                                src={`${process.env.NODE_ENV === 'production' ? '/Portfolio_2026' : ''}/portrait.jpg`}
-                                alt="Nina Professional Portrait"
-                                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
-                            />
+                        <h3 className="accent-headline text-3xl sm:text-4xl text-foreground max-w-xl">
+                            {t.about.headline}
+                        </h3>
+                        <div className="space-y-1 text-lg text-foreground/70 max-w-xl" style={{ lineHeight: 1.6 }}>
+                            <p>{t.about.p1}</p>
+                            <p>{t.about.p2}</p>
+                            <p>{t.about.p3}</p>
                         </div>
                     </motion.div>
 
+                    {/* Right: proof / fast-facts spec sheet */}
                     <motion.div
-                        initial={{ opacity: 0, x: 40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className="lg:col-span-8 space-y-10"
+                        className="lg:col-span-5"
                     >
-                        <div className="space-y-10 max-w-xl">
-                            {/* Single accent headline — Playfair Display italic */}
-                            <h3 className="accent-headline text-3xl sm:text-4xl text-foreground">
-                                {t.about.headline}
-                            </h3>
-
-                            {/* Supporting text — Inter Regular */}
-                            <div className="space-y-1 text-lg text-foreground/70" style={{ lineHeight: 1.6 }}>
-                                <p>{t.about.p1}</p>
-                                <p>{t.about.p2}</p>
-                                <p>{t.about.p3}</p>
-                            </div>
-
-                            <p className="body-text text-base">
-                                {t.about.description}
-                            </p>
-
-                            {/* Signature principles */}
-                            <div className="pt-8 border-t border-border space-y-4">
-                                <div className="space-y-1">
-                                    <p className="text-[11px] font-mono lowercase tracking-[0.1em] text-accent">{t.about.less_is_more}</p>
-                                    <p className="text-[11px] font-mono lowercase tracking-[0.1em] text-muted-foreground">{t.about.clarity}</p>
+                        <div className="panel p-6 sm:p-8 divide-y divide-border">
+                            {t.about.facts.map((fact) => (
+                                <div
+                                    key={fact.label}
+                                    className="flex flex-col gap-1 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                                >
+                                    <span className="text-[10px] font-mono lowercase tracking-[0.15em] text-muted-foreground/50 shrink-0">
+                                        {fact.label}
+                                    </span>
+                                    <span className="text-sm text-foreground/80 sm:text-right">
+                                        {fact.value}
+                                    </span>
                                 </div>
-                                <div className="space-y-0.5">
-                                    <span className="text-[10px] font-mono lowercase tracking-[0.1em] text-muted-foreground/50">{t.about.location_label}</span>
-                                    <p className="text-sm text-foreground/80">{t.about.location_value}</p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </motion.div>
                 </div>

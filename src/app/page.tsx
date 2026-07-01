@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { BrainCircuit, Bot, Database, Github, Linkedin, Mail, Phone, Plug, Server, Workflow } from "lucide-react"
+import { BrainCircuit, Bot, Database, FileDown, Github, Linkedin, Mail, Phone, Plug, Server, Workflow } from "lucide-react"
 import { Projects } from "@/components/sections/Projects"
 
 const links = [
@@ -22,6 +22,28 @@ const links = [
     label: "GitHub",
     href: "https://github.com/Ninadnj",
     icon: Github,
+  },
+  {
+    label: "Download CV",
+    href: "/Portfolio_2026/Nina_Doinjashvili_CV.pdf",
+    icon: FileDown,
+  },
+]
+
+const openSource = [
+  {
+    name: "agent-memory-engine",
+    href: "https://github.com/Ninadnj/agent-memory-engine",
+    result: "78% fewer context tokens at 93% recall",
+    description:
+      "One shared memory for coding agents (Claude Code, Codex, Cursor) over MCP — token-budgeted recall, cross-agent handoffs, and an evaluation harness that proves the token savings.",
+  },
+  {
+    name: "honest-agent",
+    href: "https://github.com/Ninadnj/honest-agent",
+    result: "phantom tool calls 6 → 0, coverage 100%",
+    description:
+      "Stops agents from faking tools they don't have. A two-policy experiment (must-act vs may-refuse) with a deterministic arm and a real-LLM arm over the Claude API.",
   },
 ]
 
@@ -143,13 +165,41 @@ export default function Home() {
             Selected projects
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Five production systems spanning LLM agents, RAG, generative AI, MCP tooling, workflow automation,
-            API integration, backend engineering, business analytics and reverse engineering.
+            Three client systems in production and two open-source AI engineering projects — spanning LLM agents,
+            RAG, generative AI, MCP tooling, workflow automation, API integration, backend engineering,
+            business analytics and reverse engineering.
           </p>
         </div>
       </section>
 
       <Projects />
+
+      <section aria-labelledby="oss-heading" className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-16">
+          <p className="text-xs font-medium text-muted-foreground">Open source</p>
+          <h2 id="oss-heading" className="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
+            Measured AI engineering
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Standalone projects with evaluation harnesses — every claim is a number you can reproduce
+            with one command.
+          </p>
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            {openSource.map(({ name, href, result, description }) => (
+              <article key={name} className="border-t border-border pt-4">
+                <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <Github className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                  <Link href={href} target="_blank" rel="noreferrer" className="hover:underline">
+                    {name}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm font-medium text-foreground">{result}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <footer className="border-t border-border">
         <div className="mx-auto max-w-6xl px-5 py-8 text-sm text-muted-foreground sm:px-8">

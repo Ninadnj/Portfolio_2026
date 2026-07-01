@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Caveat, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/layout/Navbar";
-
-import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -17,33 +13,62 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const caveat = Caveat({
+  variable: "--font-sketch",
+  subsets: ["latin"],
+  weight: ["500", "600"],
+});
+
 export const metadata: Metadata = {
-  title: "Nina Doinjashvili | Applied AI Engineer",
-  description: "Machine Learning Systems & AI Automation. Portfolio showcasing production ML, deep learning, AI agents, and automation workflows.",
-  keywords: ["AI Engineer", "Machine Learning", "Deep Learning", "AI Automation", "n8n", "TensorFlow", "LangChain", "GPT-4"],
+  title: "Nina Doinjashvili | Portfolio",
+  description: "Portfolio featuring production RAG agents, LLM applications, workflow automation, API integrations, and full-stack systems.",
+  keywords: [
+    "AI Automation Engineer",
+    "Generative AI Engineer",
+    "LLM Engineer",
+    "RAG Engineer",
+    "Machine Learning Engineer",
+    "AI Agents",
+    "Agentic AI",
+    "RAG",
+    "Retrieval Augmented Generation",
+    "LLM Applications",
+    "Tool Calling",
+    "Function Calling",
+    "Structured Outputs",
+    "Vector Search",
+    "Embeddings",
+    "Evaluation",
+    "MCP",
+    "Claude Agent SDK",
+    "AI Automation",
+    "n8n",
+    "LangChain",
+    "Python",
+    "FastAPI",
+    "Docker",
+    "Google Cloud Run",
+    "Hugging Face",
+    "OpenAI API",
+    "Anthropic Claude",
+    "Google Gemini",
+    "REST API Integration",
+    "Workflow Automation"
+  ],
   authors: [{ name: "Nina Doinjashvili" }],
   creator: "Nina Doinjashvili",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://ninadnj.github.io/Portfolio_2026",
-    title: "Nina Doinjashvili | Applied AI Engineer",
-    description: "Machine Learning Systems & AI Automation Portfolio",
+    title: "Nina Doinjashvili | Portfolio",
+    description: "Production RAG agents, LLM applications, n8n workflow automation, API integrations, and ML systems.",
     siteName: "Nina Doinjashvili Portfolio",
-    images: [
-      {
-        url: "https://ninadnj.github.io/Portfolio_2026/portrait.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Nina Doinjashvili Portfolio",
-      }
-    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Nina Doinjashvili | Applied AI Engineer",
-    description: "Machine Learning Systems & AI Automation Portfolio",
-    images: ["https://ninadnj.github.io/Portfolio_2026/portrait.jpg"],
+    card: "summary",
+    title: "Nina Doinjashvili | Portfolio",
+    description: "Production RAG agents, LLM applications, n8n workflow automation, API integrations, and ML systems.",
   },
   robots: {
     index: true,
@@ -63,7 +88,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased font-sans`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${caveat.variable} antialiased font-sans`}>
         {/* Skip to main content for keyboard navigation */}
         <a
           href="#main-content"
@@ -71,16 +96,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
-          <LanguageProvider>
-            <Navbar />
-            {children}
-          </LanguageProvider>
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

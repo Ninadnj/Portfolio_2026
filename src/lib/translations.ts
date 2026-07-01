@@ -3,28 +3,53 @@ export type Language = 'en' | 'fr';
 export const translations = {
     en: {
         navbar: {
-            about: "about",
-            ai_agents: "ai agents",
-            workflows: "workflows",
-            start_project: "start a project"
+            about: "profile",
+            expertise: "expertise",
+            ai_agents: "work",
+            workflows: "skills",
+            start_project: "contact"
         },
         hero: {
             portfolio_year: "portfolio 2026",
-            description: "building autonomous agents and intelligent workflows that eliminate manual overhead. systems designed for clarity.",
+            status: "paris, france · open to relocate · applied ai / automation roles",
+            role: "AI automation",
+            role_line: "rag agents, llm apps & workflow automation",
+            description: "i build production AI systems that connect LLMs, private data, APIs, and business workflows into reliable tools people can actually use.",
+            tags: ["Python", "RAG", "LLM agents", "n8n", "FastAPI", "API integration", "tool calling", "evaluation", "ML pipelines"],
+            view_projects: "view projects",
+            contact: "contact",
+            resume: "download cv",
             start_project: "start a project",
             view_case_studies: "view case studies"
         },
         about: {
-            section_label: "01 // Background",
-            headline: "Applied AI Engineer | Machine Learning Systems & AI Automation",
-            p1: "ai agents.",
-            p2: "autonomous workflows.",
-            p3: "clear architecture.",
-            description: "from data and models to automation, everything is built to reduce friction — not create it.",
-            less_is_more: "less is more.",
-            clarity: "clarity over complexity.",
-            location_label: "location",
-            location_value: "Paris — Worldwide"
+            section_label: "01 // hiring signal",
+            headline: "built for applied ai roles where shipping matters.",
+            p1: "i combine operations experience with hands-on AI engineering: RAG systems, tool-using agents, workflow automation, APIs, and deployed ML services.",
+            p2: "my strongest fit is for teams that need someone who can understand a business process, design the automation, build the integration, test failure cases, and ship a usable system.",
+            p3: "based in Paris and open to relocation for applied AI, generative AI, AI automation, and ML engineering roles.",
+            facts: [
+                { label: "target roles", value: "AI Automation Engineer · LLM / RAG Engineer" },
+                { label: "shipped", value: "2 production AI systems for real clients" },
+                { label: "credential", value: "RNCP Level 6 AI & Big Data Developer · Le Wagon Paris · 2026" },
+                { label: "proof", value: "RAG agent · 64-node n8n loyalty workflow · Hugging Face ML demo" },
+                { label: "location", value: "Paris, France · open to relocate" },
+                { label: "languages", value: "English · French" }
+            ]
+        },
+        expertise: {
+            section_label: "02 // role-fit expertise",
+            headline: "keywords backed by shipped work",
+            description: "the portfolio is focused on the skills recruiters screen for in applied AI roles: LLM applications, RAG, agents, workflow automation, API integration, evaluation, deployment, and production reliability.",
+            items: [
+                { title: "AI Agents & Tool Calling", tag: "agents", description: "LLM agents with tools, memory, structured outputs, handoff paths, and guardrails for real operational workflows." },
+                { title: "RAG & Knowledge Systems", tag: "rag", description: "retrieval over private data with chunking, embeddings, vector search, grounded answers, and editable knowledge bases." },
+                { title: "LLM App Integration", tag: "llm systems", description: "OpenAI, Claude, Gemini, and MCP-style tools wired into products with function calling, JSON outputs, and API orchestration." },
+                { title: "Workflow Automation", tag: "n8n", description: "n8n and code-based automations for customer support, booking, loyalty, CRM, calendar, messaging, and document workflows." },
+                { title: "Evaluation & Reliability", tag: "evals", description: "output validation, test cases, confidence thresholds, logging, retries, and human-in-the-loop fallbacks before production use." },
+                { title: "Production APIs & Deployment", tag: "mlops", description: "Python services, FastAPI, Docker, Hugging Face Spaces, Google Cloud Run, and deployment decisions around latency, cost, and uptime." },
+                { title: "Machine Learning & Data", tag: "ml pipelines", description: "data preparation, SQL, pandas, scikit-learn, TensorFlow/PyTorch, model evaluation, and ML pipelines from notebooks to usable demos." }
+            ]
         },
         workflows: {
             section_label: "02 // interactive interface",
@@ -49,22 +74,32 @@ export const translations = {
             }
         },
         projects: {
-            section_label: "03 // flagship project",
-            headline: "applied genai automation",
-            description: "one production workflow showing how i connect llm vision, business rules, customer data, and messaging channels into a usable system.",
+            section_label: "03 // case studies",
+            headline: "selected work",
+            description: "production client systems selected to show the exact work applied AI teams hire for: RAG, agents, API integrations, workflow automation, and reliability around real users.",
             launch_site: "launch site",
-            case_notes: "case notes",
+            case_notes: "architecture",
             items: [
                 {
-                    title: "AI Loyalty & Voucher Automation",
-                    problem: "The client could generate discount codes, but did not have a clear customer database or a direct way to distribute vouchers to customers across WhatsApp and Telegram.",
-                    approach: "Designed a 64-node n8n workflow that registers customers, validates purchase receipts with GPT-4o vision, calculates loyalty points, and routes users through WhatsApp, Telegram, and web form entry points.",
-                    solution: "Connected OpenAI vision, Google Sheets, WhatsApp Business, Telegram, webhook forms, custom JavaScript, duplicate checks, point updates, voucher lookup, and code-used marking into one operational customer-retention system.",
-                    outcome: "Turned manual customer identification and voucher delivery into an automated loyalty flow: customers submit receipts, receive points or voucher codes, and the business keeps a usable customer and campaign history.",
+                    title: "AI Customer Operations Agent",
+                    problem: "Service teams lose time answering repeated questions, checking availability, creating appointments, and following up manually across messaging channels.",
+                    solution: "A RAG agent that answers from an editable knowledge base, checks calendar availability, creates appointments, logs customer data, hands uncertain requests to staff, and sends reminder SMS through Twilio.",
+                    outcome: "Customers get instant answers, book in plain language, and receive appointment reminders automatically while staff retain control of exceptions.",
                     architecture: {
-                        directive: "loyalty rules & receipt validation",
+                        directive: "knowledge base + booking rules",
+                        orchestration: "n8n rag agent + memory",
+                        execution: "calendar + sheets + telegram handoff"
+                    }
+                },
+                {
+                    title: "Loyalty Automation System",
+                    problem: "A flower shop ran its loyalty program by hand — purchases, points, and vouchers tracked in spreadsheets, with no simple way to reward or win back customers.",
+                    solution: "A 64-node n8n system where customers send receipts on WhatsApp or Telegram; GPT-4o vision validates each one, calculates points, assigns voucher codes, and updates a customer database — plus an SMS layer for opt-in campaigns.",
+                    outcome: "Customers send a receipt and get points or a voucher automatically, while the business builds a marketing database and can run SMS reminders and reactivation campaigns.",
+                    architecture: {
+                        directive: "loyalty rules + customer data",
                         orchestration: "n8n multi-channel workflow",
-                        execution: "gpt-4o vision + sheets/api sync"
+                        execution: "gpt-4o vision + messages / sms"
                     }
                 }
             ]
@@ -94,41 +129,69 @@ export const translations = {
             description: "detailed dissections of agentic systems, deterministic workflows, and the future of ai orchestration."
         },
         contact: {
-            section_label: "06 // contact",
+            section_label: "05 // contact",
+            headline: "available for applied ai roles",
+            description: "best fit: AI automation, LLM/RAG, or ML engineering roles where prototypes need to become reliable systems.",
             email_value: "contact via mail",
             linkedin_value: "connect professionally",
-            whatsapp_value: "direct message"
+            whatsapp_value: "direct message",
+            resume_value: "download cv"
         },
         footer: {
             top: "top",
             rights: "Created by Nina.",
-            location: "Paris, France"
+            location: "Paris, France · open to relocate"
         }
     },
     fr: {
         navbar: {
-            about: "à propos",
-            ai_agents: "agents ia",
-            workflows: "workflows",
-            start_project: "lancer un projet"
+            about: "profil",
+            expertise: "expertise",
+            ai_agents: "projets",
+            workflows: "compétences",
+            start_project: "contact"
         },
         hero: {
             portfolio_year: "portfolio 2026",
-            description: "construction d'agents autonomes et de workflows intelligents qui éliminent les tâches manuelles. des systèmes conçus pour la clarté.",
+            status: "paris, france · ouverte à la mobilité · rôles ia appliquée / automatisation",
+            role: "ingénieure ia appliquée",
+            role_line: "agents rag, apps llm & automatisation de workflows",
+            description: "je construis des systèmes d'IA en production qui connectent LLM, données privées, API et processus métier dans des outils fiables et réellement utilisables.",
+            tags: ["Python", "RAG", "agents LLM", "n8n", "FastAPI", "intégration API", "tool calling", "évaluation", "pipelines ML"],
+            view_projects: "voir les projets",
+            contact: "contact",
+            resume: "télécharger cv",
             start_project: "lancer un projet",
             view_case_studies: "voir les études de cas"
         },
         about: {
-            section_label: "01 // Contexte",
-            headline: "Ingénieur IA Appliqué | Systèmes Machine Learning & Automatisation IA",
-            p1: "agents ia.",
-            p2: "workflows autonomes.",
-            p3: "architecture claire.",
-            description: "des données et modèles à l'automatisation, tout est construit pour réduire les frictions — pas en créer.",
-            less_is_more: "moins c'est mieux.",
-            clarity: "la clarté avant la complexité.",
-            location_label: "lieu",
-            location_value: "Paris — Monde"
+            section_label: "01 // signal recrutement",
+            headline: "profil construit pour les rôles ia appliquée orientés livraison.",
+            p1: "je combine expérience opérationnelle et ingénierie IA concrète : systèmes RAG, agents avec outils, automatisation de workflows, API et services ML déployés.",
+            p2: "mon meilleur fit : des équipes qui ont besoin de comprendre un processus métier, concevoir l'automatisation, construire l'intégration, tester les cas d'échec et livrer un système utilisable.",
+            p3: "basée à Paris et ouverte à la mobilité pour des rôles en IA appliquée, IA générative, automatisation IA et machine learning engineering.",
+            facts: [
+                { label: "rôles ciblés", value: "Ingénieure IA appliquée · AI Automation Engineer · LLM / RAG Engineer" },
+                { label: "livré", value: "2 systèmes IA en production pour de vrais clients" },
+                { label: "certification", value: "RNCP Niveau 6 IA & Big Data Developer · Le Wagon Paris · 2026" },
+                { label: "preuve", value: "agent RAG · workflow fidélité n8n de 64 noeuds · démo ML Hugging Face" },
+                { label: "localisation", value: "Paris, France · ouverte à la mobilité" },
+                { label: "langues", value: "anglais · français" }
+            ]
+        },
+        expertise: {
+            section_label: "02 // expertise cible",
+            headline: "mots-clés soutenus par du travail livré",
+            description: "le portfolio met en avant les compétences recherchées dans les rôles IA appliquée : applications LLM, RAG, agents, automatisation de workflows, intégration API, évaluation, déploiement et fiabilité production.",
+            items: [
+                { title: "Agents IA & Tool Calling", tag: "agents", description: "agents LLM avec outils, mémoire, sorties structurées, relais humain et garde-fous pour des workflows opérationnels réels." },
+                { title: "RAG & Systèmes de Connaissance", tag: "rag", description: "recherche sur données privées avec chunking, embeddings, recherche vectorielle, réponses ancrées et bases de connaissances éditables." },
+                { title: "Intégration d'Applications LLM", tag: "systèmes llm", description: "OpenAI, Claude, Gemini et outils de type MCP intégrés aux produits avec function calling, sorties JSON et orchestration API." },
+                { title: "Automatisation de Workflows", tag: "n8n", description: "automatisations n8n et code pour support client, réservation, fidélité, CRM, calendrier, messagerie et workflows documentaires." },
+                { title: "Évaluation & Fiabilité", tag: "evals", description: "validation des sorties, cas de test, seuils de confiance, logs, retries et fallbacks humains avant usage en production." },
+                { title: "APIs Production & Déploiement", tag: "mlops", description: "services Python, FastAPI, Docker, Hugging Face Spaces, Google Cloud Run et décisions de déploiement autour de la latence, du coût et de l'uptime." },
+                { title: "Machine Learning & Data", tag: "pipelines ml", description: "préparation de données, SQL, pandas, scikit-learn, TensorFlow/PyTorch, évaluation de modèles et pipelines ML du notebook à la démo utilisable." }
+            ]
         },
         workflows: {
             section_label: "02 // interface interactive",
@@ -153,22 +216,32 @@ export const translations = {
             }
         },
         projects: {
-            section_label: "03 // projet principal",
-            headline: "automatisation genai appliquée",
-            description: "un workflow de production montrant comment je connecte vision llm, règles métier, données client et canaux de messagerie dans un système utilisable.",
+            section_label: "03 // études de cas",
+            headline: "travaux sélectionnés",
+            description: "systèmes clients en production choisis pour montrer le travail recherché par les équipes IA appliquée : RAG, agents, intégrations API, automatisation de workflows et fiabilité avec de vrais utilisateurs.",
             launch_site: "voir le site",
-            case_notes: "notes de cas",
+            case_notes: "architecture",
             items: [
                 {
-                    title: "Automatisation IA Fidélité & Vouchers",
-                    problem: "Le client pouvait générer des codes de réduction, mais n'avait pas de base client claire ni de moyen direct pour distribuer les vouchers via WhatsApp et Telegram.",
-                    approach: "Conception d'un workflow n8n de 64 nœuds qui enregistre les clients, valide les reçus avec GPT-4o vision, calcule les points de fidélité et route les utilisateurs via WhatsApp, Telegram et formulaire web.",
-                    solution: "Connexion d'OpenAI vision, Google Sheets, WhatsApp Business, Telegram, webhooks, JavaScript personnalisé, contrôles de doublons, mises à jour de points, attribution de vouchers et marquage des codes utilisés dans un seul système opérationnel.",
-                    outcome: "Transformation de l'identification client et de la distribution de vouchers en flux automatisé : les clients envoient leurs reçus, reçoivent points ou codes, et l'entreprise conserve un historique client et campagne exploitable.",
+                    title: "Agent d'Opérations Client IA",
+                    problem: "Les équipes de service perdent du temps à répondre aux mêmes questions, vérifier les disponibilités, créer les rendez-vous et effectuer les relances manuellement.",
+                    solution: "Un agent RAG répond depuis une base de connaissances éditable, vérifie l'agenda, crée les rendez-vous, enregistre les données client, transfère les demandes incertaines et envoie des rappels SMS via Twilio.",
+                    outcome: "Les clients obtiennent des réponses instantanées, réservent en langage naturel et reçoivent automatiquement leurs rappels de rendez-vous.",
                     architecture: {
-                        directive: "règles fidélité & validation reçu",
+                        directive: "base de connaissances + règles de réservation",
+                        orchestration: "agent rag n8n + mémoire",
+                        execution: "agenda + sheets + relais telegram"
+                    }
+                },
+                {
+                    title: "Système d'Automatisation de Fidélité",
+                    problem: "Une boutique de fleurs gérait son programme de fidélité à la main — achats, points et vouchers suivis dans des tableurs, sans moyen simple de récompenser ou de relancer les clients.",
+                    solution: "Un système n8n de 64 nœuds où les clients envoient leurs reçus sur WhatsApp ou Telegram ; GPT-4o vision valide chaque reçu, calcule les points, attribue les codes voucher et met à jour une base client — avec une couche SMS pour les campagnes opt-in.",
+                    outcome: "Le client envoie un reçu et reçoit points ou voucher automatiquement, pendant que l'entreprise construit une base marketing et peut lancer rappels et campagnes de réactivation par SMS.",
+                    architecture: {
+                        directive: "règles de fidélité + données client",
                         orchestration: "workflow n8n multi-canal",
-                        execution: "gpt-4o vision + sync sheets/api"
+                        execution: "gpt-4o vision + messages / sms"
                     }
                 }
             ]
@@ -198,15 +271,18 @@ export const translations = {
             description: "dissections détaillées des systèmes agentiques, des workflows déterministes et du futur de l'orchestration ia."
         },
         contact: {
-            section_label: "06 // contact",
+            section_label: "05 // contact",
+            headline: "disponible pour des rôles ia appliquée",
+            description: "meilleur fit : ingénieure IA appliquée, AI automation engineer, LLM/RAG engineer ou ML engineer quand les prototypes doivent devenir des systèmes fiables.",
             email_value: "contact par e-mail",
             linkedin_value: "connexion professionnelle",
-            whatsapp_value: "message direct"
+            whatsapp_value: "message direct",
+            resume_value: "télécharger cv"
         },
         footer: {
             top: "haut",
             rights: "Créé par Nina.",
-            location: "Paris, France"
+            location: "Paris, France · ouverte à la mobilité"
         }
     }
 };
