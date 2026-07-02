@@ -102,7 +102,7 @@ export default function Home() {
       </header>
 
       <section className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8 sm:pb-20 sm:pt-20">
-        <p className="text-sm text-muted-foreground">Applied AI Engineer · Paris, France · Open to relocate</p>
+        <p className="text-sm text-muted-foreground">Applied AI Engineer · Paris, France</p>
         <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
           AI systems built around real business workflows.
         </h1>
