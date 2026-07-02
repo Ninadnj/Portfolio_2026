@@ -54,7 +54,7 @@ const skillGroups = [
   {
     title: "LLM integration & tooling",
     icon: Plug,
-    skills: "OpenAI · Claude · Gemini · GPT-4o Vision · LangChain · MCP · evaluation & guardrails · A/B testing · human-in-the-loop",
+    skills: "OpenAI · Claude · Gemini · GPT-4o Vision · LangChain · MCP · evaluation & guardrails · A/B testing · token & cost optimization · human-in-the-loop",
   },
   {
     title: "Automation & APIs",
@@ -111,7 +111,8 @@ export default function Home() {
           and everyday business processes into reliable production tools.
         </p>
         <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-foreground sm:text-lg">
-          I start from the problem, not the technology.
+          I start from the problem, not the technology — and every system ships with an evaluation:
+          if it isn&apos;t measured, it isn&apos;t done.
         </p>
         <ul className="mt-6 flex flex-wrap gap-2" aria-label="Core skills">
           {["Python", "RAG", "LLM agents", "tool calling", "n8n", "FastAPI", "Docker", "evaluation"].map((tag) => (
