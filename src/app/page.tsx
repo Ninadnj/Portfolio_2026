@@ -36,14 +36,7 @@ const openSource = [
     href: "https://github.com/Ninadnj/ai-agent-memory-scaffold",
     result: "78% fewer context tokens at 93% recall",
     description:
-      "One shared memory for coding agents (Claude Code, Codex, Cursor) over MCP — token-budgeted recall, cross-agent handoffs, and an evaluation harness that proves the token savings.",
-  },
-  {
-    name: "honest-agent",
-    href: "https://github.com/Ninadnj/honest-agent",
-    result: "phantom tool calls 6 → 0, coverage 100%",
-    description:
-      "Stops agents from faking tools they don't have. A two-policy experiment (must-act vs may-refuse) with a deterministic arm and a real-LLM arm over the Claude API.",
+      "One shared memory for coding agents (Claude Code, Codex, Cursor) over MCP — token-budgeted recall, cross-agent handoffs, and an evaluation harness that proves the token savings. Grew out of a Markdown memory convention into a measured retrieval system.",
   },
 ]
 
