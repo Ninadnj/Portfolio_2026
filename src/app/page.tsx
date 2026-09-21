@@ -1,205 +1,395 @@
-import Link from "next/link"
-import { BrainCircuit, Bot, Database, FileDown, Github, Linkedin, Mail, Phone, Plug, Server, Workflow } from "lucide-react"
-import { Projects } from "@/components/sections/Projects"
-
-const links = [
-  {
-    label: "Email",
-    href: "mailto:ninodoinjashvili@gmail.com",
-    icon: Mail,
-  },
-  {
-    label: "Phone",
-    href: "tel:0648781835",
-    icon: Phone,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/nina-doinjashvili-8928815a/",
-    icon: Linkedin,
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/Ninadnj",
-    icon: Github,
-  },
-  {
-    label: "Download CV",
-    href: "/Portfolio_2026/Nina_Doinjashvili_CV.pdf",
-    icon: FileDown,
-  },
-]
-
-const openSource = [
-  {
-    name: "agent-memory-engine",
-    href: "https://github.com/Ninadnj/ai-agent-memory-scaffold",
-    result: "78% fewer context tokens at 93% recall",
-    description:
-      "One shared memory for coding agents (Claude Code, Codex, Cursor) over MCP — token-budgeted recall, cross-agent handoffs, and an evaluation harness that proves the token savings. Grew out of a Markdown memory convention into a measured retrieval system.",
-  },
-]
-
-const skillGroups = [
-  {
-    title: "AI systems & agents",
-    icon: Bot,
-    skills: "LLM agents · multi-agent orchestration · LangGraph · Claude Agent SDK · tool calling / function calling · structured outputs · prompt engineering",
-  },
-  {
-    title: "RAG & retrieval",
-    icon: Database,
-    skills: "RAG pipelines · embeddings · vector search · chunking · pgvector · Chroma · Pinecone",
-  },
-  {
-    title: "LLM integration & tooling",
-    icon: Plug,
-    skills: "OpenAI · Claude · Gemini · GPT-4o Vision · LangChain · MCP · evaluation & guardrails · A/B testing · token & cost optimization · human-in-the-loop",
-  },
-  {
-    title: "Automation & APIs",
-    icon: Workflow,
-    skills: "n8n · workflow automation · REST APIs · webhooks · Meta Graph · Google Calendar · Twilio SMS",
-  },
-  {
-    title: "Backend & data",
-    icon: Server,
-    skills: "Python (async) · FastAPI · Pydantic · Node.js · Express · SQL / SQLite · pandas · data pipelines · background jobs",
-  },
-  {
-    title: "ML & delivery",
-    icon: BrainCircuit,
-    skills: "scikit-learn · TensorFlow · Keras · PyTorch · NLP · GANs (pix2pix) · Docker · GCP (Cloud Run, Vertex AI) · CI/CD · monitoring",
-  },
-]
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  Bot,
+  Check,
+  ChevronDown,
+  FileDown,
+  Github,
+  Layers3,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { Projects } from "@/components/sections/Projects";
+import { capabilities, cvUrl, openSourceProjects } from "@/lib/portfolio";
 
 export default function Home() {
   return (
-    <main id="main-content" className="min-h-screen bg-background">
-      <header className="border-b border-border">
-        <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <div>
-            <Link href="/" className="text-base font-semibold text-foreground">
+    <>
+      <header className="site-header">
+        <div className="container header-inner">
+          <a
+            href="#main-content"
+            className="identity"
+            aria-label="Nina Doinjashvili, home"
+          >
+            <span className="monogram" aria-hidden="true">
+              nd.
+            </span>
+            <span>
               Nina Doinjashvili
-            </Link>
-          </div>
-
-          <nav aria-label="Contact links" className="flex flex-wrap items-center gap-x-5 gap-y-3">
-            {links.map(({ label, href, icon: Icon }) => (
-              <Link
-                key={label}
-                href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noreferrer" : undefined}
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                <Icon className="h-4 w-4" aria-hidden="true" />
-                {label}
-              </Link>
-            ))}
+              <span className="identity-role">Applied AI Engineer</span>
+            </span>
+          </a>
+          <nav aria-label="Main navigation" className="main-nav">
+            <a href="#work">Work</a>
+            <a href="#open-source">Open source</a>
+            <a href="#about">About</a>
+            <a className="nav-contact" href="#contact">
+              Let&apos;s talk <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
           </nav>
         </div>
       </header>
 
-      <section className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8 sm:pb-20 sm:pt-20">
-        <p className="text-sm text-muted-foreground">Applied AI Engineer · Paris, France</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-          AI systems built around real business workflows.
-        </h1>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          I design and build LLM agents, RAG pipelines and workflow automation that connect private data, APIs
-          and everyday business processes into reliable production tools.
-        </p>
-        <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-foreground sm:text-lg">
-          I start from the problem, not the technology — and every system ships with an evaluation:
-          if it isn&apos;t measured, it isn&apos;t done.
-        </p>
-        <ul className="mt-6 flex flex-wrap gap-2" aria-label="Core skills">
-          {["Python", "RAG", "LLM agents", "tool calling", "n8n", "FastAPI", "Docker", "evaluation"].map((tag) => (
-            <li
-              key={tag}
-              className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-6 text-sm text-muted-foreground">
-          RNCP Level 6 — AI &amp; Big Data Developer · Le Wagon, Paris · 2026
-        </p>
-      </section>
+      <main id="main-content">
+        <section className="container hero" aria-labelledby="hero-heading">
+          <div className="hero-copy">
+            <p className="eyebrow">
+              <span className="status-dot" /> Applied AI / Automation /
+              Integrations
+            </p>
+            <h1 id="hero-heading">
+              Useful AI.
+              <br />
+              Built for the
+              <br />
+              <span>real workflow.</span>
+            </h1>
+            <p className="hero-intro">
+              I&apos;m Nina, an Applied AI Engineer in Paris. I turn business
+              processes into AI agents, connected systems, and automation people
+              can use.
+            </p>
+            <p className="hero-detail">
+              From client workflows to open-source tooling, my focus is on clear
+              boundaries, reliable integrations, and evaluation.
+            </p>
+            <div className="actions">
+              <a className="button button-primary" href="#work">
+                Explore my work <ArrowDown size={16} aria-hidden="true" />
+              </a>
+              <a className="button button-secondary" href={cvUrl} download>
+                Download CV <FileDown size={16} aria-hidden="true" />
+              </a>
+            </div>
+            <p className="hero-location">
+              <MapPin size={14} aria-hidden="true" /> Paris, France{" "}
+              <span>·</span> French &amp; English C1
+            </p>
+          </div>
+          <div
+            className="system-panel"
+            aria-label="Illustration of my engineering approach"
+          >
+            <div className="panel-topline">
+              <span className="mono">FROM BRIEF TO WORKFLOW</span>
+              <Layers3 size={17} aria-hidden="true" />
+            </div>
+            <div className="system-input">
+              <span className="node-icon">
+                <Mail size={20} aria-hidden="true" />
+              </span>
+              <div>
+                <span className="mono">01 / UNDERSTAND</span>
+                <h2>A real business need</h2>
+                <p>People, process, constraints</p>
+              </div>
+            </div>
+            <div className="system-connector" aria-hidden="true">
+              <ArrowDown size={17} />
+            </div>
+            <div className="system-core">
+              <span className="node-icon">
+                <Bot size={23} aria-hidden="true" />
+              </span>
+              <div>
+                <span className="mono">02 / CONNECT</span>
+                <h2>Knowledge → action</h2>
+                <p>LLM agent + business APIs</p>
+              </div>
+              <div className="core-tags">
+                <span>Context</span>
+                <span>Typed tools</span>
+                <span>Validation</span>
+              </div>
+            </div>
+            <div className="system-connector" aria-hidden="true">
+              <ArrowDown size={17} />
+            </div>
+            <div className="system-outputs">
+              <div>
+                <Check size={18} aria-hidden="true" />
+                <h3>Complete the task</h3>
+                <p>Verify the result</p>
+              </div>
+              <div>
+                <ArrowUpRight size={18} aria-hidden="true" />
+                <h3>Hand off clearly</h3>
+                <p>Keep people in control</p>
+              </div>
+            </div>
+            <p className="panel-note">
+              <span className="status-dot" /> Built with checks, context, and a
+              way back.
+            </p>
+          </div>
+        </section>
 
-      <section aria-labelledby="skills-heading" className="border-t border-border">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[minmax(0,0.45fr)_minmax(0,1.55fr)] lg:gap-16">
+        <div
+          className="container proof-strip"
+          aria-label="Experience at a glance"
+        >
           <div>
-            <p className="text-xs font-medium text-muted-foreground">Capabilities</p>
-            <h2 id="skills-heading" className="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
-              Skills at a glance
-            </h2>
+            <strong>04</strong>
+            <span>Client systems in production</span>
           </div>
+          <div>
+            <strong>05</strong>
+            <span>Open-source AI projects</span>
+          </div>
+          <div>
+            <strong>2024—now</strong>
+            <span>Independent applied AI work</span>
+          </div>
+        </div>
 
-          <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-            {skillGroups.map(({ title, icon: Icon, skills }) => (
-              <article key={title} className="border-t border-border pt-4">
-                <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                  <Icon className="h-4 w-4 text-muted-foreground" strokeWidth={1.7} aria-hidden="true" />
-                  {title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{skills}</p>
+        <section
+          id="work"
+          className="container section"
+          aria-labelledby="work-heading"
+        >
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">01 / Selected client work</p>
+              <h2 id="work-heading">
+                Real problems.
+                <br />
+                Working systems.
+              </h2>
+            </div>
+            <p>
+              Four production systems for clients in France and Greece. Each
+              starts with a business need and connects the tools required to
+              address it.
+            </p>
+          </div>
+          <Projects />
+        </section>
+
+        <section
+          id="open-source"
+          className="research-section section"
+          aria-labelledby="oss-heading"
+        >
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">02 / Open-source engineering</p>
+                <h2 id="oss-heading">
+                  Make the behaviour
+                  <br />
+                  visible. Then test it.
+                </h2>
+              </div>
+              <p>
+                Experiments and tools for agent memory, traceability, and
+                reliable tool use. Code, evaluation methods, and limitations are
+                published together.
+              </p>
+            </div>
+            <div className="research-grid">
+              {openSourceProjects.map((project, index) => (
+                <article className="research-card" key={project.name}>
+                  <div className="card-topline">
+                    <span className="mono">
+                      0{index + 1} / {project.category}
+                    </span>
+                    <Github size={19} aria-hidden="true" />
+                  </div>
+                  <h3>
+                    <a href={project.href} target="_blank" rel="noreferrer">
+                      {project.name}
+                      <ArrowUpRight size={19} aria-hidden="true" />
+                    </a>
+                  </h3>
+                  <p>{project.description}</p>
+                  <div className="evidence">
+                    <span className="small-label">Evidence &amp; scope</span>
+                    <p>{project.evidence}</p>
+                  </div>
+                  <details className="research-details">
+                    <summary>
+                      What this demonstrates{" "}
+                      <ChevronDown size={15} aria-hidden="true" />
+                    </summary>
+                    <p>{project.limit}</p>
+                  </details>
+                  <div className="research-footer">
+                    <span>{project.stack}</span>
+                    {"demo" in project && (
+                      <a href={project.demo} target="_blank" rel="noreferrer">
+                        Try the demo{" "}
+                        <ArrowUpRight size={14} aria-hidden="true" />
+                      </a>
+                    )}
+                  </div>
+                </article>
+              ))}
+              <a
+                className="github-card"
+                href="https://github.com/Ninadnj"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Github size={28} aria-hidden="true" />
+                <span>
+                  Explore the code,
+                  <br />
+                  tests, and trade-offs.
+                </span>
+                <span className="text-link">
+                  View GitHub profile{" "}
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="about"
+          className="container section"
+          aria-labelledby="about-heading"
+        >
+          <div className="about-grid">
+            <div>
+              <p className="eyebrow">03 / Background &amp; capabilities</p>
+              <h2 id="about-heading">
+                Business context.
+                <br />
+                Engineering discipline.
+              </h2>
+              <p className="about-intro">
+                My background combines economics and management with applied AI.
+                Since 2024, I&apos;ve worked independently on systems that
+                connect private data, APIs, and everyday operations.
+              </p>
+              <p className="about-intro">
+                I care about what happens after a demo: changing information,
+                incomplete requests, failed integrations, and the people who
+                need to use the result.
+              </p>
+              <div className="language-line">
+                <span className="small-label">Languages</span>
+                <p>French C1 · English C1 · Georgian native</p>
+              </div>
+            </div>
+            <div className="capabilities">
+              {capabilities.map((item) => (
+                <article key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <span>{item.skills}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="education">
+            <div>
+              <p className="eyebrow">Education</p>
+              <h3>
+                A foundation in AI
+                <br />
+                and business.
+              </h3>
+            </div>
+            <div className="education-list">
+              <article>
+                <span className="mono">2026</span>
+                <div>
+                  <h4>AI &amp; Big Data Developer · RNCP Level 6</h4>
+                  <p>Le Wagon, Paris · Certified January 2026 · RNCP38616</p>
+                  <p className="education-note">
+                    Capstone: pix2pix image colorization with an interactive
+                    Streamlit demo.
+                  </p>
+                </div>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-14">
-          <p className="text-xs font-medium text-muted-foreground">Case studies</p>
-          <h2 id="projects-heading" className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-            Selected projects
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Three client systems in production and two open-source AI engineering projects — spanning LLM agents,
-            RAG, generative AI, MCP tooling, workflow automation, API integration, backend engineering,
-            business analytics and reverse engineering.
-          </p>
-        </div>
-      </section>
-
-      <Projects />
-
-      <section aria-labelledby="oss-heading" className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-16">
-          <p className="text-xs font-medium text-muted-foreground">Open source</p>
-          <h2 id="oss-heading" className="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
-            Measured AI engineering
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Standalone projects with evaluation harnesses — every claim is a number you can reproduce
-            with one command.
-          </p>
-          <div className="mt-8 grid gap-8 sm:grid-cols-2">
-            {openSource.map(({ name, href, result, description }) => (
-              <article key={name} className="border-t border-border pt-4">
-                <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                  <Github className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-                  <Link href={href} target="_blank" rel="noreferrer" className="hover:underline">
-                    {name}
-                  </Link>
-                </h3>
-                <p className="mt-2 text-sm font-medium text-foreground">{result}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+              <article>
+                <span className="mono">2019–2021</span>
+                <div>
+                  <h4>Licence · Economics &amp; Management</h4>
+                  <p>Université Paris Nanterre</p>
+                </div>
               </article>
-            ))}
+              <article>
+                <span className="mono">2010–2014</span>
+                <div>
+                  <h4>Bachelor&apos;s · Business &amp; Economics</h4>
+                  <p>
+                    Tbilisi State University · Recognised by ENIC-NARIC France
+                  </p>
+                </div>
+              </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-5 py-8 text-sm text-muted-foreground sm:px-8">
-          <span>Nina Doinjashvili</span>
-        </div>
+        <section
+          id="contact"
+          className="contact-section"
+          aria-labelledby="contact-heading"
+        >
+          <div className="container contact-inner">
+            <div>
+              <p className="eyebrow">04 / Get in touch</p>
+              <h2 id="contact-heading">
+                Have a workflow
+                <br />
+                worth improving?
+              </h2>
+              <p>Let&apos;s talk about applied AI, a project, or your team.</p>
+            </div>
+            <div className="contact-actions">
+              <a
+                className="contact-email"
+                href="mailto:ninodoinjashvili@gmail.com"
+              >
+                ninodoinjashvili@gmail.com{" "}
+                <ArrowUpRight size={24} aria-hidden="true" />
+              </a>
+              <div className="contact-links">
+                <a
+                  href="https://www.linkedin.com/in/nina-doinjashvili-8928815a/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://github.com/Ninadnj"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+                <a href={cvUrl} download>
+                  Download CV <FileDown size={15} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="container site-footer">
+        <span>© 2026 Nina Doinjashvili</span>
+        <span>Applied AI Engineer · Paris</span>
+        <a href="#main-content">
+          Back to top <ArrowRight size={14} aria-hidden="true" />
+        </a>
       </footer>
-    </main>
-  )
+    </>
+  );
 }
